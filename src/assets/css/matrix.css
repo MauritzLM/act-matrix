@@ -3,7 +3,8 @@
 #matrix {
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 400px 100px 400px;
+    grid-template-rows: minmax(400px, auto) 100px minmax(400px, auto);
+    justify-items: center;
 
     .top,
     .bottom {
@@ -16,19 +17,31 @@
         .quadrant {
             width: 100%;
 
+            .container {
+                border: 1px solid gray;
+                padding: .5em;
+                border-radius: 10px;
+
+                button {
+                    margin-bottom: .5em;
+                    margin-left: .3em;
+                }
+            }
+
             label {
                 display: block;
                 font-weight: 500;
                 font-size: 1.4rem;
                 text-align: center;
+                margin-bottom: 1em;
             }
             
-            textarea {
+            /* textarea {
                 width: 100%;
                 height: 300px;
                 padding: 1em;
                 font: inherit;
-            }
+            } */
 
             
         }
@@ -62,7 +75,7 @@
 /* arrows */
 .arrow-up,
 .arrow-down {
-    height: 300px;
+    height: 90%;
     width: 4px;
     background-color: black;
 }
@@ -71,6 +84,6 @@
 .arrow-right {
     transform: rotate(.5turn);
     background-color: black;
-    width: 300px;
+    width: 90%;
     height: 4px;
 }
