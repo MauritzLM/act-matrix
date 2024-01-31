@@ -8,7 +8,9 @@ export function Quadrant({ title }) {
             <div className="quadrant">
                 <label htmlFor="quadrant-1">{title}</label>
                 {/* <textarea id="quadrant-1" name="quadrant-1"></textarea>  */}
-                <TextEditor />
+                <div className='container'>
+                    <TextEditor />
+                </div>
 
             </div>
         </>
