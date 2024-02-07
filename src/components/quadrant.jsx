@@ -1,15 +1,16 @@
 // quadrant component
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types'
 import TextEditor from './editor';
 
-export function Quadrant({ title }) {
+export function Quadrant({ title, id }) {
+
     return (
         <>
             <div className="quadrant">
-                <label htmlFor="quadrant-1">{title}</label>
+                <label>{title}</label>
                 {/* <textarea id="quadrant-1" name="quadrant-1"></textarea>  */}
                 <div className='container'>
-                    <TextEditor />
+                    <TextEditor id={id} />
                 </div>
 
             </div>
@@ -19,6 +20,7 @@ export function Quadrant({ title }) {
 
 Quadrant.propTypes = {
     title: PropTypes.string,
+    id: PropTypes.number
 };
 
 Quadrant.defaultProps = {
