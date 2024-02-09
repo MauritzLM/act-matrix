@@ -6,7 +6,7 @@
     grid-template-rows: minmax(400px, auto) 100px minmax(400px, auto);
     justify-items: center;
     /* overflow: scroll; */
-    padding: .5em;
+    padding: 1em;
     width: 90%;
 
     .top,
@@ -15,6 +15,7 @@
         align-items: center;
         justify-items: center;
         grid-template-columns: minmax(300px, 600px) 100px minmax(300px, 600px);
+        margin-right: 1.5em;
 
         /* quadrants */
         .quadrant {
@@ -30,7 +31,7 @@
 
 
                 .menubar {
-                    
+
                     padding: 1em;
                     border-radius: 5px;
 
@@ -87,7 +88,7 @@
                 padding-bottom: .5em;
                 border-bottom: 2px solid var(--grey-900);
                 max-width: max-content;
-                
+
             }
 
             /* textarea {
@@ -157,12 +158,11 @@
         display: grid;
         grid-template-columns: 1fr;
         grid-template-rows: minmax(400px, auto) 100px minmax(400px, auto);
+        padding: 3em;
 
-
-        /* .top,
-        .bottom,
-        .middle {
-            grid-template-columns: minmax(400px, 600px) 100px minmax(400px, 600px);
-        } */
+        .top,
+        .bottom {
+            margin-right: 0;
+        }
     }
 }
