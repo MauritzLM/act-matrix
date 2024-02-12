@@ -1,7 +1,7 @@
-import { Quadrant } from "./quadrant";
+import Quadrant from "./quadrant";
 import '../assets/css/matrix.css'
 
-export function Matrix() {
+export default function Matrix() {
     return (
         <>
         <div id="matrix">
