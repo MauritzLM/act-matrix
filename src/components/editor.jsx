@@ -219,11 +219,11 @@ const extensions = [
 
 
 
-export default function TextEditor({ id }) {
+export default function TextEditor({ id, placeholder }) {
   const [editorContent, setEditorContent] = useState("");
 
   // get local storage if available
-  const content = window.localStorage.getItem(id) || `<h2>hi</h2>`
+  const content = window.localStorage.getItem(id) || `<h3>${placeholder}</h3>`
 
   // save content to local storage
   const save = () => {
@@ -242,6 +242,7 @@ export default function TextEditor({ id }) {
 
 
 TextEditor.propTypes = {
-  id: PropTypes.number
+  id: PropTypes.number,
+  placeholder: PropTypes.string
 };
 
