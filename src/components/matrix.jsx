@@ -1,5 +1,5 @@
 import Quadrant from "./quadrant";
-import '../assets/css/matrix.css'
+import '../assets/sass/matrix.scss'
 
 export default function Matrix() {
     return (

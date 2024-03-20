@@ -1,4 +1,4 @@
-import '../assets/css/editor.css'
+import '../assets/sass/editor.scss'
 
 import { Color } from '@tiptap/extension-color'
 import ListItem from '@tiptap/extension-list-item'
