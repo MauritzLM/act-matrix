@@ -44,6 +44,7 @@ h1 {
 button {
   cursor: pointer;
   font: inherit;
+  border: none;
 }
 
 /* NAV STYLES */
@@ -51,6 +52,7 @@ button {
   width: 90%;
   margin: auto;
   display: flex;
+  justify-content: space-between;
   gap: 1em;
   padding-top: 2em;
   padding-bottom: 2em;
@@ -77,5 +79,14 @@ button {
         color: var(--grey-100);
       }
     }
+  }
+
+  .cs-button {
+    border: none;
+    background-color: transparent;
+    padding: .5em .7em;
+    font-weight: 500;
+    text-decoration: none;
+    color: var(--grey-900);
   }
 }
