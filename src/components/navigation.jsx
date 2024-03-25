@@ -14,6 +14,7 @@ export default function Nav({ location }) {
                 <ul>
                     <li><a className={location === '/' ? 'cs-active' : ''} href='/'>Home</a></li>
                     <li><a className={location === '/act-matrix' ? 'cs-active' : ''} href='/act-matrix'>Matrix</a></li>
+                    {isAuthenticated && (<li><a className={location === '/dashboard' ? 'cs-active' : ''} href='/dashboard'>Dashboard</a></li>)}
                 </ul>
 
                 {!isAuthenticated && (

@@ -5,6 +5,7 @@ import Matrix from './components/matrix'
 import Nav from './components/navigation';
 import Description from './components/description';
 import { Route, Routes, useLocation } from 'react-router-dom';
+import Dashboard from './pages/dashboard';
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Description />} />
           <Route path='/act-matrix' element={<Matrix />} />
+          <Route path='/dashboard' element={<Dashboard />} />
         </Routes>
       </main>
     </>
