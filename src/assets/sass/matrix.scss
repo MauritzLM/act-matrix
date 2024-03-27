@@ -6,7 +6,7 @@
     grid-template-rows: minmax(400px, auto) 100px minmax(400px, auto);
     justify-items: center;
     /* overflow: scroll; */
-    padding: 1em;
+    // padding: 1em;
     width: 90%;
 
     .top,
@@ -22,7 +22,7 @@
             width: 100%;
 
 
-            .container {
+            .quadrant-container {
                 /* border: 1px solid gray; */
                 padding: 1em;
                 border-radius: 10px;
@@ -147,7 +147,7 @@
         display: grid;
         grid-template-columns: 1fr;
         grid-template-rows: minmax(400px, auto) 100px minmax(400px, auto);
-        padding: 3em;
+        // padding: 3em;
 
         .top,
         .middle,
