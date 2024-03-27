@@ -34,6 +34,7 @@ html {
 body {
   color: var(--grey-900);
   background-color: var(--grey-100);
+  margin: 0;
 
 }
 
@@ -89,4 +90,8 @@ button {
     text-decoration: none;
     color: var(--grey-900);
   }
+}
+
+#main {
+  padding: 2em 0;
 }
