@@ -6,6 +6,7 @@ import Nav from './components/navigation';
 import Description from './components/description';
 import { Route, Routes, useLocation } from 'react-router-dom';
 import Dashboard from './pages/dashboard';
+import Userpanel from './components/userPanel';
 
 
 function App() {
@@ -16,13 +17,18 @@ function App() {
   return (
     <>
       <header>
-        <Nav location={location.pathname}/>
+        <Nav location={location.pathname} />
       </header>
       <main id='main'>
         <Routes>
           <Route path='/' element={<Description />} />
           <Route path='/act-matrix' element={<Matrix />} />
-          <Route path='/dashboard' element={<Dashboard />} />
+          <Route path='/dashboard' element={
+            <Dashboard>
+              <Userpanel />
+              <Matrix />
+            </Dashboard>}>
+          </Route>
         </Routes>
       </main>
     </>
