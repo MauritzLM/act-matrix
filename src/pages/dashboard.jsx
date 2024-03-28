@@ -9,14 +9,13 @@ import "../assets/sass/dashboard.scss";
 
 const Dashboard = ({ children }) => {
   const { user, isAuthenticated, isLoading, getAccessTokenSilently } = useAuth0();
-  const userInfo = useContext(userContext);
 
-  const [userMetadata, setUserMetadata] = useState(null);
-  const [selectedMatrix, setSelectedMatrix] = useState('matrix-1');
+  const [userMatrices, setUserMatrices] = useState([]);
+  const [selectedMatrix, setSelectedMatrix] = useState({});
 
-  const changeMatrix = (title) => {
-    setSelectedMatrix(title);
-  };
+  function changeMatrix (obj) {
+    setSelectedMatrix({ ...obj })
+  }
 
   // get user data
   useEffect(() => {
@@ -32,7 +31,7 @@ const Dashboard = ({ children }) => {
           },
         });
 
-        // url / fetch all instances for user*
+        // url / fetch all instances for user
         const userDetailsByIdUrl = `http://localhost:3000/all-matrix`;
 
         const metadataResponse = await fetch(userDetailsByIdUrl, {
@@ -47,14 +46,24 @@ const Dashboard = ({ children }) => {
         const response = await metadataResponse.json();
         console.log(response);
 
-        setUserMetadata(response);
+        setUserMatrices([...response]);
+
       } catch (e) {
         console.log(e.message);
       }
     };
 
     getUserMetadata();
+
   }, [getAccessTokenSilently, user?.sub]);
+
+  // context data
+  const contextData = {
+    userMatrices: userMatrices,
+    user: user,
+    selectedMatrix: selectedMatrix,
+    changeMatrix: changeMatrix
+  }
 
   if (isLoading) {
     return <div>Loading ...</div>;
@@ -74,7 +83,7 @@ const Dashboard = ({ children }) => {
             <p>instance id: {userMetadata?.instance_id}</p>
             <p>quadrant_1 content: {userMetadata?.quadrant_1}</p>
           </div> */}
-          <userContext.Provider value={{ userMetadata: userMetadata, user: user, selectedMatrix: selectedMatrix, changeMatrix: changeMatrix }}>
+          <userContext.Provider value={contextData}>
             {children}
           </userContext.Provider>
         </div>
