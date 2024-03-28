@@ -1,0 +1,38 @@
+/* STYLES FOR USER DASHBOARD PAGE */
+#main {
+    .container {
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+
+        .user-info {
+            ul {
+                list-style: none;
+                padding-left: 0;
+                display: flex;
+                flex-direction: column;
+                gap: 1em;
+
+                li {
+                    button {
+                        padding: .4em .6em;
+                        font: inherit;
+                    }
+                }
+            }
+
+            button {
+                padding: .4em .6em;
+                font: inherit;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    #main {
+        .container {
+            flex-direction: row;
+        }
+    }
+}

@@ -1,49 +1,38 @@
 
-import './App.css'
-import { useState } from 'react'
+import './App.scss'
+// import { useState, useEffect } from 'react'
 import Matrix from './components/matrix'
 import Nav from './components/navigation';
 import Description from './components/description';
+import { Route, Routes, useLocation } from 'react-router-dom';
+import Dashboard from './pages/dashboard';
+import Userpanel from './components/userPanel';
+
 
 function App() {
-  const [currentPage, setCurrentPage] = useState("description");
+  let location = useLocation();
 
-  function changePage(text) {
-    setCurrentPage(text)
-  }
-
-  //  add conditional rendering for matrix / description(theory)
-
-  if (currentPage === "matrix") {
-    return (
-      <>
-        <header>
-          <Nav currentPage={currentPage} changePage={changePage} />
-        </header>
-        <main id="main">
-          <h1>Act matrix</h1>
-          <Matrix />
-        </main>
-      </>
-    )
-  }
-
-  else {
-    return (
-      <>
-        <header>
-          <Nav currentPage={currentPage} changePage={changePage} />
-        </header>
-        <main id="main">
-
-          <h1>Description / instructions / example</h1>
-          <Description />
-        </main>
-      </>
-    )
-  }
-
-
+  // logged in state*
+  // if user logged in render dashboard*
+  return (
+    <>
+      <header>
+        <Nav location={location.pathname} />
+      </header>
+      <main id='main'>
+        <Routes>
+          <Route path='/' element={<Description />} />
+          <Route path='/act-matrix' element={<Matrix />} />
+          <Route path='/dashboard' element={
+            <Dashboard>
+              <Userpanel />
+              <Matrix />
+            </Dashboard>}>
+          </Route>
+        </Routes>
+      </main>
+    </>
+  )
 }
 
 export default App
