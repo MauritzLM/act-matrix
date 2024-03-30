@@ -5,7 +5,6 @@ import ListItem from '@tiptap/extension-list-item'
 import TextStyle from '@tiptap/extension-text-style'
 import { EditorProvider, useCurrentEditor } from '@tiptap/react'
 import StarterKit from '@tiptap/starter-kit'
-import { useState } from 'react'
 import PropTypes from 'prop-types'
 
 const MenuBar = () => {
@@ -219,30 +218,16 @@ const extensions = [
 
 
 
-export default function TextEditor({ id, placeholder }) {
-  const [editorContent, setEditorContent] = useState("");
-
-  // get local storage if available
-  const content = window.localStorage.getItem(id) || `<h3>${placeholder}</h3>`
-
-  // save content to local storage
-  const save = () => {
-    console.log(editorContent)
-    window.localStorage.setItem(id, editorContent)
-  }
-
+export default function TextEditor({ editorContent, setEditorContent }) {
+  
   return (
     <>
-      <EditorProvider slotBefore={<MenuBar />} extensions={extensions} onUpdate={({ editor }) => setEditorContent(editor.getHTML())} content={content}></EditorProvider>
-      
-      <button className='cs-button' onClick={save}>Save</button>
+      <EditorProvider slotBefore={<MenuBar />} extensions={extensions} onUpdate={({ editor }) => setEditorContent(editor.getHTML())} content={editorContent}></EditorProvider>
     </>
   )
 }
 
-
 TextEditor.propTypes = {
-  id: PropTypes.number,
-  placeholder: PropTypes.string
+  editorContent: PropTypes.string,
+  setEditorContent: PropTypes.func
 };
-
