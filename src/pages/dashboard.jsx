@@ -1,6 +1,6 @@
 
 import { useAuth0 } from "@auth0/auth0-react";
-import { useState, useEffect, Children, useContext } from "react";
+import { useState, useEffect } from "react";
 import { userContext } from "../context/usercontext";
 import "../assets/sass/dashboard.scss";
 // import Userpanel from "../components/userPanel";
@@ -13,12 +13,14 @@ const Dashboard = ({ children }) => {
   const [userMatrices, setUserMatrices] = useState([]);
   const [selectedMatrix, setSelectedMatrix] = useState({});
 
-  function changeMatrix (obj) {
+  function changeMatrix(obj) {
     setSelectedMatrix({ ...obj })
   }
 
   // get user data
   useEffect(() => {
+
+    // async function to get user data
     const getUserMetadata = async () => {
       const domain = import.meta.env.VITE_AUTH0_API_AUDIENCE;
 
@@ -43,6 +45,7 @@ const Dashboard = ({ children }) => {
           body: JSON.stringify({ 'user_id': `${user?.sub.slice(6)}` })
         });
 
+        console.log(user)
         const response = await metadataResponse.json();
         console.log(response);
 
@@ -51,11 +54,14 @@ const Dashboard = ({ children }) => {
       } catch (e) {
         console.log(e.message);
       }
-    };
+    }
 
-    getUserMetadata();
+    // run function if user loaded from auth0
+    if (user) {
+      getUserMetadata();
+    }
 
-  }, [getAccessTokenSilently, user?.sub]);
+  }, [getAccessTokenSilently, user]);
 
   // context data
   const contextData = {
