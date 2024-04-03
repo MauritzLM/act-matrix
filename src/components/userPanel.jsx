@@ -47,7 +47,7 @@ function Userpanel() {
                 console.log(message.errors[0].msg)
             }
 
-            userInfo.setUpdateMade(userInfo.setUpdateMade + 1);
+            userInfo.setUpdateMade(userInfo.updateMade + 1);
             console.log(message);
         }
         catch (error) {
@@ -80,8 +80,7 @@ function Userpanel() {
                     Authorization: `Bearer ${accessToken}`,
                     'Content-Type': 'application/json'
                 },
-                // need different way to get instance_id*
-                body: JSON.stringify({ instance_id: userInfo.selectedMatrix.instance_id, newTitle: formData.get('new-title') })
+                body: JSON.stringify({ instance_id: updateTitle, newTitle: formData.get('new-title') })
             });
 
 
@@ -95,7 +94,7 @@ function Userpanel() {
 
             console.log(message);
 
-            userInfo.setUpdateMade(userInfo.setUpdateMade + 1);
+            userInfo.setUpdateMade(userInfo.updateMade + 1);
             setUpdateTitle(false);
         }
         catch (error) {
@@ -113,11 +112,11 @@ function Userpanel() {
                 {/* render list item for each matrix instance */}
                 <ul>
                     {userInfo.userMatrices.map(item =>
-                        <li key={item.instance_id}><button className={item.title === userInfo.selectedMatrix.title ? 'cs-active' : ''} onClick={() => userInfo.changeMatrix(item)}>{item.title}</button> <button onClick={() => setUpdateTitle(true)}>edit</button></li>
+                        <li key={item.instance_id}><button className={item.title === userInfo.selectedMatrix.title ? 'cs-active' : ''} onClick={() => userInfo.changeMatrix(item)}>{item.title}</button> <button onClick={() => setUpdateTitle(item.instance_id)}>edit</button></li>
                     )}
                 </ul>
 
-                <button onClick={() => setCreateNew(true)}>Create new</button>
+                <button disabled onClick={() => setCreateNew(true)}>Create new</button>
 
                 {/* create new instance form */}
                 {createNew && (
