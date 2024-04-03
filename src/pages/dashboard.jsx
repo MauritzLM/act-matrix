@@ -12,12 +12,13 @@ const Dashboard = ({ children }) => {
 
   const [userMatrices, setUserMatrices] = useState([]);
   const [selectedMatrix, setSelectedMatrix] = useState({});
+  const [updateMade, setUpdateMade] = useState(0);
 
   function changeMatrix(obj) {
     setSelectedMatrix({ ...obj })
   }
 
-  // get user data
+  // get user data*
   useEffect(() => {
 
     // async function to get user data
@@ -45,10 +46,9 @@ const Dashboard = ({ children }) => {
           body: JSON.stringify({ 'user_id': `${user?.sub.slice(6)}` })
         });
 
-        console.log(user)
+      
         const response = await metadataResponse.json();
-        console.log(response);
-
+       
         setUserMatrices([...response]);
 
       } catch (e) {
@@ -61,14 +61,16 @@ const Dashboard = ({ children }) => {
       getUserMetadata();
     }
 
-  }, [getAccessTokenSilently, user]);
+  }, [getAccessTokenSilently, user, updateMade]);
 
   // context data
   const contextData = {
     userMatrices: userMatrices,
     user: user,
     selectedMatrix: selectedMatrix,
-    changeMatrix: changeMatrix
+    changeMatrix: changeMatrix,
+    updateMade: updateMade,
+    setUpdateMade: setUpdateMade 
   }
 
   if (isLoading) {
