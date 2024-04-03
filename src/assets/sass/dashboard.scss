@@ -14,11 +14,33 @@
                 gap: 1em;
 
                 li {
+                    display: flex;
+                    justify-content: space-between;
+
                     button {
                         padding: .4em .6em;
                         font: inherit;
                     }
+
+                    .cs-active {
+                        background-color: green;
+                    }
                 }
+            }
+
+            form {
+              display: flex;
+              flex-direction: column;
+              padding: 1em;
+              gap: 1em;
+              width: 200px;
+
+              input {
+                padding: .5em;
+                font: inherit;
+              }
+
+              
             }
 
             button {
@@ -26,6 +48,19 @@
                 font: inherit;
             }
         }
+
+        .matrix-container {
+            .title {
+                text-align: center;
+            }
+
+            #matrix {
+                width: 100%;
+            }
+
+        }
+
+
     }
 }
 
