@@ -216,14 +216,13 @@ const extensions = [
 ]
 
 
-
-
 export default function TextEditor({ setEditorContent, initialContent }) {
+
   const editor = useEditor({
     extensions,
     content: initialContent,
     onUpdate: ({ editor }) => setEditorContent(editor.getHTML())
-  })
+  });
 
   // set content to intial content &
   // everytime intitial content changes, set editor content to initial content
@@ -231,7 +230,7 @@ export default function TextEditor({ setEditorContent, initialContent }) {
     if (editor && !editor.isDestroyed) {
       editor?.commands.setContent(initialContent);
     }
-  }, [initialContent, editor])
+  }, [initialContent, editor]);
 
   return (
     <>
@@ -249,4 +248,4 @@ TextEditor.propTypes = {
 
 MenuBar.propTypes = {
   editor: PropTypes.object
-}
+};

@@ -10,7 +10,7 @@ function Userpanel() {
     const [updateTitle, setUpdateTitle] = useState(false);
 
 
-    // function to create new matrix
+    // create new matrix function
     const createNewMatrix = async function (event) {
 
         const domain = import.meta.env.VITE_AUTH0_API_AUDIENCE;
@@ -55,13 +55,13 @@ function Userpanel() {
         }
     }
 
-    // change title
+    // change title function
     async function changeTitle(event) {
         const domain = import.meta.env.VITE_AUTH0_API_AUDIENCE;
-        
+
         try {
             event.preventDefault();
-        
+
             // get form data
             const formData = new FormData(event.target);
 
@@ -112,7 +112,12 @@ function Userpanel() {
                 {/* render list item for each matrix instance */}
                 <ul>
                     {userInfo.userMatrices.map(item =>
-                        <li key={item.instance_id}><button className={item.title === userInfo.selectedMatrix.title ? 'cs-active' : ''} onClick={() => userInfo.changeMatrix(item)}>{item.title}</button> <button onClick={() => setUpdateTitle(item.instance_id)}>edit</button></li>
+                        <li key={item.instance_id}>
+                            {/* select button */}
+                            <button className={item.title === userInfo.selectedMatrix.title ? 'cs-active' : ''} onClick={() => userInfo.changeMatrix(item)}>{item.title}</button>
+                            {/* edit button */}
+                            <button onClick={() => setUpdateTitle(item.instance_id)}>edit</button>
+                        </li>
                     )}
                 </ul>
 
