@@ -1,15 +1,13 @@
 import { useContext, useState } from "react";
 import { userContext } from "../context/usercontext";
 import { useAuth0 } from "@auth0/auth0-react";
+import UpdateForm from "./updateForm";
 
 function Userpanel() {
     const { getAccessTokenSilently, user, isAuthenticated } = useAuth0();
     const userInfo = useContext(userContext);
 
-    const [createNew, setCreateNew] = useState({ status: false, errorMsg: '' });
-    const [updateTitle, setUpdateTitle] = useState({ status: false, errorMsg: '' });
-    const [deleteMatrix, setDeleteMatrix] = useState({ status: false, errorMsg: '' });
-
+    const [update, setUpdate] = useState({ type: '', errorMsg: '', id: '' });
 
     // create new matrix function
     const createNewMatrix = async function (event) {
@@ -45,14 +43,14 @@ function Userpanel() {
 
             // validation errors
             if (message.errors) {
-                setCreateNew({ ...createNew, errorMsg: message.errors[0].msg })
+                setUpdate({ ...update, errorMsg: message.errors[0].msg })
                 console.log(message.errors[0].msg)
                 return;
             }
 
             // update state
             userInfo.setUpdateMade(userInfo.updateMade + 1);
-            setCreateNew({ status: false, errorMsg: '' });
+            setUpdate({ type: '', errorMsg: '', id: '' });
             console.log(message);
         }
         catch (error) {
@@ -85,7 +83,7 @@ function Userpanel() {
                     Authorization: `Bearer ${accessToken}`,
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ instance_id: updateTitle.status, newTitle: formData.get('new-title') })
+                body: JSON.stringify({ instance_id: update.id, newTitle: formData.get('title') })
             });
 
             // response
@@ -93,7 +91,7 @@ function Userpanel() {
 
             // validation errors
             if (message.errors) {
-                setUpdateTitle({ ...updateTitle, errorMsg: message.errors[0].msg })
+                setUpdate({ ...update, errorMsg: message.errors[0].msg })
                 console.log(message.errors[0].msg);
                 return;
             }
@@ -102,7 +100,7 @@ function Userpanel() {
 
             // update state
             userInfo.setUpdateMade(userInfo.updateMade + 1);
-            setUpdateTitle({ status: false, errorMsg: '' });
+            setUpdate({ type: '', errorMsg: '', id: '' });
         }
         catch (error) {
             console.log(error);
@@ -134,14 +132,14 @@ function Userpanel() {
                     Authorization: `Bearer ${accessToken}`,
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ instance_id: deleteMatrix.status, user_id: `${userInfo.user.sub.slice(6)}`, title: formData.get('delete-title') })
+                body: JSON.stringify({ instance_id: update.id, user_id: `${userInfo.user.sub.slice(6)}`, title: formData.get('title') })
             });
 
             const message = await response.json()
 
             // validation errors
             if (message.errors) {
-                setDeleteMatrix({ ...deleteMatrix, errorMsg: message.errors[0].msg })
+                setUpdate({ ...update, errorMsg: message.errors[0].msg })
                 console.log(message.errors[0].msg)
                 return;
             }
@@ -151,7 +149,7 @@ function Userpanel() {
             userInfo.setUpdateMade(userInfo.updateMade + 1);
             // change selected matrix to empty object
             userInfo.changeMatrix({});
-            setDeleteMatrix({ status: false, errorMsg: '' });
+            setUpdate({ type: '', errorMsg: '', id: '' });
         }
         catch (error) {
             console.log(error)
@@ -172,8 +170,8 @@ function Userpanel() {
                             <button className={item.title === userInfo.selectedMatrix.title ? 'cs-active' : ''} onClick={() => userInfo.changeMatrix(item)}>{item.title}</button>
                             {/* edit and delete buttons */}
                             <div>
-                                <button onClick={() => setUpdateTitle({ ...updateTitle, status: item.instance_id })}>edit</button>
-                                <button onClick={() => setDeleteMatrix({ ...deleteMatrix, status: item.instance_id })}>delete</button>
+                                <button onClick={() => setUpdate({ ...update, type: 'new title', id: item.instance_id })}>edit</button>
+                                <button onClick={() => setUpdate({ ...update, type: 'delete', id: item.instance_id })}>delete</button>
                             </div>
 
                         </li>
@@ -182,49 +180,24 @@ function Userpanel() {
 
                 {/* if user has less than 3 instances render create new button */}
                 {userInfo.userMatrices.length < 3 && (
-                    <button onClick={() => setCreateNew({ ...createNew, status: true })}>Create new</button>
+                    <button onClick={() => setUpdate({ ...update, type: 'new matrix' })}>Create new</button>
                 )}
 
 
                 {/* create new instance form */}
-                {createNew.status && (
-                    <div id="new-matrix-form">
-                        <button onClick={() => setCreateNew({ status: false, errorMsg: '' })}>Close</button>
-                        <form onSubmit={(e) => createNewMatrix(e)}>
-                            <label htmlFor="title">title</label>
-                            <input type="text" name="title" id="title"></input>
-                            <span>{createNew.errorMsg}</span>
-                            <button>new</button>
-                        </form>
-                    </div>
+                {update.type === 'new matrix' && (
+                    <UpdateForm updateObj={update} setUpdate={setUpdate} updateFunction={createNewMatrix} />
                 )}
 
                 {/* update title form */}
-                {updateTitle.status && (
-                    <div id="update-matrix-title">
-                        <button onClick={() => setUpdateTitle({ status: false, errorMsg: '' })}>close</button>
-                        <form onSubmit={(e) => changeTitle(e)}>
-                            <label htmlFor="new-title">New title</label>
-                            <input type="text" name="new-title" id="new-title"></input>
-                            <span>{updateTitle.errorMsg}</span>
-                            <button>change title</button>
-                        </form>
-                    </div>
+                {update.type === 'new title' && (
+                    <UpdateForm updateObj={update} setUpdate={setUpdate} updateFunction={changeTitle} />
                 )}
 
                 {/* delete matrix form */}
-                {deleteMatrix.status && (
-                    <div id="delete-matrix">
-                        <button onClick={() => setDeleteMatrix({status:false, errorMsg: ''})}>close</button>
-                        <form onSubmit={(e) => handleDelete(e)}>
-                            <label htmlFor="delete-title">Enter title</label>
-                            <input type="text" name="delete-title" id="delete-title"></input>
-                            <span>{deleteMatrix.errorMsg}</span>
-                            <button>delete</button>
-                        </form>
-                    </div>
+                {update.type === 'delete' && (
+                    <UpdateForm updateObj={update} setUpdate={setUpdate} updateFunction={handleDelete} />
                 )}
-
             </div>
         )
     )
