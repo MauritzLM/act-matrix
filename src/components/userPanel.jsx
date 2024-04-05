@@ -3,11 +3,12 @@ import { userContext } from "../context/usercontext";
 import { useAuth0 } from "@auth0/auth0-react";
 
 function Userpanel() {
-    const { getAccessTokenSilently } = useAuth0();
+    const { getAccessTokenSilently, user, isAuthenticated } = useAuth0();
     const userInfo = useContext(userContext);
 
-    const [createNew, setCreateNew] = useState(false);
-    const [updateTitle, setUpdateTitle] = useState(false);
+    const [createNew, setCreateNew] = useState({ status: false, errorMsg: '' });
+    const [updateTitle, setUpdateTitle] = useState({ status: false, errorMsg: '' });
+    const [deleteMatrix, setDeleteMatrix] = useState({ status: false, errorMsg: '' });
 
 
     // create new matrix function
@@ -16,12 +17,11 @@ function Userpanel() {
         const domain = import.meta.env.VITE_AUTH0_API_AUDIENCE;
 
         try {
+            event.preventDefault();
 
             // get title from input
             const formData = new FormData(event.target);
             const title = formData.get("title");
-
-            console.log(title);
 
             // get access token
             const accessToken = await getAccessTokenSilently({
@@ -44,10 +44,14 @@ function Userpanel() {
 
             // validation errors
             if (message.errors) {
+                setCreateNew({ ...createNew, errorMsg: message.errors[0].msg })
                 console.log(message.errors[0].msg)
+                return;
             }
 
+            // update state
             userInfo.setUpdateMade(userInfo.updateMade + 1);
+            setCreateNew({ status: false, errorMsg: '' });
             console.log(message);
         }
         catch (error) {
@@ -80,34 +84,83 @@ function Userpanel() {
                     Authorization: `Bearer ${accessToken}`,
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ instance_id: updateTitle, newTitle: formData.get('new-title') })
+                body: JSON.stringify({ instance_id: updateTitle.status, newTitle: formData.get('new-title') })
             });
-
 
             // response
             const message = await response.json();
 
             // validation errors
             if (message.errors) {
-                console.log(message.errors[0].msg)
+                setUpdateTitle({ ...updateTitle, errorMsg: message.errors[0].msg })
+                console.log(message.errors[0].msg);
+                return;
             }
 
             console.log(message);
 
+            // update state
             userInfo.setUpdateMade(userInfo.updateMade + 1);
-            setUpdateTitle(false);
+            setUpdateTitle({ status: false, errorMsg: '' });
         }
         catch (error) {
             console.log(error);
         }
     }
 
+    // delete matrix instance function
+    async function handleDelete(event) {
+        const domain = import.meta.env.VITE_AUTH0_API_AUDIENCE;
+
+        try {
+            event.preventDefault();
+
+            // get form data
+            const formData = new FormData(event.target);
+
+            // access token
+            const accessToken = await getAccessTokenSilently({
+                authorizationParams: {
+                    audience: domain,
+                    scope: "read:current_user",
+                },
+            });
+
+            // request
+            const response = await fetch('http://localhost:3000/delete-matrix', {
+                method: 'POST',
+                headers: {
+                    Authorization: `Bearer ${accessToken}`,
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ instance_id: deleteMatrix.status, user_id: `${userInfo.user.sub.slice(6)}`, title: formData.get('delete-title') })
+            });
+
+            const message = await response.json()
+
+            // validation errors
+            if (message.errors) {
+                setDeleteMatrix({ ...deleteMatrix, errorMsg: message.errors[0].msg })
+                console.log(message.errors[0].msg)
+                return;
+            }
+
+            console.log(message)
+            // update state
+            userInfo.setUpdateMade(userInfo.updateMade + 1);
+            userInfo.changeMatrix({});
+            setDeleteMatrix({ status: false, errorMsg: '' });
+        }
+        catch (error) {
+            console.log(error)
+        }
+    }
 
     return (
-        <>
+        isAuthenticated && (
             <div className="user-info">
 
-                <h2>{userInfo.user?.sub}</h2>
+                <h2>Hi {user.nickname}</h2>
 
                 {/* render list item for each matrix instance */}
                 <ul>
@@ -116,38 +169,62 @@ function Userpanel() {
                             {/* select button */}
                             <button className={item.title === userInfo.selectedMatrix.title ? 'cs-active' : ''} onClick={() => userInfo.changeMatrix(item)}>{item.title}</button>
                             {/* edit button */}
-                            <button onClick={() => setUpdateTitle(item.instance_id)}>edit</button>
+                            <div>
+                                <button onClick={() => setUpdateTitle({ ...updateTitle, status: item.instance_id })}>edit</button>
+                                <button onClick={() => setDeleteMatrix({ ...deleteMatrix, status: item.instance_id })}>delete</button>
+                            </div>
+
                         </li>
                     )}
                 </ul>
 
-                <button disabled onClick={() => setCreateNew(true)}>Create new</button>
+                {/* if user has less than 3 instances render create new button */}
+                {userInfo.userMatrices.length < 4 && (
+                    <button onClick={() => setCreateNew({ ...createNew, status: true })}>Create new</button>
+                )}
+
 
                 {/* create new instance form */}
-                {createNew && (
+                {createNew.status && (
                     <div id="new-matrix-form">
-                        <button onClick={() => setCreateNew(false)}>Close</button>
+                        <button onClick={() => setCreateNew({ status: false, errorMsg: '' })}>Close</button>
                         <form onSubmit={(e) => createNewMatrix(e)}>
                             <label htmlFor="title">title</label>
                             <input type="text" name="title" id="title"></input>
+                            <span>{createNew.errorMsg}</span>
                             <button>new</button>
                         </form>
                     </div>
                 )}
 
                 {/* update title form */}
-                {updateTitle && (
+                {updateTitle.status && (
                     <div id="update-matrix-title">
-                        <button onClick={() => setUpdateTitle(false)}>close</button>
+                        <button onClick={() => setUpdateTitle({ status: false, errorMsg: '' })}>close</button>
                         <form onSubmit={(e) => changeTitle(e)}>
                             <label htmlFor="new-title">New title</label>
                             <input type="text" name="new-title" id="new-title"></input>
+                            <span>{updateTitle.errorMsg}</span>
                             <button>change title</button>
                         </form>
                     </div>
                 )}
+
+                {/* delete matrix form */}
+                {deleteMatrix.status && (
+                    <div id="delete-matrix">
+                        <button onClick={() => setDeleteMatrix({status:false, errorMsg: ''})}>close</button>
+                        <form onSubmit={(e) => handleDelete(e)}>
+                            <label htmlFor="delete-title">Enter title</label>
+                            <input type="text" name="delete-title" id="delete-title"></input>
+                            <span>{deleteMatrix.errorMsg}</span>
+                            <button>delete</button>
+                        </form>
+                    </div>
+                )}
+
             </div>
-        </>
+        )
     )
 }
 
