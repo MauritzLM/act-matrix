@@ -7,13 +7,12 @@ import Description from './components/description';
 import { Route, Routes, useLocation } from 'react-router-dom';
 import Dashboard from './pages/dashboard';
 import Userpanel from './components/userPanel';
+import SampleMatrix from './components/sampleComponents/sampleMatrix';
 
 
 function App() {
   let location = useLocation();
 
-  // logged in state*
-  // if user logged in render dashboard*
   return (
     <>
       <header>
@@ -22,7 +21,7 @@ function App() {
       <main id='main'>
         <Routes>
           <Route path='/' element={<Description />} />
-          <Route path='/act-matrix' element={<Matrix />} />
+          <Route path='/act-matrix' element={<SampleMatrix />} />
           <Route path='/dashboard' element={
             <Dashboard>
               <Userpanel />
