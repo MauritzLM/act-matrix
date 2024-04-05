@@ -17,27 +17,28 @@ const Dashboard = ({ children }) => {
   function changeMatrix(obj) {
     setSelectedMatrix({ ...obj })
   }
-
   // get user data*
   useEffect(() => {
 
     // async function to get user data
     const getUserMetadata = async () => {
-      const domain = import.meta.env.VITE_AUTH0_API_AUDIENCE;
+      const audience = import.meta.env.VITE_AUTH0_API_AUDIENCE;
 
       try {
+
+        // instances fetch
         // get access token
         const accessToken = await getAccessTokenSilently({
           authorizationParams: {
-            audience: domain,
+            audience: audience,
             scope: "read:current_user",
           },
         });
 
-        // url / fetch all instances for user
-        const userDetailsByIdUrl = `http://localhost:3000/all-matrix`;
+        // fetch all instances for user
+        const userInstancesUrl = `http://localhost:3000/all-matrix`;
 
-        const metadataResponse = await fetch(userDetailsByIdUrl, {
+        const userInstancesResponse = await fetch(userInstancesUrl, {
           method: 'POST',
           headers: {
             Authorization: `Bearer ${accessToken}`,
@@ -46,9 +47,9 @@ const Dashboard = ({ children }) => {
           body: JSON.stringify({ 'user_id': `${user?.sub.slice(6)}` })
         });
 
-      
-        const response = await metadataResponse.json();
-       
+
+        const response = await userInstancesResponse.json();
+
         setUserMatrices([...response]);
 
       } catch (e) {
@@ -70,7 +71,7 @@ const Dashboard = ({ children }) => {
     selectedMatrix: selectedMatrix,
     changeMatrix: changeMatrix,
     updateMade: updateMade,
-    setUpdateMade: setUpdateMade 
+    setUpdateMade: setUpdateMade
   }
 
   if (isLoading) {
@@ -79,24 +80,11 @@ const Dashboard = ({ children }) => {
 
   return (
     isAuthenticated && (
-      <>
-
         <div className="container">
-          {/* <div className="user-info">
-            <img src={user.picture} alt={user.name} />
-            <h2>{user.nickname}</h2>
-            <p>{user.sub.split('auth0|')}</p>
-            <h3>User Metadata</h3>
-            
-            <p>instance id: {userMetadata?.instance_id}</p>
-            <p>quadrant_1 content: {userMetadata?.quadrant_1}</p>
-          </div> */}
           <userContext.Provider value={contextData}>
             {children}
           </userContext.Provider>
         </div>
-
-      </>
     )
   );
 };

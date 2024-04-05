@@ -31,6 +31,7 @@ function Userpanel() {
                 },
             });
 
+            // request with title and user_id
             const createResponse = await fetch('http://localhost:3000/new-matrix', {
                 method: 'POST',
                 headers: {
@@ -77,7 +78,7 @@ function Userpanel() {
                 },
             });
 
-            // request
+            // request with instance id and new title
             const response = await fetch('http://localhost:3000/update-title', {
                 method: 'PUT',
                 headers: {
@@ -126,7 +127,7 @@ function Userpanel() {
                 },
             });
 
-            // request
+            // request with instance id, user id and instance title
             const response = await fetch('http://localhost:3000/delete-matrix', {
                 method: 'POST',
                 headers: {
@@ -148,6 +149,7 @@ function Userpanel() {
             console.log(message)
             // update state
             userInfo.setUpdateMade(userInfo.updateMade + 1);
+            // change selected matrix to empty object
             userInfo.changeMatrix({});
             setDeleteMatrix({ status: false, errorMsg: '' });
         }
@@ -162,13 +164,13 @@ function Userpanel() {
 
                 <h2>Hi {user.nickname}</h2>
 
-                {/* render list item for each matrix instance */}
+                {/* render list item for each matrix instance with edit and delete button */}
                 <ul>
                     {userInfo.userMatrices.map(item =>
                         <li key={item.instance_id}>
                             {/* select button */}
                             <button className={item.title === userInfo.selectedMatrix.title ? 'cs-active' : ''} onClick={() => userInfo.changeMatrix(item)}>{item.title}</button>
-                            {/* edit button */}
+                            {/* edit and delete buttons */}
                             <div>
                                 <button onClick={() => setUpdateTitle({ ...updateTitle, status: item.instance_id })}>edit</button>
                                 <button onClick={() => setDeleteMatrix({ ...deleteMatrix, status: item.instance_id })}>delete</button>
@@ -179,7 +181,7 @@ function Userpanel() {
                 </ul>
 
                 {/* if user has less than 3 instances render create new button */}
-                {userInfo.userMatrices.length < 4 && (
+                {userInfo.userMatrices.length < 3 && (
                     <button onClick={() => setCreateNew({ ...createNew, status: true })}>Create new</button>
                 )}
 

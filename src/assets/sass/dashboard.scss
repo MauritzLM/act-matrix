@@ -16,10 +16,16 @@
                 li {
                     display: flex;
                     justify-content: space-between;
+                    gap: 2em;
 
                     button {
                         padding: .4em .6em;
                         font: inherit;
+                    }
+
+                    div {
+                        display: flex;
+                        gap: 1em;
                     }
 
                     .cs-active {
@@ -64,10 +70,10 @@
     }
 }
 
-@media screen and (min-width: 1200px) {
-    #main {
-        .container {
-            flex-direction: row;
-        }
-    }
-}
+// @media screen and (min-width: 1200px) {
+//     #main {
+//         .container {
+//             flex-direction: row;
+//         }
+//     }
+// }

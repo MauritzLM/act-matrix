@@ -6,7 +6,6 @@ import LogoutButton from './logout';
 
 export default function Nav({ location }) {
     const { isAuthenticated } = useAuth0();
-    // render different nav for dashboard*
 
     return (
         <>
