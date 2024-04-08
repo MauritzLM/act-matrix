@@ -12,7 +12,7 @@ function Userpanel() {
     // create new matrix function
     const createNewMatrix = async function (event) {
 
-        const domain = import.meta.env.VITE_AUTH0_API_AUDIENCE;
+        const audience = import.meta.env.VITE_AUTH0_API_AUDIENCE;
 
         try {
             event.preventDefault();
@@ -24,7 +24,7 @@ function Userpanel() {
             // get access token
             const accessToken = await getAccessTokenSilently({
                 authorizationParams: {
-                    audience: domain,
+                    audience: audience,
                     scope: "read:current_user",
                 },
             });
@@ -60,7 +60,7 @@ function Userpanel() {
 
     // change title function
     async function changeTitle(event) {
-        const domain = import.meta.env.VITE_AUTH0_API_AUDIENCE;
+        const audience = import.meta.env.VITE_AUTH0_API_AUDIENCE;
 
         try {
             event.preventDefault();
@@ -71,7 +71,7 @@ function Userpanel() {
             // access token
             const accessToken = await getAccessTokenSilently({
                 authorizationParams: {
-                    audience: domain,
+                    audience: audience,
                     scope: "read:current_user",
                 },
             });
@@ -109,7 +109,7 @@ function Userpanel() {
 
     // delete matrix instance function
     async function handleDelete(event) {
-        const domain = import.meta.env.VITE_AUTH0_API_AUDIENCE;
+        const audience = import.meta.env.VITE_AUTH0_API_AUDIENCE;
 
         try {
             event.preventDefault();
@@ -120,7 +120,7 @@ function Userpanel() {
             // access token
             const accessToken = await getAccessTokenSilently({
                 authorizationParams: {
-                    audience: domain,
+                    audience: audience,
                     scope: "read:current_user",
                 },
             });
@@ -156,11 +156,65 @@ function Userpanel() {
         }
     }
 
+    // update user profile data function
+    // send request and data to api
+    async function updateProfile(event) {
+        const audience = import.meta.env.VITE_AUTH0_API_AUDIENCE;
+
+        try {
+
+            event.preventDefault();
+
+            const formData = new FormData(event.target);
+
+            // access token
+            const accessToken = await getAccessTokenSilently({
+                authorizationParams: {
+                    audience: audience,
+                    scope: "read:current_user update:current_user_metadata",
+                },
+            });
+
+            const response = await fetch('http://localhost:3000/update-profile', {
+                method: 'POST',
+                headers: {
+                    Authorization: `Bearer ${accessToken}`,
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ nickname: formData.get('title'), user_id: user.sub })
+            });
+
+            const message = await response.json();
+
+            console.log(message)
+
+            // validation errors
+            if (message.errors) {
+                setUpdate({ ...update, errorMsg: message.errors[0].msg })
+                console.log(message.errors[0].msg)
+                return;
+            }
+
+            setUpdate({ type: '', errorMsg: '', id: '' });
+            userInfo.setUpdateMade(userInfo.updateMade + 1);
+
+        }
+        catch (error) {
+            console.log(error)
+        }
+    }
+
     return (
         isAuthenticated && (
             <div className="user-info">
 
-                <h2>Hi {user.nickname}</h2>
+                 <h2>Hi {user.nickname}</h2>
+                <button onClick={() => setUpdate({ ...update, type: 'profile' })}>change name</button>
+
+                {/* update profile form */}
+                {update.type === 'profile' && (
+                    <UpdateForm updateObj={update} setUpdate={setUpdate} updateFunction={updateProfile} />
+                )}
 
                 {/* render list item for each matrix instance with edit and delete button */}
                 <ul>
