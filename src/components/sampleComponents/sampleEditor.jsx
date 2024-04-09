@@ -225,7 +225,6 @@ export default function SampleTextEditor({ id, placeholder }) {
 
   // save content to local storage
   const save = () => {
-    console.log(editorContent)
     window.localStorage.setItem(id, editorContent)
   }
 

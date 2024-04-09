@@ -4,7 +4,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import UpdateForm from "./updateForm";
 
 function Userpanel() {
-    const { getAccessTokenSilently, user, isAuthenticated } = useAuth0();
+    const { getAccessTokenSilently, user } = useAuth0();
     const userInfo = useContext(userContext);
 
     const [update, setUpdate] = useState({ type: '', errorMsg: '', id: '' });
@@ -205,56 +205,56 @@ function Userpanel() {
     }
 
     return (
-        isAuthenticated && (
-            <div className="user-info">
 
-                 <h2>Hi {user.nickname}</h2>
-                <button onClick={() => setUpdate({ ...update, type: 'profile' })}>change name</button>
+        <div className="user-info">
 
-                {/* update profile form */}
-                {update.type === 'profile' && (
-                    <UpdateForm updateObj={update} setUpdate={setUpdate} updateFunction={updateProfile} />
+             <h2>Hi {user?.nickname}</h2>
+            <button onClick={() => setUpdate({ ...update, type: 'profile' })}>change name</button>
+
+            {/* update profile form */}
+            {update.type === 'profile' && (
+                <UpdateForm updateObj={update} setUpdate={setUpdate} updateFunction={updateProfile} />
+            )}
+
+            {/* render list item for each matrix instance with edit and delete button */}
+            <ul>
+                {userInfo.userMatrices.map(item =>
+                    <li key={item.instance_id}>
+                        {/* select button */}
+                        <button className={item.title === userInfo.selectedMatrix.title ? 'cs-active' : ''} onClick={() => userInfo.changeMatrix(item)}>{item.title}</button>
+                        {/* edit and delete buttons */}
+                        <div>
+                            <button onClick={() => setUpdate({ ...update, type: 'new title', id: item.instance_id })}>edit</button>
+                            <button onClick={() => setUpdate({ ...update, type: 'delete', id: item.instance_id })}>delete</button>
+                        </div>
+
+                    </li>
                 )}
+            </ul>
 
-                {/* render list item for each matrix instance with edit and delete button */}
-                <ul>
-                    {userInfo.userMatrices.map(item =>
-                        <li key={item.instance_id}>
-                            {/* select button */}
-                            <button className={item.title === userInfo.selectedMatrix.title ? 'cs-active' : ''} onClick={() => userInfo.changeMatrix(item)}>{item.title}</button>
-                            {/* edit and delete buttons */}
-                            <div>
-                                <button onClick={() => setUpdate({ ...update, type: 'new title', id: item.instance_id })}>edit</button>
-                                <button onClick={() => setUpdate({ ...update, type: 'delete', id: item.instance_id })}>delete</button>
-                            </div>
-
-                        </li>
-                    )}
-                </ul>
-
-                {/* if user has less than 3 instances render create new button */}
-                {userInfo.userMatrices.length < 3 && (
-                    <button onClick={() => setUpdate({ ...update, type: 'new matrix' })}>Create new</button>
-                )}
+            {/* if user has less than 3 instances render create new button */}
+            {userInfo.userMatrices.length < 3 && (
+                <button data-testid="new" onClick={() => setUpdate({ ...update, type: 'new matrix' })}>Create new</button>
+            )}
 
 
-                {/* create new instance form */}
-                {update.type === 'new matrix' && (
-                    <UpdateForm updateObj={update} setUpdate={setUpdate} updateFunction={createNewMatrix} />
-                )}
+            {/* create new instance form */}
+            {update.type === 'new matrix' && (
+                <UpdateForm updateObj={update} setUpdate={setUpdate} updateFunction={createNewMatrix} />
+            )}
 
-                {/* update title form */}
-                {update.type === 'new title' && (
-                    <UpdateForm updateObj={update} setUpdate={setUpdate} updateFunction={changeTitle} />
-                )}
+            {/* update title form */}
+            {update.type === 'new title' && (
+                <UpdateForm updateObj={update} setUpdate={setUpdate} updateFunction={changeTitle} />
+            )}
 
-                {/* delete matrix form */}
-                {update.type === 'delete' && (
-                    <UpdateForm updateObj={update} setUpdate={setUpdate} updateFunction={handleDelete} />
-                )}
-            </div>
-        )
+            {/* delete matrix form */}
+            {update.type === 'delete' && (
+                <UpdateForm updateObj={update} setUpdate={setUpdate} updateFunction={handleDelete} />
+            )}
+        </div>
     )
+
 }
 
 export default Userpanel;
