@@ -7,7 +7,7 @@ function Userpanel() {
     const { getAccessTokenSilently, user } = useAuth0();
     const userInfo = useContext(userContext);
 
-    const [update, setUpdate] = useState({ type: '', errorMsg: '', id: '' });
+    const [update, setUpdate] = useState({ type: '', errorMsg: '', id: '', title: '' });
 
     // create new matrix function
     const createNewMatrix = async function (event) {
@@ -50,7 +50,7 @@ function Userpanel() {
 
             // update state
             userInfo.setUpdateMade(userInfo.updateMade + 1);
-            setUpdate({ type: '', errorMsg: '', id: '' });
+            setUpdate({ type: '', errorMsg: '', id: '', title: '' });
             console.log(message);
         }
         catch (error) {
@@ -100,7 +100,7 @@ function Userpanel() {
 
             // update state
             userInfo.setUpdateMade(userInfo.updateMade + 1);
-            setUpdate({ type: '', errorMsg: '', id: '' });
+            setUpdate({ type: '', errorMsg: '', id: '', title: '' });
         }
         catch (error) {
             console.log(error);
@@ -149,7 +149,7 @@ function Userpanel() {
             userInfo.setUpdateMade(userInfo.updateMade + 1);
             // change selected matrix to empty object
             userInfo.changeMatrix({});
-            setUpdate({ type: '', errorMsg: '', id: '' });
+            setUpdate({ type: '', errorMsg: '', id: '', title: '' });
         }
         catch (error) {
             console.log(error)
@@ -195,7 +195,7 @@ function Userpanel() {
                 return;
             }
 
-            setUpdate({ type: '', errorMsg: '', id: '' });
+            setUpdate({ type: '', errorMsg: '', id: '', title: '' });
             userInfo.setUpdateMade(userInfo.updateMade + 1);
 
         }
@@ -206,10 +206,15 @@ function Userpanel() {
 
     return (
 
-        <div className="user-info">
+        <div className="user-panel">
 
-             <h2>Hi {user?.nickname}</h2>
-            <button onClick={() => setUpdate({ ...update, type: 'profile' })}>change name</button>
+            <div className="greeting">
+                <h1>Hi {user?.nickname}</h1>
+                <button title="update display name" onClick={() => setUpdate({ ...update, type: 'profile' })}>
+                    <img alt="" src='./src/assets/svgs/edit.svg'></img>
+                </button>
+            </div>
+
 
             {/* update profile form */}
             {update.type === 'profile' && (
@@ -217,25 +222,36 @@ function Userpanel() {
             )}
 
             {/* render list item for each matrix instance with edit and delete button */}
-            <ul>
-                {userInfo.userMatrices.map(item =>
-                    <li key={item.instance_id}>
-                        {/* select button */}
-                        <button className={item.title === userInfo.selectedMatrix.title ? 'cs-active' : ''} onClick={() => userInfo.changeMatrix(item)}>{item.title}</button>
-                        {/* edit and delete buttons */}
-                        <div>
-                            <button onClick={() => setUpdate({ ...update, type: 'new title', id: item.instance_id })}>edit</button>
-                            <button onClick={() => setUpdate({ ...update, type: 'delete', id: item.instance_id })}>delete</button>
-                        </div>
+            <div className="user-list">
+                <h2>Your matrices</h2>
+                <ul>
+                    {userInfo.userMatrices.map(item =>
+                        <li key={item.instance_id} className={item.title === userInfo.selectedMatrix.title ? 'cs-active' : ''}>
+                            {/* select button */}
+                            <button className={item.title === userInfo.selectedMatrix.title ? 'cs-active' : ''} onClick={() => userInfo.changeMatrix(item)}>{item.title}</button>
+                            {/* edit and delete buttons */}
+                            <div>
+                                <button onClick={() => setUpdate({ ...update, type: 'new title', id: item.instance_id })}>
+                                    <img alt="" src='./src/assets/svgs/edit.svg'></img>
+                                </button>
 
-                    </li>
+                                <button onClick={() => setUpdate({ ...update, type: 'delete', id: item.instance_id, title: item.title })}>
+                                    <img alt="" src='./src/assets/svgs/delete.svg'></img>
+                                </button>
+                            </div>
+
+                        </li>
+                    )}
+                </ul>
+
+                {/* if user has less than 3 instances render create new button */}
+                {userInfo.userMatrices.length < 3 && (
+                    <button data-testid="new" className="new-btn" onClick={() => setUpdate({ ...update, type: 'new matrix' })}>
+                        <img alt="" src="./src/assets/svgs/add.svg" height='30px' width='30px'></img>
+                    </button>
                 )}
-            </ul>
 
-            {/* if user has less than 3 instances render create new button */}
-            {userInfo.userMatrices.length < 3 && (
-                <button data-testid="new" onClick={() => setUpdate({ ...update, type: 'new matrix' })}>Create new</button>
-            )}
+            </div>
 
 
             {/* create new instance form */}

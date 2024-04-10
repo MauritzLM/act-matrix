@@ -10,7 +10,9 @@ export default function Matrix() {
     if (!Object.keys(userInfo.selectedMatrix).length) {
         return (
             <>
-                <h2>Select a matrix</h2>
+                <div className="matrix-container">
+                    <h2>Select a matrix or create a new one</h2>
+                </div>
             </>
         )
     }
@@ -24,9 +26,9 @@ export default function Matrix() {
                 <div id="matrix">
                     {/* top */}
                     <div className="top">
-                        <Quadrant title={'Actions that move us away'} id={1} content={userInfo.selectedMatrix.quadrant_1}/>
+                        <Quadrant title={'Actions that move us away'} id={1} content={userInfo.selectedMatrix.quadrant_1} />
                         <div className="arrow-up"></div>
-                        <Quadrant title={'Committed Actions'} id={2} content={userInfo.selectedMatrix.quadrant_2}/>
+                        <Quadrant title={'Committed Actions'} id={2} content={userInfo.selectedMatrix.quadrant_2} />
                     </div>
 
                     {/* arrow pointing left and right */}
@@ -38,9 +40,9 @@ export default function Matrix() {
 
                     {/* bottom */}
                     <div className="bottom">
-                        <Quadrant title={'What gets in the way?'} id={3} content={userInfo.selectedMatrix.quadrant_3}/>
+                        <Quadrant title={'What gets in the way?'} id={3} content={userInfo.selectedMatrix.quadrant_3} />
                         <div className="arrow-down"></div>
-                        <Quadrant title={'What / Who is important?'} id={4} content={userInfo.selectedMatrix.quadrant_4}/>
+                        <Quadrant title={'What / Who is important?'} id={4} content={userInfo.selectedMatrix.quadrant_4} />
                     </div>
                 </div>
             </div>
