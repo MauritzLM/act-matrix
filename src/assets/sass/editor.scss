@@ -2,10 +2,10 @@
 .tiptap {
     min-height: 250px;
     padding: .2em 1em;
-    /* border: 1px solid gray;  */
-    background-color: #fff;
-    border-radius: 5px;
+    // border: 1px solid var(--grey-100);
+    background-color: var(--bodyBackgroundColor);
     margin-top: 10px;
+    color: var(--bodyTextColor);
   
 
     > * + * {
@@ -35,7 +35,7 @@
   
     pre {
       background: #0D0D0D;
-      color: #FFF;
+      color: #fff;
       font: inherit;
       padding: 0.75rem 1rem;
       border-radius: 0.5rem;

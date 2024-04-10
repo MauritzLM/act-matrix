@@ -5,48 +5,103 @@
         flex-direction: column;
         gap: 1em;
 
-        .user-info {
-            ul {
-                list-style: none;
-                padding-left: 0;
-                display: flex;
-                flex-direction: column;
-                gap: 1em;
+        .user-panel {
+            background-color: var(--primary-100);
+            padding: 2.5em 2em;
 
-                li {
-                    display: flex;
-                    justify-content: space-between;
-                    gap: 2em;
+            .greeting {
+                position: relative;
 
-                    button {
-                        padding: .4em .6em;
-                        font: inherit;
-                    }
+                h1 {
+                    color: var(--grey-900);
+                    margin-top: 0;
+                }
 
-                    div {
-                        display: flex;
-                        gap: 1em;
-                    }
-
-                    .cs-active {
-                        background-color: green;
-                    }
+                button {
+                    position: absolute;
+                    top: 1.5em;
+                    left: 15%;
                 }
             }
 
+            
+            
+            .user-list {
+                background-color: var(--primary-700);
+                border-radius: 10px;
+                max-width: 700px;
+                position: relative;
+                padding: 1em 0;
+                // margin: auto;
+
+                h2 {
+                    text-align: center;
+                    font-size: 1.8rem;
+                    color: var(--grey-100);
+                }
+
+
+                ul {
+                    list-style: none;
+                    padding-left: 0;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 1em;
+                    padding: 1em;
+                    margin: 0;
+
+                    li[class="cs-active"] {
+                        background-color: var(--accentGreen-100);
+                    }
+
+                    li {
+                        display: flex;
+                        justify-content: space-between;
+                        gap: 2em;
+                        padding: 0.4em 1em;
+                        border-radius: 5px;
+
+                        button {
+                            padding: 0;
+                            font: inherit;
+                            font-weight: 500;
+                            font-size: 1.7rem;
+                            color: var(--grey-100);
+                        }
+
+                        div {
+                            display: flex;
+                            gap: 1em;
+                        }
+
+                         .cs-active {
+                             color: var(--grey-900);
+                         }
+                    }
+                }
+
+                .new-btn {
+                    background-color: azure;
+                    border-radius: 5px;
+                    margin: 2em;
+    
+                }
+            }
+
+
             form {
-              display: flex;
-              flex-direction: column;
-              padding: 1em;
-              gap: 1em;
-              width: 200px;
+                display: flex;
+                flex-direction: column;
+                padding: 1em;
+                gap: 1em;
+                width: 200px;
 
-              input {
-                padding: .5em;
-                font: inherit;
-              }
+                input {
+                    padding: .5em;
+                    font: inherit;
+                }
 
-              
+
             }
 
             button {
@@ -56,8 +111,13 @@
         }
 
         .matrix-container {
+            width: 90%;
+            margin: auto;
+            padding: 3em 0;
+
             .title {
                 text-align: center;
+
             }
 
             #matrix {
