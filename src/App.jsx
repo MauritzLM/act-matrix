@@ -1,6 +1,6 @@
 
 import './App.scss'
-// import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import Matrix from './components/matrix'
 import Nav from './components/navigation';
 import Description from './components/description';
@@ -12,24 +12,34 @@ import SampleMatrix from './components/sampleComponents/sampleMatrix';
 
 function App() {
   let location = useLocation();
+  let storedTheme = window.localStorage.getItem('theme') || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+
+  const [theme, setTheme] = useState(storedTheme)
+
+  function switchTheme() {
+    setTheme('light' === theme ? 'dark' : 'light')
+    window.localStorage.setItem('theme', theme)
+  }
 
   return (
     <>
-      <header>
-        <Nav location={location.pathname} />
-      </header>
-      <main id='main'>
-        <Routes>
-          <Route path='/' element={<Description />} />
-          <Route path='/act-matrix' element={<SampleMatrix />} />
-          <Route path='/dashboard' element={
-            <Dashboard>
-              <Userpanel />
-              <Matrix />
-            </Dashboard>}>
-          </Route>
-        </Routes>
-      </main>
+      <div className='app' data-theme={theme}>
+        <header>
+          <Nav location={location.pathname} switchTheme={switchTheme} />
+        </header>
+        <main id='main'>
+          <Routes>
+            <Route path='/' element={<Description />} />
+            <Route path='/act-matrix' element={<SampleMatrix />} />
+            <Route path='/dashboard' element={
+              <Dashboard>
+                <Userpanel />
+                <Matrix />
+              </Dashboard>}>
+            </Route>
+          </Routes>
+        </main>
+      </div>
     </>
   )
 }
