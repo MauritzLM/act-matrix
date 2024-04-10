@@ -64,6 +64,7 @@ body {
 .app {
   color: var(--bodyTextColor);
   background-color: var(--bodyBackgroundColor);
+  min-height: 100vh;
 }
 
 h1 {
@@ -74,6 +75,7 @@ button {
   cursor: pointer;
   font: inherit;
   border: none;
+  background: none;
 }
 
 /* NAV STYLES */
@@ -85,10 +87,11 @@ button {
   gap: 1em;
   padding-top: 2em;
   padding-bottom: 2em;
+  position: relative;
 
   ul {
     display: flex;
-    gap: 1em;
+    gap: 1.5em;
     list-style: none;
     padding: 0;
 
@@ -96,19 +99,23 @@ button {
 
       a {
         border: none;
-        background-color: var(--grey-300);
-        padding: .7em .9em;
         font-weight: 500;
         text-decoration: none;
-        color: var(--grey-900);
+        color: var(--bodyTextColor);
+        padding-bottom: .1em;
       }
 
       .cs-active {
-        background-color: var(--primary-500);
-        color: var(--grey-100);
+        border-bottom: 2px solid var(--primary-500);
       }
     }
   }
+
+  // .theme-toggle {
+  //   position: absolute;
+  //   right: 8em;
+  //   top: 2.8em;
+  // }
 
   .cs-button {
     border: none;
