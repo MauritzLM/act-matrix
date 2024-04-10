@@ -25,7 +25,7 @@ function App() {
     <>
       <div className='app' data-theme={theme}>
         <header>
-          <Nav location={location.pathname} switchTheme={switchTheme} />
+          <Nav location={location.pathname} theme={theme} switchTheme={switchTheme} />
         </header>
         <main id='main'>
           <Routes>

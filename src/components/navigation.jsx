@@ -5,7 +5,7 @@ import LoginButton from './login';
 import LogoutButton from './logout';
 
 
-export default function Nav({ location, switchTheme  }) {
+export default function Nav({ location, theme, switchTheme }) {
     const { isAuthenticated } = useAuth0();
 
     return (
@@ -17,8 +17,10 @@ export default function Nav({ location, switchTheme  }) {
                     {isAuthenticated && (<li><Link className={location === '/dashboard' ? 'cs-active' : ''} to='/dashboard'>Dashboard</Link></li>)}
                 </ul>
 
-                {/* add theme toggle */}
-                <button onClick={switchTheme}>Theme</button>
+                {/* theme toggle */}
+                <button onClick={switchTheme} className='theme-toggle'>
+                    <img src={theme === 'light' ? './src/assets/svgs/dark_mode.svg' : './src/assets/svgs/light_mode.svg'}></img>
+                </button>
 
                 {!isAuthenticated && (
                     <LoginButton />
@@ -28,7 +30,6 @@ export default function Nav({ location, switchTheme  }) {
 
                     <LogoutButton />
                 )}
-
             </nav>
         </>
     )
@@ -36,5 +37,6 @@ export default function Nav({ location, switchTheme  }) {
 
 Nav.propTypes = {
     location: PropTypes.string,
-    switchTheme: PropTypes.func
+    switchTheme: PropTypes.func,
+    theme: PropTypes.string
 };
