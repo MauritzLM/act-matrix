@@ -75,7 +75,7 @@ const Dashboard = ({ children }) => {
   }
 
   if (isLoading) {
-    return <div>Loading ...</div>;
+    return <div className="container">Loading ...</div>;
   }
 
   return (
