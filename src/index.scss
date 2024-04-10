@@ -19,6 +19,32 @@
   --accentGreen-900: rgb(35, 75, 61);
 
   --headerFontSize: clamp(1.9375rem, 4.2vw, 3.5rem);
+
+  // background and text
+  --bodyBackgroundColor: white;
+  --bodyTextColor: black;
+
+  // matrix colors
+  --matrixBackground: blue;
+  --matrixSaveBtn: green;
+  --matrixText: black;
+}
+
+// theme colors
+.app[data-theme='light'] {
+  --bodyBackgroundColor: var(--grey-100);
+  --bodyTextColor: var(--grey-900);
+  --matrixBackground: var(--primary-100);
+  --matrixSaveBtn: var(--accentGreen-100);
+  --matrixText: var(--grey-900);
+}
+
+.app[data-theme='dark'] {
+  --bodyBackgroundColor: var(--grey-900);
+  --bodyTextColor: var(--grey-100);
+  --matrixBackground: var(--primary-700);
+  --matrixSaveBtn: var(--accentGreen-500);
+  --matrixText: var(--grey-100);
 }
 
 * {
@@ -30,12 +56,14 @@ html {
   overflow: auto;
 }
 
-/* TYPOGRAPHY */
+/* GENERAL STYLES */
 body {
-  color: var(--grey-900);
-  background-color: var(--grey-100);
   margin: 0;
+}
 
+.app {
+  color: var(--bodyTextColor);
+  background-color: var(--bodyBackgroundColor);
 }
 
 h1 {
@@ -84,14 +112,10 @@ button {
 
   .cs-button {
     border: none;
-    background-color: transparent;
+    background-color: var(--bodyTextColor);
     padding: .5em .7em;
     font-weight: 500;
     text-decoration: none;
-    color: var(--grey-900);
+    color: var(--bodyBackgroundColor);
   }
-}
-
-#main {
-  padding: 2em 0;
 }
