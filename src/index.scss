@@ -2,19 +2,24 @@
 
 /* variables */
 :root {
-  --primary-50: rgb(232, 244, 250);
-  --primary-100: rgb(190, 209, 217);
-  --primary-500: rgb(21, 97, 148);
-  --primary-700: rgb(51, 86, 107);
+  --primary-50: rgb(230, 247, 255);
+  --primary-100: rgb(209, 234, 255);
+  --primary-200: rgb(131, 162, 180);
+  --primary-500: rgb(33, 126, 189);
+  --primary-700: rgb(60, 86, 107);
   --primary-900: rgb(20, 55, 75);
 
-  --grey-100: rgb(246, 251, 252);
-  --grey-200: rgb(244, 245, 245);
-  --grey-300: rgb(215, 221, 223);
-  --grey-500: rgb(122, 122, 122);
-  --grey-900: rgb(43, 44, 44);
+  --secondary-100: rgb(255, 221, 182);
 
-  --accentGreen-100: rgb(150, 255, 194);
+  --grey-100: rgb(246, 251, 252);
+  --grey-200: rgb(236, 236, 236);
+  --grey-300: rgb(209, 209, 209);
+  --grey-500: rgb(122, 122, 122);
+  --grey-700: rgb(52, 54, 53);
+  --grey-900: rgb(43, 48, 48);
+
+  --accentGreen-100: rgb(171, 255, 207);
+  --accentGreen-200: rgb(170 213 209);
   --accentGreen-500: rgb(1, 158, 85);
   --accentGreen-900: rgb(35, 75, 61);
 
@@ -28,15 +33,21 @@
   --matrixBackground: blue;
   --matrixSaveBtn: green;
   --matrixText: black;
+
+  --editorColor: white;
+
+  --boxShadowColor: gray;
 }
 
 // theme colors
 .app[data-theme='light'] {
   --bodyBackgroundColor: var(--grey-100);
   --bodyTextColor: var(--grey-900);
-  --matrixBackground: var(--primary-100);
+  --matrixBackground: var(--primary-50);
   --matrixSaveBtn: var(--accentGreen-100);
   --matrixText: var(--grey-900);
+  --boxShadowColor: var(--grey-300);
+  --editorColor: white;
 }
 
 .app[data-theme='dark'] {
@@ -45,6 +56,8 @@
   --matrixBackground: var(--primary-700);
   --matrixSaveBtn: var(--accentGreen-500);
   --matrixText: var(--grey-100);
+  --boxShadowColor: var(--grey-700);
+  --editorColor: black;
 }
 
 * {
@@ -124,5 +137,7 @@ button {
     font-weight: 500;
     text-decoration: none;
     color: var(--bodyBackgroundColor);
+    height: fit-content;
+    border-radius: 5px;
   }
 }
