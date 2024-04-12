@@ -17,7 +17,7 @@ const Dashboard = ({ children }) => {
   function changeMatrix(obj) {
     setSelectedMatrix({ ...obj })
   }
-  // get user data*
+  // get user data
   useEffect(() => {
 
     // async function to get user data
