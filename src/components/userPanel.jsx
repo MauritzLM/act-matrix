@@ -211,8 +211,10 @@ function Userpanel() {
             <div className="greeting">
                 <h1>Hi {user?.nickname}</h1>
                 <button title="update display name" onClick={() => setUpdate({ ...update, type: 'profile' })}>
-                    <img alt="" src='./src/assets/svgs/edit.svg'></img>
+                    edit name
                 </button>
+
+                <p>This is your user panel where you can select or create / delete a matrix instance.</p>
             </div>
 
 
@@ -228,7 +230,7 @@ function Userpanel() {
                     {userInfo.userMatrices.map(item =>
                         <li key={item.instance_id} className={item.title === userInfo.selectedMatrix.title ? 'cs-active' : ''}>
                             {/* select button */}
-                            <button className={item.title === userInfo.selectedMatrix.title ? 'cs-active' : ''} onClick={() => userInfo.changeMatrix(item)}>{item.title}</button>
+                            <button className={item.title === userInfo.selectedMatrix.title ? 'cs-active cs-button' : 'cs-button'} onClick={() => userInfo.changeMatrix(item)}>{item.title}</button>
                             {/* edit and delete buttons */}
                             <div>
                                 <button onClick={() => setUpdate({ ...update, type: 'new title', id: item.instance_id })}>
