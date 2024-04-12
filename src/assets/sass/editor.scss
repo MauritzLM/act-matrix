@@ -2,10 +2,11 @@
 .tiptap {
     min-height: 250px;
     padding: .2em 1em;
-    // border: 1px solid var(--grey-100);
-    background-color: var(--bodyBackgroundColor);
-    margin-top: 10px;
-    color: var(--bodyTextColor);
+    border-top: 1px solid var(--grey-200);
+    border-bottom: 1px solid var(--grey-200);
+    background-color: var(--editorColor);
+    // margin-top: 10px;
+    // color: var(--);
   
 
     > * + * {
