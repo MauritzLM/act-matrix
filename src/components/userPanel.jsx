@@ -230,14 +230,14 @@ function Userpanel() {
                     {userInfo.userMatrices.map(item =>
                         <li key={item.instance_id} className={item.title === userInfo.selectedMatrix.title ? 'cs-active' : ''}>
                             {/* select button */}
-                            <button className={item.title === userInfo.selectedMatrix.title ? 'cs-active cs-button' : 'cs-button'} onClick={() => userInfo.changeMatrix(item)}>{item.title}</button>
+                            <button title="select instance" className={item.title === userInfo.selectedMatrix.title ? 'cs-active cs-button' : 'cs-button'} onClick={() => userInfo.changeMatrix(item)}>{item.title}</button>
                             {/* edit and delete buttons */}
                             <div>
-                                <button onClick={() => setUpdate({ ...update, type: 'new title', id: item.instance_id })}>
+                                <button title="edit name" onClick={() => setUpdate({ ...update, type: 'new title', id: item.instance_id })}>
                                     <img alt="" src='./src/assets/svgs/edit.svg'></img>
                                 </button>
 
-                                <button onClick={() => setUpdate({ ...update, type: 'delete', id: item.instance_id, title: item.title })}>
+                                <button title="delete" onClick={() => setUpdate({ ...update, type: 'delete', id: item.instance_id, title: item.title })}>
                                     <img alt="" src='./src/assets/svgs/delete.svg'></img>
                                 </button>
                             </div>
@@ -248,7 +248,7 @@ function Userpanel() {
 
                 {/* if user has less than 3 instances render create new button */}
                 {userInfo.userMatrices.length < 3 && (
-                    <button data-testid="new" className="new-btn" onClick={() => setUpdate({ ...update, type: 'new matrix' })}>
+                    <button data-testid="new" title="create new" className="new-btn" onClick={() => setUpdate({ ...update, type: 'new matrix' })}>
                         <img alt="" src="./src/assets/svgs/add.svg" height='30px' width='30px'></img>
                     </button>
                 )}
