@@ -30,11 +30,11 @@
 
 
                 .quadrant-container {
-                    border: 1px solid var(--grey-300);
+                    // border: 1px solid var(--borderColor);
                     // padding: 1em;
                     border-radius: 5px;
-                    // background-color: var(--matrixBackground);
-                    // box-shadow: 0px 4px 10px 0px var(--bodyBackgroundColor);
+                    background-color: var(--userPanelBackground);
+                    box-shadow: 2px 2px 5px var(--boxShadowColor);
 
 
                     .menubar {
@@ -68,7 +68,7 @@
                             }
 
                             .is-active {
-                                background-color: var(--accentGreen-100);
+                                background-color: var(--primary-500);
                                 color: var(--grey-900);
                                 box-shadow: 0px;
                             }

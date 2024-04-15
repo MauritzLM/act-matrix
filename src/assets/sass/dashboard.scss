@@ -6,24 +6,24 @@
         gap: 1em;
 
         .user-panel {
-            // background-color: var(--primary-700);
-            padding: 2.5em 2em;
+            background-color: var(--userPanelBackground);
+            padding: 4em 2em;
             display: grid;
             grid-template-columns: 1fr;
             gap: 2em;
-            border: 1px solid var(--grey-300);
             position: relative;
+            box-shadow: 1px 1px 5px var(--boxShadowColor);
 
             .greeting {
                 position: relative;
 
                 h1 {
-                    // color: var(--grey-100);
+                    color: var(--primary-500);
                     margin: 0;
                 }
 
                 button {
-                    color: var(--primary-200);
+                    color: var(--primary-500);
                     font-size: .8rem;
                 }
 
@@ -33,16 +33,14 @@
             }
 
             .user-list {
-                // background-color: var(--accentGreen-200);
                 border-radius: 10px;
                 max-width: 500px;
                 position: relative;
                 padding: 1em 0;
-                // margin: auto;
 
                 h2 {
                     // text-align: center;
-                    font-size: 1.8rem;
+                    font-size: 1.5rem;
                     // color: var(--grey-100);
                 }
 
@@ -57,12 +55,11 @@
                     margin: 0;
 
                     li[class="cs-active"] {
-                        background-color: var(--primary-900);
+                        background-color: var(--selectedBackground);
                         box-shadow: none;
-                        border-color: var(--primary-900);
 
                         .cs-button {
-                            color: var(--primary-100);
+                            color: var(--primary-500);
                         }
                     }
 
@@ -71,10 +68,9 @@
                         justify-content: space-between;
                         gap: 2em;
                         padding: 0.4em 1em;
-                        border-radius: 10px;
+                        padding-left: 0;
+                        border-radius: 5px;
                         // background-color: var(--grey-100);
-                        box-shadow: 2px 2px 1px 2px var(--boxShadowColor);
-                        border: 1px solid var(--grey-300);
 
                         button {
                             padding: 0;
@@ -101,7 +97,7 @@
                 }
 
                 .new-btn {
-                    background-color: var(--primary-500);
+                    background-color: var(--accentGreen-500);
                     border-radius: 5px;
                     margin-left: 1em;
                     margin-top: 1em;
@@ -113,14 +109,12 @@
             #update-form {
                 width: 100%;
                 max-width: 400px;
-                // border: 1px solid var(--grey-300);
                 border-radius: 10px;
                 // position: absolute;
                 // top: 10px;
                 // left: 40%;
-                background-color: var(--secondary-100);
+                background-color: var(--bodyBackgroundColor);
                 padding: .5em;
-                // margin: auto;
 
                 .close-btn {
                     float: right;
@@ -136,10 +130,11 @@
                     padding-top: 0;
 
 
+
                     label {
                         font-weight: 500;
                         font-size: 1.2rem;
-                        color: var(--grey-900);
+                        // color: var(--grey-900);
                         text-transform: capitalize;
                     }
 
@@ -147,7 +142,9 @@
                         padding: .5em;
                         font: inherit;
                         border-radius: 5px;
-                        border: none;
+                        border: 1px solid var(--grey-500);
+                        background: transparent;
+                        color: var(--bodyTextColor);
                     }
 
                     span {
@@ -163,8 +160,8 @@
                     button {
                         padding: .5em .6em;
                         font: inherit;
-                        color: var(--primary-100);
-                        background-color: var(--primary-700);
+                        color: var(--grey-100);
+                        background-color: var(--primary-500);
                         border-radius: 5px;
                         font-weight: 500;
                     }
@@ -196,10 +193,12 @@
         .container {
 
             .user-panel {
-                width: 85%;
+                width: 90%;
                 border-radius: 20px;
                 margin: auto;
                 margin-top: 3em;
+
+
             }
         }
     }
@@ -216,6 +215,8 @@
 
                 .greeting {
                     grid-area: text;
+                    justify-self: center;
+
                 }
 
                 .user-list {
