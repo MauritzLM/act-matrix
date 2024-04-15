@@ -2,25 +2,25 @@
 
 /* variables */
 :root {
-  --primary-50: rgb(230, 247, 255);
-  --primary-100: rgb(209, 234, 255);
-  --primary-200: rgb(131, 162, 180);
-  --primary-500: rgb(33, 126, 189);
-  --primary-700: rgb(60, 86, 107);
-  --primary-900: rgb(20, 55, 75);
+  --primary-50: rgb(255, 245, 235);
+  --primary-100: rgb(255, 221, 193);
+  --primary-200: rgb(228, 193, 140);
+  --primary-500: rgb(255, 164, 85);
+  --primary-700: rgb(155, 88, 26);
+  --primary-900: rgb(65, 47, 28);
 
   --secondary-100: rgb(255, 221, 182);
 
-  --grey-100: rgb(246, 251, 252);
-  --grey-200: rgb(236, 236, 236);
-  --grey-300: rgb(209, 209, 209);
+  --grey-100: rgb(245, 245, 245);
+  --grey-200: rgb(248, 248, 248);
+  --grey-300: rgb(221, 221, 221);
   --grey-500: rgb(122, 122, 122);
-  --grey-700: rgb(52, 54, 53);
-  --grey-900: rgb(43, 48, 48);
+  --grey-700: rgb(47, 51, 59);
+  --grey-900: rgb(27, 30, 33);
 
   --accentGreen-100: rgb(171, 255, 207);
-  --accentGreen-200: rgb(170 213 209);
-  --accentGreen-500: rgb(1, 158, 85);
+  --accentGreen-200: rgb(144, 204, 198);
+  --accentGreen-500: rgb(73, 136, 128);
   --accentGreen-900: rgb(35, 75, 61);
 
   --headerFontSize: clamp(1.9375rem, 4.2vw, 3.5rem);
@@ -28,9 +28,12 @@
   // background and text
   --bodyBackgroundColor: white;
   --bodyTextColor: black;
+  --userPanelBackground: orange;
+  --selectedBackground: orange;
+  --borderColor: grey;
 
   // matrix colors
-  --matrixBackground: blue;
+  --matrixBackground: orange;
   --matrixSaveBtn: green;
   --matrixText: black;
 
@@ -41,13 +44,16 @@
 
 // theme colors
 .app[data-theme='light'] {
-  --bodyBackgroundColor: var(--grey-100);
-  --bodyTextColor: var(--grey-900);
+  --bodyBackgroundColor: var(--grey-200);
+  --bodyTextColor: var(--grey-700);
   --matrixBackground: var(--primary-50);
   --matrixSaveBtn: var(--accentGreen-100);
   --matrixText: var(--grey-900);
   --boxShadowColor: var(--grey-300);
-  --editorColor: white;
+  --editorColor: var(--grey-200);
+  --userPanelBackground: white;
+  --selectedBackground: var(--primary-50);
+  --borderColor: var(--primary-100);
 }
 
 .app[data-theme='dark'] {
@@ -56,8 +62,11 @@
   --matrixBackground: var(--primary-700);
   --matrixSaveBtn: var(--accentGreen-500);
   --matrixText: var(--grey-100);
-  --boxShadowColor: var(--grey-700);
+  --boxShadowColor: transparent;
   --editorColor: black;
+  --userPanelBackground: var(--grey-700);
+  --selectedBackground: var(--grey-200);
+  --borderColor: var(--grey-700);
 }
 
 * {
