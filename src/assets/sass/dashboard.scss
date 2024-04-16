@@ -18,12 +18,12 @@
                 position: relative;
 
                 h1 {
-                    color: var(--primary-500);
+                    color: var(--primary-700);
                     margin: 0;
                 }
 
                 button {
-                    color: var(--primary-500);
+                    color: var(--primary-700);
                     font-size: .8rem;
                 }
 
@@ -59,7 +59,7 @@
                         box-shadow: none;
 
                         .cs-button {
-                            color: var(--primary-500);
+                            color: var(--primary-200);
                         }
                     }
 
@@ -97,14 +97,11 @@
                 }
 
                 .new-btn {
-                    background-color: var(--accentGreen-500);
-                    border-radius: 5px;
-                    margin-left: 1em;
-                    margin-top: 1em;
-
+                    color: var(--accentGreen-200);
+                    margin-left: .7em;
+                    // font-weight: 500;
                 }
             }
-
 
             #update-form {
                 width: 100%;
@@ -113,7 +110,7 @@
                 // position: absolute;
                 // top: 10px;
                 // left: 40%;
-                background-color: var(--bodyBackgroundColor);
+                background-color: var(--grey-900);
                 padding: .5em;
 
                 .close-btn {
@@ -134,7 +131,7 @@
                     label {
                         font-weight: 500;
                         font-size: 1.2rem;
-                        // color: var(--grey-900);
+                        color: var(--primary-200);
                         text-transform: capitalize;
                     }
 
@@ -194,7 +191,7 @@
 
             .user-panel {
                 width: 90%;
-                border-radius: 20px;
+                border-radius: 10px;
                 margin: auto;
                 margin-top: 3em;
 
