@@ -248,8 +248,9 @@ function Userpanel() {
 
                 {/* if user has less than 3 instances render create new button */}
                 {userInfo.userMatrices.length < 3 && (
-                    <button data-testid="new" title="create new" className="new-btn" onClick={() => setUpdate({ ...update, type: 'new matrix' })}>
-                        <img alt="" src="./src/assets/svgs/add.svg" height='30px' width='30px'></img>
+                    <button data-testid="new" title="create new matrix" className="new-btn" onClick={() => setUpdate({ ...update, type: 'new matrix' })}>
+                        {/* <img alt="" src="./src/assets/svgs/add.svg" height='30px' width='30px'></img> */}
+                       Create New
                     </button>
                 )}
 
