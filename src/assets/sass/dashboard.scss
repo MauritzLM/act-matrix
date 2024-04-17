@@ -59,7 +59,7 @@
                         box-shadow: none;
 
                         .cs-button {
-                            color: var(--primary-200);
+                            color: var(--primary-300);
                         }
                     }
 
@@ -79,10 +79,13 @@
                         .cs-button {
                             padding: .2em .6em;
                             font: inherit;
-                            font-weight: 500;
                             font-size: 1.5rem;
                             color: var(--bodyTextColor);
                             border-radius: 20px;
+
+                            &:hover {
+                                color: var(--primary-300);
+                            }
                         }
 
                         div {
@@ -97,9 +100,9 @@
                 }
 
                 .new-btn {
-                    color: var(--accentGreen-200);
+                    color: var(--primary-300);
                     margin-left: .7em;
-                    // font-weight: 500;
+                    font-weight: 500;
                 }
             }
 
@@ -110,8 +113,9 @@
                 // position: absolute;
                 // top: 10px;
                 // left: 40%;
-                background-color: var(--grey-900);
+                // background-color: var(--bodyBackgroundColor);
                 padding: .5em;
+                box-shadow: 2px 2px 5px var(--formBoxShadowColor);
 
                 .close-btn {
                     float: right;
@@ -131,7 +135,7 @@
                     label {
                         font-weight: 500;
                         font-size: 1.2rem;
-                        color: var(--primary-200);
+                        // color: var(--primary-200);
                         text-transform: capitalize;
                     }
 
@@ -174,6 +178,8 @@
 
             .title {
                 text-align: center;
+                font-size: 2rem;
+                margin-bottom: 3em;
 
             }
 
@@ -190,11 +196,11 @@
         .container {
 
             .user-panel {
-                width: 90%;
+                // width: 90%;
                 border-radius: 10px;
                 margin: auto;
                 margin-top: 3em;
-
+                padding: 4em;
 
             }
         }

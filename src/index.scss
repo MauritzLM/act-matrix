@@ -5,6 +5,7 @@
   --primary-50: rgb(243, 251, 255);
   --primary-100: #99d3df;
   --primary-200: rgb(140, 196, 228);
+  --primary-300: #1495db;
   --primary-500: #88bbd6;
   --primary-700: #62A5C9;
   --primary-900: rgb(28, 55, 65);
@@ -36,10 +37,12 @@
   --matrixBackground: orange;
   --matrixSaveBtn: green;
   --matrixText: black;
+  --editorButton: white;
 
   --editorColor: white;
 
   --boxShadowColor: gray;
+  --formBoxShadowColor: gray;
 }
 
 // theme colors
@@ -49,7 +52,9 @@
   --matrixBackground: var(--primary-50);
   --matrixSaveBtn: var(--accentGreen-100);
   --matrixText: var(--grey-900);
+  --editorButton: #fff;
   --boxShadowColor: rgba(221, 221, 221, .36);
+  --formBoxShadowColor: var(--grey-500);
   --editorColor: #fff;
   --userPanelBackground: white;
   --selectedBackground: var(--primary-900);
@@ -62,10 +67,12 @@
   --matrixBackground: var(--primary-700);
   --matrixSaveBtn: var(--accentGreen-500);
   --matrixText: var(--grey-100);
-  --boxShadowColor: transparent;
+  --editorButton: var(--grey-300);
+  --boxShadowColor: var(--grey-900);
+  --formBoxShadowColor: var(--grey-900);
   --editorColor: black;
   --userPanelBackground: var(--grey-700);
-  --selectedBackground: var(--grey-200);
+  --selectedBackground: var(--grey-900);
   --borderColor: var(--grey-700);
 }
 

@@ -233,11 +233,11 @@ function Userpanel() {
                             <button title="select instance" className={item.title === userInfo.selectedMatrix.title ? 'cs-active cs-button' : 'cs-button'} onClick={() => userInfo.changeMatrix(item)}>{item.title}</button>
                             {/* edit and delete buttons */}
                             <div>
-                                <button title="edit name" onClick={() => setUpdate({ ...update, type: 'new title', id: item.instance_id })}>
+                                <button title="edit title" onClick={() => setUpdate({ ...update, type: 'new title', id: item.instance_id })}>
                                     <img alt="" src='./src/assets/svgs/edit.svg'></img>
                                 </button>
 
-                                <button title="delete" onClick={() => setUpdate({ ...update, type: 'delete', id: item.instance_id, title: item.title })}>
+                                <button title="delete matrix" onClick={() => setUpdate({ ...update, type: 'delete', id: item.instance_id, title: item.title })}>
                                     <img alt="" src='./src/assets/svgs/delete.svg'></img>
                                 </button>
                             </div>
