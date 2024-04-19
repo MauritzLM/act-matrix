@@ -17,7 +17,7 @@
   --grey-300: rgb(221, 221, 221);
   --grey-500: #cdcdcd;
   --grey-700: rgb(47, 51, 59);
-  --grey-900: rgb(27, 30, 33);
+  --grey-900: rgb(34, 39, 44);
 
   --accentGreen-100: rgb(171, 255, 175);
   --accentGreen-200: #88D6CA;
@@ -105,6 +105,11 @@ button {
   font: inherit;
   border: none;
   background: none;
+}
+
+a {
+  text-decoration: none;
+  color: var(--primary-700);
 }
 
 main {
@@ -251,6 +256,7 @@ main {
           text-decoration: none;
           padding-bottom: .1em;
           font-weight: 500;
+          font-size: 1.2rem;
         }
 
         a:hover {
@@ -334,6 +340,13 @@ main {
         width: auto;
         height: auto;
         flex-direction: row;
+
+        li {
+
+          a {
+            font-size: 1.02rem;
+          }
+        }
       }
     }
 
