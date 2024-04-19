@@ -5,6 +5,13 @@
     margin: auto;
     padding: 3em 0;
 
+    .matrix-heading {
+        font-size: 1.5rem;
+        text-align: center;
+        margin: 1.5em 0;
+        font-weight: 500;
+    }
+
     #matrix {
         display: grid;
         grid-template-columns: 1fr;
@@ -87,10 +94,10 @@
                         font-size: 1.1rem;
                         // border: 1px solid var(--accentGreen-500);
 
-                        // &:hover {
-                        //     background-color: var(--accentGreen-500);
-                        //     color: var(--grey-100);
-                        // }
+                        &:hover {
+                            background-color: var(--primary-500);
+                            color: var(--grey-100);
+                        }
                     }
                 }
 
@@ -101,8 +108,8 @@
                     text-align: center;
                     margin: auto;
                     margin-bottom: 1.5em;
-                    padding-bottom: .5em;
-                    border-bottom: 2px solid var(--grey-900);
+                    // padding-bottom: .5em;
+                    // border-bottom: 2px solid var(--grey-900);
                     max-width: max-content;
 
                 }
@@ -122,10 +129,11 @@
 
     /* arrows & circle */
     .circle {
-        height: 80px;
-        width: 80px;
+        height: 120px;
+        width: 120px;
+        padding: 1em;
         border-radius: 50%;
-        background-color: var(--accentGreen-900);
+        background-color: var(--primary-900);
         color: var(--grey-100);
         text-align: center;
         display: flex;
@@ -150,22 +158,36 @@
         align-self: end;
     }
 
-    .arrow-left,
-    .arrow-right {
-        transform: rotate(.5turn);
-        background-color: black;
+    .arrow-right,
+    .arrow-left {
         width: 90%;
-        height: 4px;
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
         position: relative;
-        top: 10px;
-        // visibility: collapse;
+        bottom: 1em;
+
+        div {
+            transform: rotate(.5turn);
+            background-color: black;
+            height: 4px;
+        }
+
+        span {
+            font-weight: 500;
+            font-size: 1.4rem;
+        }
+
+        .right {
+            align-self: end;
+        }
     }
+
 }
 
 /* tablet */
 @media screen and (min-width: 900px) {
     .matrix-container {
-
 
         #matrix {
 
