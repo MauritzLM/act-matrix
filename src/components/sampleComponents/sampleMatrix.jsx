@@ -5,6 +5,9 @@ export default function SampleMatrix() {
     return (
         <div className='container'>
             <div className='matrix-container'>
+
+                <h3 className='matrix-heading'>Five senses awareness</h3>
+
                 <div id="matrix">
                     {/* top */}
                     <div className="top">
@@ -15,9 +18,17 @@ export default function SampleMatrix() {
 
                     {/* arrow pointing left and right */}
                     <div className="middle">
-                        <div className="arrow-left"></div>
-                        <div className="circle"><span>Me noticing</span></div>
-                        <div className="arrow-right"></div>
+                        <div className="arrow-left">
+                            <span className='left'>Away</span>
+                            <div></div>
+                        </div>
+
+                        <div className="circle"><span>Me noticing (awareness)</span></div>
+
+                        <div className="arrow-right">
+                            <span className='right'>Toward</span>
+                            <div></div>
+                        </div>
                     </div>
 
                     {/* bottom */}
@@ -27,7 +38,10 @@ export default function SampleMatrix() {
                         <SampleQuadrant title={'What / Who is important?'} id={4} />
                     </div>
                 </div>
+
+                <h3 className='matrix-heading'>Inner experience</h3>
+
             </div>
-        </div>
+        </div >
     )
 }
