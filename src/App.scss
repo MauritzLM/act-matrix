@@ -5,32 +5,19 @@
         /* max-width: 700px; */
         margin: auto;
 
+        h1 {
+            margin-bottom: 1.5em;
+        }
+
         h2 {
             /* margin-top: 0; */
             font-size: 1.7rem;
         }
 
-        h2 + p {
-            font-size: 1.1rem;
-        }
-        
-        dl {
+        .links {
             display: flex;
             flex-direction: column;
-            gap: 2em;
-            padding: 1em;
-            max-width: 800px;
-
-            dt {
-                font-weight: 600;
-                font-size: 1.3rem;
-                
-            }
-
-            dd {
-                margin-left: 0;
-                font-size: 1.1rem;
-            }
+            gap: 1em;
         }
     }
 }
