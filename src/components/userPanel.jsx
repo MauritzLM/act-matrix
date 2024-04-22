@@ -214,7 +214,12 @@ function Userpanel() {
                     edit name
                 </button>
 
-                <p>This is your user panel where you can select or create / delete a matrix instance.</p>
+                <p>This is your user panel.
+                Here you can manage your matrices.
+                Create a new one, edit the name or delete it.</p>
+
+                <p>Remember to save your work!
+                (You need to save each quadrant individually).</p>
             </div>
 
 
