@@ -7,7 +7,7 @@ function Userpanel() {
     const { getAccessTokenSilently, user } = useAuth0();
     const userInfo = useContext(userContext);
 
-    const [update, setUpdate] = useState({ type: '', errorMsg: '', id: '', title: '' });
+    const [update, setUpdate] = useState({ type: '', errorMsg: '', id: '', title: '', label: '' });
 
     // create new matrix function
     const createNewMatrix = async function (event) {
@@ -50,7 +50,7 @@ function Userpanel() {
 
             // update state
             userInfo.setUpdateMade(userInfo.updateMade + 1);
-            setUpdate({ type: '', errorMsg: '', id: '', title: '' });
+            setUpdate({ type: '', errorMsg: '', id: '', title: '', label: '' });
             console.log(message);
         }
         catch (error) {
@@ -100,7 +100,7 @@ function Userpanel() {
 
             // update state
             userInfo.setUpdateMade(userInfo.updateMade + 1);
-            setUpdate({ type: '', errorMsg: '', id: '', title: '' });
+            setUpdate({ type: '', errorMsg: '', id: '', title: '', label: '' });
         }
         catch (error) {
             console.log(error);
@@ -149,7 +149,7 @@ function Userpanel() {
             userInfo.setUpdateMade(userInfo.updateMade + 1);
             // change selected matrix to empty object
             userInfo.changeMatrix({});
-            setUpdate({ type: '', errorMsg: '', id: '', title: '' });
+            setUpdate({ type: '', errorMsg: '', id: '', title: '', label: '' });
         }
         catch (error) {
             console.log(error)
@@ -195,7 +195,7 @@ function Userpanel() {
                 return;
             }
 
-            setUpdate({ type: '', errorMsg: '', id: '', title: '' });
+            setUpdate({ type: '', errorMsg: '', id: '', title: '', label: '' });
             userInfo.setUpdateMade(userInfo.updateMade + 1);
 
         }
@@ -210,7 +210,7 @@ function Userpanel() {
 
             <div className="greeting">
                 <h1>Hi {user?.nickname}</h1>
-                <button title="update display name" onClick={() => setUpdate({ ...update, type: 'profile' })}>
+                <button title="update display name" onClick={() => setUpdate({ ...update, type: 'profile', label: 'new display name' })}>
                     edit name
                 </button>
 
@@ -238,12 +238,12 @@ function Userpanel() {
                             <button title="select instance" className={item.title === userInfo.selectedMatrix.title ? 'cs-active cs-button' : 'cs-button'} onClick={() => userInfo.changeMatrix(item)}>{item.title}</button>
                             {/* edit and delete buttons */}
                             <div>
-                                <button title="edit title" onClick={() => setUpdate({ ...update, type: 'new title', id: item.instance_id })}>
-                                    <img alt="" src='./src/assets/svgs/edit.svg'></img>
+                                <button title="edit title" onClick={() => setUpdate({ ...update, type: 'new title', id: item.instance_id, label: 'new title' })}>
+                                    <img alt="edit" src='./src/assets/svgs/edit.svg' aria-hidden='true'></img>
                                 </button>
 
-                                <button title="delete matrix" onClick={() => setUpdate({ ...update, type: 'delete', id: item.instance_id, title: item.title })}>
-                                    <img alt="" src='./src/assets/svgs/delete.svg'></img>
+                                <button title="delete matrix" onClick={() => setUpdate({ ...update, type: 'delete', id: item.instance_id, title: item.title, label: 'enter the title you want to delete' })}>
+                                    <img alt="delete" src='./src/assets/svgs/delete.svg' aria-hidden='true'></img>
                                 </button>
                             </div>
 
@@ -253,8 +253,7 @@ function Userpanel() {
 
                 {/* if user has less than 3 instances render create new button */}
                 {userInfo.userMatrices.length < 3 && (
-                    <button data-testid="new" title="create new matrix" className="new-btn" onClick={() => setUpdate({ ...update, type: 'new matrix' })}>
-                        {/* <img alt="" src="./src/assets/svgs/add.svg" height='30px' width='30px'></img> */}
+                    <button data-testid="new" title="create new matrix" className="new-btn" onClick={() => setUpdate({ ...update, type: 'new matrix', label: 'new matrix title' })}>
                        Create New
                     </button>
                 )}

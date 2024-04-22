@@ -10,7 +10,7 @@ export default function UpdateForm({ updateObj, setUpdate, updateFunction }) {
             </button>
 
             <form data-testid="form" onSubmit={(e) => updateFunction(e)}>
-                <label htmlFor="title">{updateObj.type}</label>
+                <label htmlFor="title">{updateObj.label}</label>
                 <input type="text" name="title" id="title"></input>
                 <span data-testid="error">{updateObj.errorMsg}</span>
                 
