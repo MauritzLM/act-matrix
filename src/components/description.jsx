@@ -12,7 +12,7 @@ export default function Description() {
             <h2>How to use this site</h2>
 
             <p>You can create an account by clicking on the login button (top right) and choosing the sign up option.</p>
-            <p>Once you are signed up and logged in you can access the dashboard where you can create and manage up to three matrices and use them as you like.</p>
+            <p>Once you are signed up and logged in you can access the dashboard where you can create and manage up to three matrices and use them as you like. Remember to save your work!</p>
 
             <p>Or</p>
 
