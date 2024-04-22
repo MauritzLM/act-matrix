@@ -1,36 +1,33 @@
+import { Link } from "react-router-dom"
 
 export default function Description() {
     return (
         <div className="description-text">
-            <h2>Introduction</h2>
-            <p>The Matrix is a tool designed to help increase awareness, promote acceptance, and guide actions aligned with personal values</p>
+            <h1>ACT Matrix online tool</h1>
 
-            <dl>
-                <dt>Exploration of Here and Now</dt>
-                <dd>Start by exploring the Here and Now quadrant. Become mindful of your present moment experiences, including thoughts, feelings, bodily sensations, and environmental cues.
-                    Emphasize nonjudgmental observation and acceptance of whatever arises.</dd>
+            <h2>What is the ACT Matrix</h2>
+            <p>The Act Matrix is a tool designed to help increase awareness, promote acceptance, and guide actions aligned with personal values</p>
+            <Link to='https://en.wikipedia.org/wiki/Acceptance_and_commitment_therapy' target="_blank">Act wikipedia page (opens in new tab)</Link>
 
-                <dt>Identification of Avoidance Behaviors</dt>
-                <dd>Move on to the Avoidance quadrant. Identify behaviors you engage in to avoid or suppress uncomfortable thoughts, emotions, or sensations.
-                    Examples may include distraction, substance use, or procrastination.</dd>
+            <h2>How to use this site</h2>
 
-                <dt>Recognition of Cognitive Fusion</dt>
-                <dd>Proceed to the Fusion quadrant. Recognize instances of cognitive fusion, where you become entangled with your thoughts and treat them as literal truths.
-                    Observe your thoughts from a perspective of detachment and non-attachment.</dd>
+            <p>You can create an account by clicking on the login button (top right) and choosing the sign up option.</p>
+            <p>Once you are signed up and logged in you can access the dashboard where you can create and manage up to three matrices and use them as you like.</p>
 
-                <dt>Clarification of Values</dt>
-                <dd>Finally, explore the Toward Values quadrant. Clarify personal values and identify actions aligned with those values.
-                    Consider what is truly important to you and how you can live in accordance with your values, even in the presence of difficult thoughts or emotions.</dd>
+            <p>Or</p>
 
-                <dt>Integration and Practice</dt>
-                <dd>Integrate the insights gained from the Matrix into your daily life.
-                    Regular practice of mindfulness, acceptance, and values-based actions.
-                    How will you navigate challenges and opportunities for growth.</dd>
+            <p>You can use the  <Link to='/act-matrix'>sample matrix</Link> which uses browser strorage so the content would be erased if you clear your browser history.</p>
 
-                <dt>Reflection and Adjustment</dt>
-                <dd>Periodically revisit the Matrix to reflect on your progress and make adjustments as needed.
-                    Notice any changes in your awareness, acceptance, and alignment with your values, and to make course corrections as necessary</dd>
-            </dl>
+            <h2>How to use the Matrix</h2>
+
+            <p>Below are links to various examples in using the ACT Matrix. (links will open in a new tab)</p>
+
+            <div className="links">
+                <Link to='https://www.youtube.com/watch?v=cCCSpOtDPV0' target="_blank">Video exercise</Link>
+                <Link to='https://www.du.edu/sport-sense/news/unleashing-power-act-matrix-helpful-tool-coaches-nurture-athletes-mindset-build-psychological-flexibility-and-increase-resilience' target="_blank">College athlete example</Link>
+                <Link to='https://masteraba.com/how-to-use-the-act-matrix-to-reach-your-goals/' target="_blank">Behaviour analyst example</Link>
+            </div>
+
         </div>
     )
 }
