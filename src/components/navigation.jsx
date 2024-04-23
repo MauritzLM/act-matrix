@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import LoginButton from './login';
 import LogoutButton from './logout';
 import { useEffect, useState } from 'react';
+import darkmode from '../assets/svgs/dark_mode.svg';
+import lightmode from '../assets/svgs/light_mode.svg';
 
 
 export default function Nav({ location, theme, switchTheme }) {
@@ -44,7 +46,7 @@ export default function Nav({ location, theme, switchTheme }) {
                 <div className='theme-login-wrapper'>
                     {/* theme toggle */}
                     <button onClick={switchTheme} className='theme-toggle'>
-                        <img src={theme === 'light' ? '../assets/svgs/dark_mode.svg' : '../assets/svgs/light_mode.svg'}></img>
+                        <img src={theme === 'light' ? darkmode : lightmode}></img>
                     </button>
 
                     {!isAuthenticated && (
