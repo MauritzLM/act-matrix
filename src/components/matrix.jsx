@@ -19,7 +19,7 @@ export default function Matrix() {
         return (
             <>
                 <div className="matrix-container">
-                    <h2>Select a matrix or create a new one</h2>
+                    <h2>Select a matrix</h2>
                 </div>
             </>
         )
