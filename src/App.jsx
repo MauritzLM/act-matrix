@@ -8,6 +8,7 @@ import { Route, Routes, useLocation } from 'react-router-dom';
 import Dashboard from './pages/dashboard';
 import Userpanel from './components/userPanel';
 import SampleMatrix from './components/sampleComponents/sampleMatrix';
+import ErrorPage from './pages/error-page';
 
 
 function App() {
@@ -35,7 +36,7 @@ function App() {
               <Dashboard>
                 <Userpanel />
                 <Matrix />
-              </Dashboard>}>
+              </Dashboard>} errorElement={<ErrorPage />}>
             </Route>
           </Routes>
         </main>
