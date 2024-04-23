@@ -44,7 +44,7 @@ export default function Nav({ location, theme, switchTheme }) {
                 <div className='theme-login-wrapper'>
                     {/* theme toggle */}
                     <button onClick={switchTheme} className='theme-toggle'>
-                        <img src={theme === 'light' ? './src/assets/svgs/dark_mode.svg' : './src/assets/svgs/light_mode.svg'}></img>
+                        <img src={theme === 'light' ? '../assets/svgs/dark_mode.svg' : '../assets/svgs/light_mode.svg'}></img>
                     </button>
 
                     {!isAuthenticated && (
