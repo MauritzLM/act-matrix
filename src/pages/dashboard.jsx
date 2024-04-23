@@ -3,9 +3,6 @@ import { useAuth0 } from "@auth0/auth0-react";
 import { useState, useEffect } from "react";
 import { userContext } from "../context/usercontext";
 import "../assets/sass/dashboard.scss";
-// import Userpanel from "../components/userPanel";
-// import Matrix from "../components/matrix";
-
 
 const Dashboard = ({ children }) => {
   const { user, isAuthenticated, isLoading, getAccessTokenSilently } = useAuth0();
@@ -36,7 +33,7 @@ const Dashboard = ({ children }) => {
         });
 
         // fetch all instances for user
-        const userInstancesUrl = `http://localhost:3000/all-matrix`;
+        const userInstancesUrl = `https://actmatrixserver-production.up.railway.app/all-matrix`;
 
         const userInstancesResponse = await fetch(userInstancesUrl, {
           method: 'POST',

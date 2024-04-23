@@ -30,7 +30,7 @@ function Userpanel() {
             });
 
             // request with title and user_id
-            const createResponse = await fetch('http://localhost:3000/new-matrix', {
+            const createResponse = await fetch('https://actmatrixserver-production.up.railway.app/new-matrix', {
                 method: 'POST',
                 headers: {
                     Authorization: `Bearer ${accessToken}`,
@@ -77,7 +77,7 @@ function Userpanel() {
             });
 
             // request with instance id and new title
-            const response = await fetch('http://localhost:3000/update-title', {
+            const response = await fetch('https://actmatrixserver-production.up.railway.app/update-title', {
                 method: 'PUT',
                 headers: {
                     Authorization: `Bearer ${accessToken}`,
@@ -126,7 +126,7 @@ function Userpanel() {
             });
 
             // request with instance id, user id and instance title
-            const response = await fetch('http://localhost:3000/delete-matrix', {
+            const response = await fetch('https://actmatrixserver-production.up.railway.app/delete-matrix', {
                 method: 'POST',
                 headers: {
                     Authorization: `Bearer ${accessToken}`,
@@ -175,7 +175,7 @@ function Userpanel() {
                 },
             });
 
-            const response = await fetch('http://localhost:3000/update-profile', {
+            const response = await fetch('https://actmatrixserver-production.up.railway.app/update-profile', {
                 method: 'POST',
                 headers: {
                     Authorization: `Bearer ${accessToken}`,
