@@ -2,6 +2,8 @@ import { useContext, useState } from "react";
 import { userContext } from "../context/usercontext";
 import { useAuth0 } from "@auth0/auth0-react";
 import UpdateForm from "./updateForm";
+import editIcon from "../assets/svgs/edit.svg";
+import deleteIcon from "../assets/svgs/delete.svg"
 
 function Userpanel() {
     const { getAccessTokenSilently, user } = useAuth0();
@@ -239,11 +241,11 @@ function Userpanel() {
                             {/* edit and delete buttons */}
                             <div>
                                 <button title="edit title" onClick={() => setUpdate({ ...update, type: 'new title', id: item.instance_id, label: 'new title' })}>
-                                    <img alt="edit" src='./src/assets/svgs/edit.svg' aria-hidden='true'></img>
+                                    <img alt="edit" src={editIcon} aria-hidden='true'></img>
                                 </button>
 
                                 <button title="delete matrix" onClick={() => setUpdate({ ...update, type: 'delete', id: item.instance_id, title: item.title, label: 'enter the title you want to delete' })}>
-                                    <img alt="delete" src='./src/assets/svgs/delete.svg' aria-hidden='true'></img>
+                                    <img alt="delete" src={deleteIcon} aria-hidden='true'></img>
                                 </button>
                             </div>
 
