@@ -26,7 +26,7 @@ export default function Quadrant({ title, id, content }) {
             })
 
           // post request to update route containing instance_id, content, quadrant number
-          const response = await fetch('http://localhost:3000/update-matrix', {
+          const response = await fetch('https://actmatrixserver-production.up.railway.app/update-matrix', {
                 method: 'PUT',
                 headers: {
                     Authorization: `Bearer ${accessToken}`,
