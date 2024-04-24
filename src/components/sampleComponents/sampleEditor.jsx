@@ -5,7 +5,7 @@ import ListItem from '@tiptap/extension-list-item'
 import TextStyle from '@tiptap/extension-text-style'
 import { EditorProvider, useCurrentEditor } from '@tiptap/react'
 import StarterKit from '@tiptap/starter-kit'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 
 // svg imports
@@ -16,12 +16,12 @@ import paragraph from '../../assets/svgs/format_paragraph.svg'
 import bulletList from '../../assets/svgs/format_list_bulleted.svg'
 import numberedList from '../../assets/svgs/format_list_numbered.svg'
 import blockquote from '../../assets/svgs/format_quote.svg'
-import h1 from  '../../assets/svgs/format_h1.svg'
-import h2 from  '../../assets/svgs/format_h2.svg'
-import h3 from  '../../assets/svgs/format_h3.svg'
-import h4 from  '../../assets/svgs/format_h4.svg'
-import h5 from  '../../assets/svgs/format_h5.svg'
-import h6 from  '../../assets/svgs/format_h6.svg'
+import h1 from '../../assets/svgs/format_h1.svg'
+import h2 from '../../assets/svgs/format_h2.svg'
+import h3 from '../../assets/svgs/format_h3.svg'
+import h4 from '../../assets/svgs/format_h4.svg'
+import h5 from '../../assets/svgs/format_h5.svg'
+import h6 from '../../assets/svgs/format_h6.svg'
 import horizontalRule from '../../assets/svgs/horizontal_rule.svg'
 import hardBreak from '../../assets/svgs/keyboard_return.svg'
 import undo from '../../assets/svgs/undo.svg'
@@ -266,6 +266,7 @@ const extensions = [
 
 export default function SampleTextEditor({ id, placeholder }) {
   const [editorContent, setEditorContent] = useState("");
+  const [savedText, setSavedText] = useState("save");
 
   // get local storage if available
   const content = window.localStorage.getItem(id) || `<h3>${placeholder}</h3>`
@@ -273,13 +274,20 @@ export default function SampleTextEditor({ id, placeholder }) {
   // save content to local storage
   const save = () => {
     window.localStorage.setItem(id, editorContent)
+
+    setSavedText("saved")
   }
+
+  // change save button text back
+  useEffect(() => {
+    setTimeout(() => setSavedText('save'), 3000)
+  }, [savedText])
 
   return (
     <>
       <EditorProvider slotBefore={<MenuBar />} extensions={extensions} onUpdate={({ editor }) => setEditorContent(editor.getHTML())} content={content}></EditorProvider>
 
-      <button className='cs-button' onClick={save}>Save</button>
+      <button className='cs-button' onClick={save}>{savedText}</button>
     </>
   )
 }
