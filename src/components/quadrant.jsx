@@ -39,9 +39,6 @@ export default function Quadrant({ title, id, content }) {
             
             setSavedText('saved');
 
-
-            console.log(message);
-
         }
         catch (error) {
             console.log(error)

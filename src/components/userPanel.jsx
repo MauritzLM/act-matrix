@@ -54,7 +54,7 @@ function Userpanel() {
             // update state
             userInfo.setUpdateMade(userInfo.updateMade + 1);
             setUpdate({ type: '', errorMsg: '', id: '', title: '', label: '' });
-            console.log(message);
+
         }
         catch (error) {
             console.log(error);
@@ -98,8 +98,6 @@ function Userpanel() {
                 console.log(message.errors[0].msg);
                 return;
             }
-
-            console.log(message);
 
             // update state
             userInfo.setUpdateMade(userInfo.updateMade + 1);
@@ -147,7 +145,6 @@ function Userpanel() {
                 return;
             }
 
-            console.log(message)
             // update state
             userInfo.setUpdateMade(userInfo.updateMade + 1);
             // change selected matrix to empty object
@@ -188,8 +185,6 @@ function Userpanel() {
             });
 
             const message = await response.json();
-
-            console.log(message)
 
             // validation errors
             if (message.errors) {
