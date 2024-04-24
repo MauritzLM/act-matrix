@@ -19,7 +19,6 @@
                 position: relative;
 
                 h1 {
-                    color: var(--primary-700);
                     margin: 0;
                 }
 
@@ -66,7 +65,7 @@
                         box-shadow: none;
 
                         .cs-button {
-                            color: var(--primary-300);
+                            color: var(--grey-100);
                         }
                     }
 
@@ -88,6 +87,7 @@
                             font: inherit;
                             font-size: 1.2rem;
                             color: var(--bodyTextColor);
+                            background-color: var(--primary-500);
                             border-radius: 20px;
 
                             &:hover {
@@ -107,9 +107,12 @@
                 }
 
                 .new-btn {
-                    color: var(--primary-300);
+                    background-color: var(--secondary-500);
                     margin-left: .7em;
                     font-weight: 500;
+                    border-radius: 50%;
+                    padding: .8em;
+                    display: flex;
                 }
             }
 
@@ -120,7 +123,7 @@
                 // position: absolute;
                 // top: 10px;
                 // left: 40%;
-                // background-color: var(--bodyBackgroundColor);
+                background-color: var(--bodyBackgroundColor);
                 padding: .5em;
                 box-shadow: 2px 2px 5px var(--formBoxShadowColor);
 
@@ -156,11 +159,11 @@
                     }
 
                     span {
-                        color: rgb(238, 67, 67);
+                        color: #B00020;
                     }
 
                     p {
-                        color: rgb(236, 28, 28);
+                        color: #B00020;
                         font-weight: 500;
                         font-size: 1.2rem;
                     }
@@ -204,7 +207,7 @@
                 // width: 90%;
                 border-radius: 10px;
                 margin: auto;
-                margin-top: 3em;
+                margin-top: 5em;
                 padding: 4em;
 
             }
@@ -216,10 +219,10 @@
     #main {
         .container {
             .user-panel {
-                row-gap: 1em;
+                row-gap: 2em;
                 grid-template-columns: 1fr 1fr;
                 grid-template-areas: "text userlist"
-                    "text form";
+                    "form form";
 
                 .greeting {
                     grid-area: text;
