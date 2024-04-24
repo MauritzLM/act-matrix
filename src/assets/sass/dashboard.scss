@@ -117,7 +117,7 @@
 
             #update-form {
                 width: 100%;
-                max-width: 400px;
+                max-width: 350px;
                 border-radius: 10px;
                 // position: absolute;
                 // top: 10px;
@@ -128,7 +128,6 @@
 
                 .close-btn {
                     float: right;
-
                 }
 
                 form {
@@ -208,6 +207,10 @@
                 margin: auto;
                 margin-top: 5em;
                 padding: 4em;
+
+                #update-form {
+                    max-width: 400px;
+                }
 
             }
         }
