@@ -4,6 +4,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import UpdateForm from "./updateForm";
 import editIcon from "../assets/svgs/edit.svg";
 import deleteIcon from "../assets/svgs/delete.svg"
+import addIcon from "../assets/svgs/add.svg";
 
 function Userpanel() {
     const { getAccessTokenSilently, user } = useAuth0();
@@ -256,7 +257,7 @@ function Userpanel() {
                 {/* if user has less than 3 instances render create new button */}
                 {userInfo.userMatrices.length < 3 && (
                     <button data-testid="new" title="create new matrix" className="new-btn" onClick={() => setUpdate({ ...update, type: 'new matrix', label: 'new matrix title' })}>
-                       Create New
+                       <img alt="add" src={addIcon} aria-hidden="true" height="20px" width="20px"></img>
                     </button>
                 )}
 
