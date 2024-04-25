@@ -15,7 +15,7 @@
 
 
   --secondary-500: #7973b5;
-  
+
   --grey-50: #FAFAFA;
   --grey-100: #f5f5f5;
   --grey-200: #EEEEEE;
@@ -35,12 +35,12 @@
   --headerFontSize: clamp(1.9375rem, 4.2vw, 3.5rem);
 
   // background and text
-  --bodyBackgroundColor: white;
+  --bodyBackgroundColor: #fafafa;
   --bodyTextColor: black;
-  --userPanelBackground: orange;
-  --selectedBackground: orange;
-  --borderColor: grey;
-  --navBackground: grey;
+  --userPanelBackground: #f5f5f5;
+  --selectedBackground: #00838f;
+  --borderColor: #bdbdbd;
+  --navBackground: #00838f;
 
   // matrix colors
   --matrixBackground: orange;
@@ -51,6 +51,7 @@
   --editorColor: white;
 
   --boxShadowColor: gray;
+  --boxShadowColor2: #1f5e58;
   --formBoxShadowColor: gray;
 }
 
@@ -63,6 +64,7 @@
   --matrixText: var(--grey-900);
   --editorButton: #fff;
   --boxShadowColor: rgba(221, 221, 221, .8);
+  --boxShadowColor2: #1f5e58;
   --formBoxShadowColor: var(--grey-500);
   --editorColor: #fff;
   --userPanelBackground: #fff;
@@ -79,6 +81,7 @@
   --matrixText: var(--grey-100);
   --editorButton: var(--grey-300);
   --boxShadowColor: var(--grey-900);
+  --boxShadowColor2: #131313;
   --formBoxShadowColor: var(--grey-900);
   --editorColor: #171a1c;
   --userPanelBackground: var(--grey-800);
@@ -124,7 +127,7 @@ a {
 }
 
 main {
-  padding-top: 6.8em;
+  padding-top: 4.5em;
 }
 
 /* NAV STYLES */
@@ -133,7 +136,6 @@ main {
   justify-content: space-between;
   gap: 1em;
   padding: 1em;
-  // position: relative;
   z-index: 10000;
   position: fixed;
   width: 100%;
@@ -282,34 +284,6 @@ main {
     }
   }
 
-  // ul {
-  //   display: flex;
-  //   gap: 1.5em;
-  //   list-style: none;
-  //   padding: 0;
-
-  //   li {
-
-  //     a {
-  //       border: none;
-  //       font-weight: 500;
-  //       text-decoration: none;
-  //       color: var(--bodyTextColor);
-  //       padding-bottom: .1em;
-  //     }
-
-  //     .cs-active {
-  //       border-bottom: 2px solid var(--primary-700);
-  //     }
-  //   }
-  //}
-
-  // .theme-toggle {
-  //   position: absolute;
-  //   right: 8em;
-  //   top: 2.8em;
-  // }
-
   .theme-login-wrapper {
     display: flex;
     align-items: center;
@@ -322,6 +296,7 @@ main {
     .cs-button {
       border: none;
       background-color: var(--primary-400);
+      box-shadow: 2px 2px 5px var(--boxShadowColor2);
       padding: .5em .7em;
       font-weight: 500;
       text-decoration: none;
@@ -335,7 +310,7 @@ main {
 /* Desktop nav */
 @media screen and (min-width: 700px) {
   #nav {
-    padding: 2em 3em;
+    padding: 1.5em 3em;
 
     .ul-wrapper {
       position: static;
@@ -364,5 +339,12 @@ main {
     .cs-toggle {
       display: none;
     }
+  }
+}
+
+/* Desktop general styles*/
+@media screen and (min-width: 900px) {
+  #main {
+    padding-top: 6.5em;
   }
 }
