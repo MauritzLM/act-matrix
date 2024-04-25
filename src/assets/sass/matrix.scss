@@ -17,8 +17,6 @@
         grid-template-columns: 1fr;
         grid-template-rows: minmax(400px, auto) 100px minmax(400px, auto);
         justify-items: center;
-        /* overflow: scroll; */
-        // padding: 1em;
         width: 90%;
         gap: 4em;
 
@@ -27,7 +25,6 @@
             display: grid;
             align-items: center;
             justify-items: center;
-            // grid-template-columns: minmax(300px, 600px) 100px minmax(300px, 600px);
             grid-template-columns: minmax(300px, 700px);
             gap: 1em;
 
@@ -37,8 +34,6 @@
 
 
                 .quadrant-container {
-                    // border: 1px solid var(--borderColor);
-                    // padding: 1em;
                     border-radius: 5px;
                     background-color: var(--userPanelBackground);
                     box-shadow: 2px 2px 5px var(--boxShadowColor);
@@ -51,7 +46,6 @@
                         border-radius: 5px;
                         display: grid;
                         grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-                        // grid-template-columns: 1fr;
                         column-gap: 1em;
 
                         .button-group {
@@ -60,14 +54,10 @@
                             gap: .8em;
                             margin-bottom: .5em;
                             padding-bottom: .5em;
-                            // border-bottom: 1px solid var(--grey-100);
-
 
                             button {
                                 background-color: var(--editorButton);
-                                // box-shadow: 0px 0px 19px var(--grey-200);
                                 font: inherit;
-                                // border: 1px solid transparent;
                                 border-radius: 5px;
                                 padding: .2em .4em;
                                 color: var(--primary-900);
@@ -76,9 +66,6 @@
 
                             .is-active {
                                 background-color: var(--primary-400);
-                                // color: var(--grey-900);
-                                // box-shadow: 0px;
-                                // border-color: var(--primary-700);
                             }
                         }
                     }
@@ -107,8 +94,6 @@
                     margin: auto;
                     margin-bottom: 1.5em;
                     margin-top: 1em;
-                    // padding-bottom: .5em;
-                    // border-bottom: 2px solid var(--grey-900);
                     max-width: max-content;
 
                 }
@@ -120,11 +105,9 @@
             align-items: center;
             justify-items: center;
             grid-template-columns: minmax(100px, 700px) 100px minmax(100px, 700px);
-            // grid-template-columns: minmax(300px, 600px);
             gap: 1em;
         }
     }
-
 
     /* arrows & circle */
     .circle {
@@ -182,7 +165,6 @@
             align-self: end;
         }
     }
-
 }
 
 /* tablet */

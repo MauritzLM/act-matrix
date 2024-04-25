@@ -119,9 +119,6 @@
                 width: 100%;
                 max-width: 350px;
                 border-radius: 10px;
-                // position: absolute;
-                // top: 10px;
-                // left: 40%;
                 background-color: var(--bodyBackgroundColor);
                 padding: .5em;
                 box-shadow: 2px 2px 5px var(--formBoxShadowColor);
@@ -138,12 +135,9 @@
                     padding: 2em 3em;
                     padding-top: 0;
 
-
-
                     label {
                         font-weight: 500;
                         font-size: 1.2rem;
-                        // color: var(--primary-200);
                         text-transform: capitalize;
                     }
 
@@ -202,7 +196,6 @@
         .container {
 
             .user-panel {
-                // width: 90%;
                 border-radius: 10px;
                 margin: auto;
                 margin-top: 5em;
