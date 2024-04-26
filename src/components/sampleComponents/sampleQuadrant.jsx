@@ -24,7 +24,7 @@ export default function SampleQuadrant({ title, id }) {
 
     return (
             <div className="quadrant">
-                <label>{title}</label>
+                <label id={`q${id}`}>{title}</label>
                 <div className="quadrant-container">
                     <SampleTextEditor id={id} placeholder={placeholder} />
                 </div>

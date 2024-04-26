@@ -54,8 +54,8 @@ export default function Quadrant({ title, id, content }) {
     return (
         <>
             <div className="quadrant">
-                <label>{title}</label>
-                <div id={`q${id}`} className="quadrant-container">
+                <label id={`q${id}`}>{title}</label>
+                <div className="quadrant-container">
                     <TextEditor editorContent={editorContent} setEditorContent={setEditorContent} initialContent={content} />
                     <button data-testid="save" className='cs-button' onClick={handleSave}>{savedText}</button>
                 </div>

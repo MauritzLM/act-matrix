@@ -269,7 +269,7 @@ export default function SampleTextEditor({ id, placeholder }) {
   const [savedText, setSavedText] = useState("save");
 
   // get local storage if available
-  const content = window.localStorage.getItem(id) || `<h3>${placeholder}</h3>`
+  const content = window.localStorage.getItem(id) || `<h4>${placeholder}</h4>`
 
   // save content to local storage
   const save = () => {
