@@ -6,13 +6,15 @@
     padding: 3em 0;
 
     .matrix-heading {
-        font-size: 1.5rem;
+        font-size: 1.2rem;
         text-align: center;
-        margin: 1.5em 0;
         font-weight: 500;
+        margin-bottom: 0;
+        margin-top: 2em;
     }
 
     #quadrant-skip {
+        margin-bottom: 4em;
 
         div {
             display: flex;
@@ -20,7 +22,8 @@
             gap: 1em;
 
             a {
-                font-size: 1.2rem;
+                font-size: 1.1rem;
+                font-weight: 500;
             }
         }
     }
@@ -101,10 +104,10 @@
                 label {
                     display: block;
                     font-weight: 600;
-                    font-size: 1.5rem;
+                    font-size: 1.4rem;
                     text-align: center;
                     margin: auto;
-                    margin-bottom: 1.5em;
+                    margin-bottom: 1em;
                     margin-top: 1em;
                     max-width: max-content;
 
@@ -170,12 +173,20 @@
 
         span {
             font-weight: 500;
-            font-size: 1.4rem;
+            font-size: 1.2rem;
         }
 
         .right {
             align-self: end;
         }
+    }
+
+    // skip to top
+    .top {
+        font-size: 1.2rem;
+        font-weight: 500;
+        display: block;
+        margin-top: 2em;
     }
 }
 
@@ -184,10 +195,6 @@
 /* desktop */
 @media screen and (min-width: 900px) {
     .matrix-container {
-
-        #quadrant-skip {
-            display: none;
-        }
 
         #matrix {
             display: grid;
