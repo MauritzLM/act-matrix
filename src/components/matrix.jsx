@@ -2,7 +2,7 @@ import Quadrant from "./quadrant";
 import '../assets/sass/matrix.scss';
 import { useContext } from "react";
 import { userContext } from "../context/usercontext";
-import { Link } from "react-router-dom";
+import { HashLink } from "react-router-hash-link";
 
 // sample content
 const quadrantContent = {
@@ -38,10 +38,10 @@ export default function Matrix() {
                 <div id="quadrant-skip">
                     <h3>Where would you like to start?</h3>
                     <div>
-                        <Link to="#q1">quadrant1</Link>
-                        <Link to="#q2">quadrant2</Link>
-                        <Link to="#q3">quadrant3</Link>
-                        <Link to="#q4">quadrant4</Link>
+                        <HashLink to="#q1">quadrant1</HashLink>
+                        <HashLink to="#q2">quadrant2</HashLink>
+                        <HashLink to="#q3">quadrant3</HashLink>
+                        <HashLink to="#q4">quadrant4</HashLink>
                     </div>
                 </div>
 
@@ -76,7 +76,7 @@ export default function Matrix() {
                     </div>
                 </div>
 
-                <Link to="#quadrant-skip">to top</Link>
+                <HashLink to="#quadrant-skip">to top</HashLink>
                 <h3 className="matrix-heading">Inner experience</h3>
             </div>
         </>
