@@ -2,6 +2,7 @@ import Quadrant from "./quadrant";
 import '../assets/sass/matrix.scss';
 import { useContext } from "react";
 import { userContext } from "../context/usercontext";
+import { Link } from "react-router-dom";
 
 // sample content
 const quadrantContent = {
@@ -29,7 +30,20 @@ export default function Matrix() {
         <>
             <div className="matrix-container">
 
+                {/* add skip to quadrant for mobile* */}
+
+
                 <h2 className="title">{userInfo.selectedMatrix.title}</h2>
+
+                <div id="quadrant-skip">
+                    <h3>Where would you like to start?</h3>
+                    <div>
+                        <Link to="#q1">quadrant1</Link>
+                        <Link to="#q2">quadrant2</Link>
+                        <Link to="#q3">quadrant3</Link>
+                        <Link to="#q4">quadrant4</Link>
+                    </div>
+                </div>
 
                 <h3 className="matrix-heading">Five senses awareness</h3>
 
@@ -62,6 +76,7 @@ export default function Matrix() {
                     </div>
                 </div>
 
+                <Link to="#quadrant-skip">to top</Link>
                 <h3 className="matrix-heading">Inner experience</h3>
             </div>
         </>
