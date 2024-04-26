@@ -1,10 +1,21 @@
 import SampleQuadrant from './sampleQuadrant'
 import '../../assets/sass/matrix.scss'
+import { HashLink } from 'react-router-hash-link'
 
 export default function SampleMatrix() {
     return (
         <div className='container'>
-            <div className='matrix-container'>
+            <div id="top" className='matrix-container'>
+
+                <div id="quadrant-skip">
+                    <h3>Where would you like to start?</h3>
+                    <div>
+                        <HashLink smooth to="#q1">Actions that move us away</HashLink>
+                        <HashLink smooth to="#q2">Committed Actions</HashLink>
+                        <HashLink smooth to="#q3">What gets in the way?</HashLink>
+                        <HashLink smooth to="#q4">What / Who is important?</HashLink>
+                    </div>
+                </div>
 
                 <h3 className='matrix-heading'>Five senses awareness</h3>
 
@@ -41,7 +52,9 @@ export default function SampleMatrix() {
 
                 <h3 className='matrix-heading'>Inner experience</h3>
 
+                <HashLink className="top" smooth to="#top">back to top</HashLink>
+
             </div>
-        </div >
+        </div>
     )
 }

@@ -6,10 +6,10 @@ import { HashLink } from "react-router-hash-link";
 
 // sample content
 const quadrantContent = {
-    1: '<h3>How am I responding/reacting to my inner experience?</h3>',
-    2: '<h3>What can I do to move toward what matters?</h3>',
-    3: '<h3>What inner experience is showing up for me?</h3>',
-    4: '<h3>What matters to me?</h3>'
+    1: '<h4>How am I responding/reacting to my inner experience?</h4>',
+    2: '<h4>What can I do to move toward what matters?</h4>',
+    3: '<h4>What inner experience is showing up for me?</h4>',
+    4: '<h4>What matters to me?</h4>'
 };
 
 export default function Matrix() {
@@ -28,7 +28,7 @@ export default function Matrix() {
 
     return (
         <>
-            <div className="matrix-container">
+            <div id="top" className="matrix-container">
 
                 {/* add skip to quadrant for mobile* */}
 
@@ -38,10 +38,10 @@ export default function Matrix() {
                 <div id="quadrant-skip">
                     <h3>Where would you like to start?</h3>
                     <div>
-                        <HashLink to="#q1">quadrant1</HashLink>
-                        <HashLink to="#q2">quadrant2</HashLink>
-                        <HashLink to="#q3">quadrant3</HashLink>
-                        <HashLink to="#q4">quadrant4</HashLink>
+                        <HashLink smooth to="#q1">Actions that move us away</HashLink>
+                        <HashLink smooth to="#q2">Committed Actions</HashLink>
+                        <HashLink smooth to="#q3">What gets in the way?</HashLink>
+                        <HashLink smooth to="#q4">What / Who is important?</HashLink>
                     </div>
                 </div>
 
@@ -76,8 +76,10 @@ export default function Matrix() {
                     </div>
                 </div>
 
-                <HashLink to="#quadrant-skip">to top</HashLink>
                 <h3 className="matrix-heading">Inner experience</h3>
+
+                <HashLink className="top" smooth to="#top">back to top</HashLink>
+
             </div>
         </>
     )
