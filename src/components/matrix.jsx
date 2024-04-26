@@ -78,7 +78,7 @@ export default function Matrix() {
 
                 <h3 className="matrix-heading">Inner experience</h3>
 
-                <HashLink className="top" smooth to="#top">back to top</HashLink>
+                <HashLink className="scroll-top" smooth to="#top">back to top</HashLink>
 
             </div>
         </>

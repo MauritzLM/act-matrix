@@ -75,8 +75,9 @@
                                 font: inherit;
                                 border-radius: 5px;
                                 padding: .2em .4em;
-                                color: var(--primary-900);
+                                color: var(--grey-900);
                                 height: fit-content;
+                                font-weight: 600;
                             }
 
                             .is-active {
@@ -182,7 +183,7 @@
     }
 
     // skip to top
-    .top {
+    .scroll-top {
         font-size: 1.2rem;
         font-weight: 500;
         display: block;
