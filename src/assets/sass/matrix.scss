@@ -18,6 +18,10 @@
             display: flex;
             flex-direction: column;
             gap: 1em;
+
+            a {
+                font-size: 1.2rem;
+            }
         }
     }
 
@@ -180,14 +184,15 @@
 /* desktop */
 @media screen and (min-width: 900px) {
     .matrix-container {
+
+        #quadrant-skip {
+            display: none;
+        }
+
         #matrix {
             display: grid;
             grid-template-columns: 1fr;
             grid-template-rows: minmax(400px, auto) 100px minmax(400px, auto);
-
-            #quadrant-skip {
-                display: none;
-            }
 
             .top,
             .middle,
