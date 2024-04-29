@@ -30,11 +30,9 @@ export default function Matrix() {
         <>
             <div id="top" className="matrix-container">
 
-                {/* add skip to quadrant for mobile* */}
-
-
                 <h2 className="title">{userInfo.selectedMatrix.title}</h2>
 
+               {/* skip to quadrant links */}
                 <div id="quadrant-skip">
                     <h3>Where would you like to start?</h3>
                     <div>
@@ -78,6 +76,7 @@ export default function Matrix() {
 
                 <h3 className="matrix-heading">Inner experience</h3>
 
+                {/* scroll to top */}
                 <HashLink className="scroll-top" smooth to="#top">back to top</HashLink>
 
             </div>
