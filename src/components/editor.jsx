@@ -16,12 +16,12 @@ import paragraph from '../assets/svgs/format_paragraph.svg'
 import bulletList from '../assets/svgs/format_list_bulleted.svg'
 import numberedList from '../assets/svgs/format_list_numbered.svg'
 import blockquote from '../assets/svgs/format_quote.svg'
-import h1 from  '../assets/svgs/format_h1.svg'
-import h2 from  '../assets/svgs/format_h2.svg'
-import h3 from  '../assets/svgs/format_h3.svg'
-import h4 from  '../assets/svgs/format_h4.svg'
-import h5 from  '../assets/svgs/format_h5.svg'
-import h6 from  '../assets/svgs/format_h6.svg'
+import h1 from '../assets/svgs/format_h1.svg'
+import h2 from '../assets/svgs/format_h2.svg'
+import h3 from '../assets/svgs/format_h3.svg'
+import h4 from '../assets/svgs/format_h4.svg'
+import h5 from '../assets/svgs/format_h5.svg'
+import h6 from '../assets/svgs/format_h6.svg'
 import horizontalRule from '../assets/svgs/horizontal_rule.svg'
 import hardBreak from '../assets/svgs/keyboard_return.svg'
 import undo from '../assets/svgs/undo.svg'
@@ -263,21 +263,21 @@ const extensions = [
 ]
 
 
-export default function TextEditor({ setEditorContent, initialContent }) {
+export default function TextEditor({ id, currentContent, setCurrentContent }) {
 
   const editor = useEditor({
     extensions,
-    content: initialContent,
-    onUpdate: ({ editor }) => setEditorContent(editor.getHTML())
+    content: currentContent[`quadrant-${id}`],
+    onUpdate: ({ editor }) => setCurrentContent({ ...currentContent, [`quadrant_${id}`]: editor.getHTML() }),
   });
 
   // set content to intial content &
   // everytime intitial content changes, set editor content to initial content
   useEffect(() => {
     if (editor && !editor.isDestroyed) {
-      editor?.commands.setContent(initialContent);
+      editor?.commands.setContent(currentContent[`quadrant_${id}`], false, { preserveWhitespace: "full" });
     }
-  }, [initialContent, editor]);
+  }, [currentContent, id, editor]);
 
   return (
     <>
@@ -288,9 +288,9 @@ export default function TextEditor({ setEditorContent, initialContent }) {
 }
 
 TextEditor.propTypes = {
-  editorContent: PropTypes.string,
-  setEditorContent: PropTypes.func,
-  initialContent: PropTypes.string
+  id: PropTypes.number,
+  currentContent: PropTypes.object,
+  setCurrentContent: PropTypes.func
 };
 
 MenuBar.propTypes = {
