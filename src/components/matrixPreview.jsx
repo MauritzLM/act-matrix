@@ -10,7 +10,7 @@ export default function MatrixPreview({ currentContent }) {
         <div className="quadrant-1">
           <h3 className="heading">Actions that move us away</h3>
           {parse(currentContent.quadrant_1)}
-          <span className="label">away</span>
+          <span className="label">Away</span>
 
           {/* middle circle */}
           <div className="awareness">
