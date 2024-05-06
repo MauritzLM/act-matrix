@@ -1,8 +1,9 @@
 import Quadrant from "./quadrant";
 import '../assets/sass/matrix.scss';
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { userContext } from "../context/usercontext";
 import { HashLink } from "react-router-hash-link";
+import MatrixPreview from "./matrixPreview";
 
 // sample content
 const quadrantContent = {
@@ -15,6 +16,27 @@ const quadrantContent = {
 export default function Matrix() {
     const userInfo = useContext(userContext);
 
+    // current matrix (all quadrants) state
+    const [currentContent, setCurrentContent] = useState({
+        quadrant_1: !userInfo.selectedMatrix.quadrant_1 ? quadrantContent[1] : userInfo.selectedMatrix.quadrant_1,
+        quadrant_2: !userInfo.selectedMatrix.quadrant_2 ? quadrantContent[2] : userInfo.selectedMatrix.quadrant_2,
+        quadrant_3: !userInfo.selectedMatrix.quadrant_3 ? quadrantContent[3] : userInfo.selectedMatrix.quadrant_3,
+        quadrant_4: !userInfo.selectedMatrix.quadrant_4 ? quadrantContent[4] : userInfo.selectedMatrix.quadrant_4
+    })
+
+    // show preview state
+    const [preview, setPreview] = useState(false)
+
+    // update state when selected matrix changes
+    useEffect(() => {
+        setCurrentContent({
+            quadrant_1: !userInfo.selectedMatrix.quadrant_1 ? quadrantContent[1] : userInfo.selectedMatrix.quadrant_1,
+            quadrant_2: !userInfo.selectedMatrix.quadrant_2 ? quadrantContent[2] : userInfo.selectedMatrix.quadrant_2,
+            quadrant_3: !userInfo.selectedMatrix.quadrant_3 ? quadrantContent[3] : userInfo.selectedMatrix.quadrant_3,
+            quadrant_4: !userInfo.selectedMatrix.quadrant_4 ? quadrantContent[4] : userInfo.selectedMatrix.quadrant_4
+        })
+    }, [userInfo.selectedMatrix])
+
     // conditional rendering when no matrix selected
     if (!Object.keys(userInfo.selectedMatrix).length) {
         return (
@@ -26,13 +48,26 @@ export default function Matrix() {
         )
     }
 
+    // if preview state return preview component
+    if (preview) {
+        return (
+            <>
+                <div className="matrix-container">
+                    <button className="back-btn" onClick={() => setPreview(false)}>Go back</button>
+                    <h2 className="preview-title">{userInfo.selectedMatrix.title}</h2>
+                    <MatrixPreview currentContent={currentContent} />
+                </div>
+            </>
+        )
+    }
+
     return (
         <>
             <div id="top" className="matrix-container">
 
                 <h2 className="title">{userInfo.selectedMatrix.title}</h2>
 
-               {/* skip to quadrant links */}
+                {/* skip to quadrant links */}
                 <div id="quadrant-skip">
                     <h3>Where would you like to start?</h3>
                     <div>
@@ -41,6 +76,9 @@ export default function Matrix() {
                         <HashLink smooth to="#q3">What gets in the way?</HashLink>
                         <HashLink smooth to="#q4">What / Who is important?</HashLink>
                     </div>
+
+                    {/* show preview */}
+                    <button className="preview-btn" onClick={() => setPreview(true)}>preview</button>
                 </div>
 
                 <h3 className="matrix-heading">Five senses awareness</h3>
@@ -48,9 +86,9 @@ export default function Matrix() {
                 <div id="matrix">
                     {/* top */}
                     <div className="top">
-                        <Quadrant title={'Actions that move us away'} id={1} content={!userInfo.selectedMatrix.quadrant_1 ? quadrantContent[1] : userInfo.selectedMatrix.quadrant_1} />
+                        <Quadrant title={'Actions that move us away'} id={1} currentContent={currentContent} setCurrentContent={setCurrentContent} />
                         <div className="arrow-up"></div>
-                        <Quadrant title={'Committed Actions'} id={2} content={!userInfo.selectedMatrix.quadrant_2 ? quadrantContent[2] : userInfo.selectedMatrix.quadrant_2} />
+                        <Quadrant title={'Committed Actions'} id={2} currentContent={currentContent} setCurrentContent={setCurrentContent} />
                     </div>
 
                     {/* arrow pointing left and right */}
@@ -68,9 +106,9 @@ export default function Matrix() {
 
                     {/* bottom */}
                     <div className="bottom">
-                        <Quadrant title={'What gets in the way?'} id={3} content={!userInfo.selectedMatrix.quadrant_3 ? quadrantContent[3] : userInfo.selectedMatrix.quadrant_3} />
+                        <Quadrant title={'What gets in the way?'} id={3} currentContent={currentContent} setCurrentContent={setCurrentContent} />
                         <div className="arrow-down"></div>
-                        <Quadrant title={'What / Who is important?'} id={4} content={!userInfo.selectedMatrix.quadrant_4 ? quadrantContent[4] : userInfo.selectedMatrix.quadrant_4} />
+                        <Quadrant title={'What / Who is important?'} id={4} currentContent={currentContent} setCurrentContent={setCurrentContent} />
                     </div>
                 </div>
 
