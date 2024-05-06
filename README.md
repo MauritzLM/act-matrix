@@ -19,14 +19,14 @@ Users can use the sample matrix which uses browser storage or they can create an
 ## editor
 
 - [tiptap](https://tiptap.dev/)
-- I had some difficulty getting the correct content to display in the editor when changing matrix instance, this useeffect used in the editor component fixed my issue.
+- I had some difficulty getting the correct content to display in the editor when changing matrix instance, this useeffect used in the editor component fixed my issue. It also solved an issue with spacebar not working in the editor.
 
 ```
  useEffect(() => {
     if (editor && !editor.isDestroyed) {
-      editor?.commands.setContent(initialContent);
+      editor?.commands.setContent(currentContent[`quadrant_${id}`], false, { preserveWhitespace: "full" });
     }
-  }, [initialContent, editor]);
+  }, [currentContent, id, editor]);
 
 ```
 
