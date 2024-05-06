@@ -79,7 +79,7 @@ function Userpanel() {
                 },
             });
 
-            // request with instance id and new title
+            // request with instance id and new title 
             const response = await fetch('https://actmatrixserver-production.up.railway.app/update-title', {
                 method: 'PUT',
                 headers: {
@@ -275,7 +275,6 @@ function Userpanel() {
             )}
         </div>
     )
-
 }
 
 export default Userpanel;

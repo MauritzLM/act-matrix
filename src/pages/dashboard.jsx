@@ -19,6 +19,7 @@ const Dashboard = ({ children }) => {
 
     // async function to get user data
     const getUserMetadata = async () => {
+      
       const audience = import.meta.env.VITE_AUTH0_API_AUDIENCE;
 
       try {
@@ -32,7 +33,7 @@ const Dashboard = ({ children }) => {
           },
         });
 
-        // fetch all instances for user
+        // fetch all instances for user 
         const userInstancesUrl = `https://actmatrixserver-production.up.railway.app/all-matrix`;
 
         const userInstancesResponse = await fetch(userInstancesUrl, {
