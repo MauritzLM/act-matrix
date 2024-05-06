@@ -1,14 +1,13 @@
 // quadrant component
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 import TextEditor from './editor';
 import { useState, useContext, useEffect } from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
 import { userContext } from '../context/usercontext';
 
-export default function Quadrant({ title, id, content }) {
+export default function Quadrant({ title, id, currentContent, setCurrentContent }) {
     const userInfo = useContext(userContext);
     const { getAccessTokenSilently } = useAuth0();
-    const [editorContent, setEditorContent] = useState(content);
     const [savedText, setSavedText] = useState('save');
 
     // function to save quadrant content in db
@@ -25,14 +24,14 @@ export default function Quadrant({ title, id, content }) {
                 },
             })
 
-            // post request to update route containing instance_id, content, quadrant number
+            // post request to update route containing instance_id, content, quadrant number 
             const response = await fetch('https://actmatrixserver-production.up.railway.app/update-matrix', {
                 method: 'PUT',
                 headers: {
                     Authorization: `Bearer ${accessToken}`,
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ instance_id: userInfo.selectedMatrix.instance_id, quadrant_content: editorContent, quadrant_number: id })
+                body: JSON.stringify({ instance_id: userInfo.selectedMatrix.instance_id, quadrant_content: currentContent[`quadrant_${id}`], quadrant_number: id })
             });
 
             const message = await response.json();
@@ -56,7 +55,7 @@ export default function Quadrant({ title, id, content }) {
             <div className="quadrant">
                 <label id={`q${id}`}>{title}</label>
                 <div className="quadrant-container">
-                    <TextEditor editorContent={editorContent} setEditorContent={setEditorContent} initialContent={content} />
+                    <TextEditor id={id} currentContent={currentContent} setCurrentContent={setCurrentContent} />
                     <button data-testid="save" className='cs-button' onClick={handleSave}>{savedText}</button>
                 </div>
 
@@ -68,5 +67,6 @@ export default function Quadrant({ title, id, content }) {
 Quadrant.propTypes = {
     title: PropTypes.string,
     id: PropTypes.number,
-    content: PropTypes.string
+    currentContent: PropTypes.object,
+    setCurrentContent: PropTypes.func
 };
