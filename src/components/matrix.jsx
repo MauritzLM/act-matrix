@@ -7,7 +7,7 @@ import MatrixPreview from "./matrixPreview";
 
 // sample content
 const quadrantContent = {
-    1: '<h4>How am I responding/reacting to my inner experience?</h4>',
+    1: '<h4>How am I responding / reacting to my inner experience?</h4>',
     2: '<h4>What can I do to move toward what matters?</h4>',
     3: '<h4>What inner experience is showing up for me?</h4>',
     4: '<h4>What matters to me?</h4>'
