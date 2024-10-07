@@ -10,7 +10,7 @@ export default function Quadrant({ title, id, currentContent, setCurrentContent 
     const { getAccessTokenSilently } = useAuth0();
     const [savedText, setSavedText] = useState('save');
 
-    // function to save quadrant content in db
+    // function to save quadrant content in db and update context
     async function handleSave() {
 
         const domain = import.meta.env.VITE_AUTH0_API_AUDIENCE;
@@ -24,7 +24,7 @@ export default function Quadrant({ title, id, currentContent, setCurrentContent 
                 },
             })
 
-            // post request to update route containing instance_id, content, quadrant number 
+            // post request to update route containing instance_id, content, quadrant number
             const response = await fetch('https://actmatrixserver-production.up.railway.app/update-matrix', {
                 method: 'PUT',
                 headers: {
@@ -35,6 +35,9 @@ export default function Quadrant({ title, id, currentContent, setCurrentContent 
             });
 
             const message = await response.json();
+
+            // update matrix in context
+            userInfo.updateUserMatrices(userInfo.selectedMatrix.instance_id, `quadrant_${id}`, currentContent[`quadrant_${id}`])
             
             setSavedText('saved');
 
