@@ -227,7 +227,6 @@ a {
   }
 
   .ul-wrapper {
-    height: 100vh;
     opacity: 0;
     background-color: var(--navBackground);
     overflow: hidden;
@@ -247,12 +246,10 @@ a {
 
     ul {
       margin: 0;
-      padding: 0;
+      padding: 4em 0;
       width: 100vw;
       min-width: 40%;
-      height: 40vh;
       display: flex;
-      justify-content: center;
       flex-direction: column;
       align-items: start;
       gap: 1.5em;
@@ -329,6 +326,7 @@ a {
         width: auto;
         height: auto;
         flex-direction: row;
+        padding: 0;
 
         li {
 
