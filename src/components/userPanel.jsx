@@ -203,6 +203,11 @@ function Userpanel() {
         }
     }
 
+    function updateSelection(listItem) {
+        userInfo.changeMatrix(listItem)
+        setActivePanel('')
+    }
+
     return (
         <div className="user-panel-wrapper">
             <button onClick={() => setActivePanel('cs-active')}>Show user panel</button>
@@ -226,7 +231,9 @@ function Userpanel() {
 
                     {/* update profile form */}
                     {update.type === 'profile' && (
-                        <UpdateForm updateObj={update} setUpdate={setUpdate} updateFunction={updateProfile} />
+                        <div className="form-wrapper">
+                            <UpdateForm updateObj={update} setUpdate={setUpdate} updateFunction={updateProfile} />
+                        </div>
                     )}
 
                     {/* render list item for each matrix instance with edit and delete button */}
@@ -236,7 +243,7 @@ function Userpanel() {
                             {userInfo.userMatrices.map(item =>
                                 <li key={item.instance_id} className={item.title === userInfo.selectedMatrix.title ? 'cs-active' : ''}>
                                     {/* select button */}
-                                    <button title="select instance" className={item.title === userInfo.selectedMatrix.title ? 'cs-active cs-button' : 'cs-button'} onClick={() => userInfo.changeMatrix(item)}>{item.title}</button>
+                                    <button title="select instance" className={item.title === userInfo.selectedMatrix.title ? 'cs-active cs-button' : 'cs-button'} onClick={() => updateSelection(item)}>{item.title}</button>
                                     {/* edit and delete buttons */}
                                     <div>
                                         <button title="edit title" onClick={() => setUpdate({ ...update, type: 'new title', id: item.instance_id, label: 'new title' })}>
