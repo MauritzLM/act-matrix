@@ -3,7 +3,7 @@
 .matrix-container {
     width: 90%;
     margin: auto;
-    padding: 3em 0;
+    // padding: 3em 0;
 
     .matrix-heading {
         font-size: 1.2rem;
@@ -15,6 +15,14 @@
 
     #quadrant-skip {
         margin-bottom: 4em;
+        width: fit-content;
+        padding: 24px 20px;
+        background-color: var(--navBackground);
+        border-radius: 10px;
+
+        h3 {
+            margin-top: 0;
+        }
 
         div {
             display: flex;
@@ -22,7 +30,7 @@
             gap: 1em;
 
             a {
-                font-size: 1.1rem;
+                color: var(--bodyTextColor);
                 font-weight: 500;
             }
         }
@@ -236,7 +244,6 @@
                 bottom: -3.5em;
             }
         }
-
 
         .quadrant-1,
         .quadrant-2,
