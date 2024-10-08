@@ -53,7 +53,7 @@ export default function Matrix() {
         return (
             <>
                 <div className="matrix-container">
-                    <button className="back-btn" onClick={() => setPreview(false)}>Go back</button>
+                    <button className="back-btn" onClick={() => setPreview(false)}>Editor</button>
                     <h2 className="preview-title">{userInfo.selectedMatrix.title}</h2>
                     <MatrixPreview currentContent={currentContent} />
                 </div>

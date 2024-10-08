@@ -210,12 +210,12 @@ function Userpanel() {
 
     return (
         <div className="user-panel-wrapper">
-            <button onClick={() => setActivePanel('cs-active')}>Show user panel</button>
+            <button className="show-panel-btn" onClick={() => setActivePanel('cs-active')}>Show user panel</button>
 
             <div className={`overlay ${activePanel}`}>
                 <div className="user-panel">
                     <div className="greeting">
-                        <h1>Hi {user?.nickname}</h1>
+                        <h2>Hi {user?.nickname}</h2>
                         <button title="update display name" onClick={() => setUpdate({ ...update, type: 'profile', label: 'new display name' })}>
                             edit name
                         </button>
@@ -238,7 +238,7 @@ function Userpanel() {
 
                     {/* render list item for each matrix instance with edit and delete button */}
                     <div className="user-list">
-                        <h2>Your matrices</h2>
+                        <h2 className="heading-small">Your matrices</h2>
                         <ul>
                             {userInfo.userMatrices.map(item =>
                                 <li key={item.instance_id} className={item.title === userInfo.selectedMatrix.title ? 'cs-active' : ''}>
@@ -262,7 +262,8 @@ function Userpanel() {
                         {/* if user has less than 3 instances render create new button */}
                         {userInfo.userMatrices.length < 3 && (
                             <button data-testid="new" title="create new matrix" className="new-btn" onClick={() => setUpdate({ ...update, type: 'new matrix', label: 'new matrix title' })}>
-                                <img alt="add" src={addIcon} aria-hidden="true" height="20px" width="20px"></img>
+                                {/* <img alt="add" src={addIcon} aria-hidden="true" height="20px" width="20px"></img> */}
+                                + New Matrix
                             </button>
                         )}
 
@@ -290,7 +291,7 @@ function Userpanel() {
                         </div>
                     )}
 
-                    <button onClick={() => setActivePanel('')}>Hide user panel</button>
+                    <button className="hide-panel-btn" onClick={() => setActivePanel('')}>Hide user panel</button>
                 </div>
             </div>
         </div>
