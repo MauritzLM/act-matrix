@@ -3,6 +3,25 @@
     .container {
         display: flex;
         flex-direction: column;
+        
+        .user-panel-wrapper {
+            .show-panel-btn {
+                padding: 10px 20px;
+                background-color: var(--primary-700);
+                border-top-right-radius: 5px;
+                border-bottom-right-radius: 5px;
+                color: var(--grey-50);
+            }
+
+            .hide-panel-btn {
+                padding: 10px 20px;
+                border-radius: 5px;
+                background-color: var(--primary-700);
+                color: var(--grey-50);
+                width: fit-content;
+                
+            }
+        }
 
         .overlay {
             height: 100vh;
@@ -24,7 +43,7 @@
 
         .user-panel {
             background-color: var(--userPanelBackground);
-            padding: 4em 2em;
+            padding: 35px 20px;
             display: grid;
             grid-template-columns: 1fr;
             gap: 2em;
@@ -36,11 +55,13 @@
             transition: transform .4s, opacity .3s;
             opacity: 0;
             margin-top: 76px;
+            border-top-right-radius: 5px;
+            border-bottom-right-radius: 5px;
 
             .greeting {
                 position: relative;
 
-                h1 {
+                h2 {
                     margin: 0;
                 }
 
@@ -68,11 +89,6 @@
                 // position: relative;
                 padding: 1em 0;
 
-                h2 {
-                    font-size: 1.5rem;
-                }
-
-
                 ul {
                     list-style: none;
                     display: flex;
@@ -87,7 +103,7 @@
                         box-shadow: none;
 
                         .cs-button {
-                            color: var(--primary-400);
+                            color: var(--grey-50);
                         }
                     }
 
@@ -99,6 +115,10 @@
                         padding-left: 0;
                         border-radius: 5px;
 
+                        &:hover {
+                           background-color: var(--primary-500);
+                        }
+
                         button {
                             padding: 0;
                         }
@@ -106,12 +126,13 @@
                         .cs-button {
                             padding: .2em .6em;
                             font: inherit;
-                            font-size: 1.2rem;
+                            font-size: 16px;
+                            font-weight: 600;
                             color: var(--bodyTextColor);
                             border-radius: 20px;
 
                             &:hover {
-                                color: var(--primary-400);
+                                color: var(--grey-50);
                             }
                         }
 
@@ -127,13 +148,9 @@
                 }
 
                 .new-btn {
-                    background-color: var(--secondary-500);
-                    margin-left: .7em;
+                    color: var(--secondary-500);
                     margin-top: 1em;
-                    font-weight: 500;
-                    border-radius: 50%;
-                    padding: .8em;
-                    display: flex;
+                    font-weight: 700;
                 }
             }
 
@@ -235,8 +252,6 @@
             // }
 
             .user-panel {
-                border-radius: 5px;
-                padding: 4em;
                 margin-top: 85px;
 
                 #update-form {
