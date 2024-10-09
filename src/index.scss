@@ -2,21 +2,21 @@
 
 /* variables */
 :root {
-  --primary-50: #E0F7FA;
-  --primary-100: #B2EBF2;
+  --primary-50: #fff8ed;
+  --primary-100: #ffe4bb;
   --primary-200: #80DEEA;
   --primary-300: #4DD0E1;
-  --primary-400: #26C6DA;
-  --primary-500: #00BCD4;
+  --primary-400: #f39931;
+  --primary-500: #f87e0d;
   --primary-600: #00ACC1;
   --primary-700: #0097A7;
   --primary-800: #00838F;
   --primary-900: #006064;
 
-  --secondary-500: #7973b5;
+  --secondary-500: #6494bb;
 
   --grey-50: #FAFAFA;
-  --grey-100: #f5f5f5;
+  --grey-100: #f9f9f9;
   --grey-200: #EEEEEE;
   --grey-300: #E0E0E0;
   --grey-400: #BDBDBD;
@@ -40,6 +40,8 @@
   --selectedBackground: #00838f;
   --borderColor: #bdbdbd;
   --navBackground: #00838f;
+  --surfaceColor-1: var(--grey-100);
+  --toolTipBackground: var(--primary-50);
 
   // matrix colors
   --matrixBackground: orange;
@@ -56,9 +58,9 @@
 
 // theme colors
 .app[data-theme='light'] {
-  --bodyBackgroundColor: white;
+  --bodyBackgroundColor: #f7fbff;
   --headingColor: var(--grey-800);
-  --bodyTextColor: var(--grey-700);
+  --bodyTextColor: var(--grey-800);
   --matrixBackground: var(--primary-50);
   --matrixSaveBtn: var(--accentGreen-100);
   --matrixText: var(--grey-900);
@@ -68,9 +70,12 @@
   --formBoxShadowColor: var(--grey-500);
   --editorColor: #fff;
   --userPanelBackground: #fff;
-  --selectedBackground: var(--primary-500);
-  --borderColor: var(--primary-100);
-  --navBackground: var(--grey-200);
+  --selectedBackground: var(--primary-100);
+  --borderColor: var(--grey-200);
+  --navBackground: white;
+
+  --surfaceColor-1: white;
+  --toolTipBackground: white;
 }
 
 .app[data-theme='dark'] {
@@ -87,8 +92,11 @@
   --editorColor: #000000;
   --userPanelBackground: var(--grey-800);
   --selectedBackground: var(--primary-900);
-  --borderColor: var(--grey-700);
+  --borderColor: var(--grey-900);
   --navBackground: var(--grey-800);
+
+  --surfaceColor-1: var(--grey-800);
+  --toolTipBackground: var(--grey-800);
 }
 
 /* FONTS */
@@ -149,6 +157,10 @@ body {
   min-height: 100vh;
 }
 
+// main {
+//   background-color: var(--bodyBackgroundColor);
+// }
+
 h1 {
   font-size: var(--headerFontSize);
 }
@@ -172,7 +184,7 @@ button {
 
 a {
   text-decoration: none;
-  color: var(--primary-700);
+  color: var(--secondary-500);
 }
 
 
@@ -186,7 +198,7 @@ a {
   z-index: 10000;
   position: relative;
   margin: auto;
-  background-color: inherit;
+  background-color: var(--navBackground);
 
   &.cs-active {
     &:before {
@@ -282,7 +294,7 @@ a {
     left: 0;
     right: auto;
     z-index: -1;
-    padding: 0 1em;
+    
     transform: scaleX(0);
     transform-origin: top left;
     transition: transform 0.4s, opacity 0.3s;
@@ -302,9 +314,8 @@ a {
       justify-content: center;
       gap: 1.5em;
       width: 100%;
-      height: 300px;
-      border-radius: 5px;
-      background-color: var(--navBackground);
+      height: 200px;
+      background-color: var(--toolTipBackground);
 
       li {
         text-align: center;
@@ -344,7 +355,6 @@ a {
     .cs-button {
       border: none;
       background-color: var(--primary-400);
-      box-shadow: 2px 2px 5px var(--boxShadowColor2);
       padding: .5em .7em;
       font-weight: 500;
       text-decoration: none;

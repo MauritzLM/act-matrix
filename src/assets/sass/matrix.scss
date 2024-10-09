@@ -1,24 +1,37 @@
 /* MATRIX STYLES */
 /* layout */
 .matrix-container {
-    width: 90%;
-    margin: auto;
-    // padding: 3em 0;
+    padding: 40px 0;
+
+    // section {
+    //     padding: 30px;
+    
+    // }
 
     .matrix-heading {
-        font-size: 1.2rem;
+        font-size: 15px;
+        letter-spacing: 1.2px;
+        color: var(--grey-500);
         text-align: center;
         font-weight: 500;
         margin-bottom: 0;
-        margin-top: 2em;
+        margin-top: 40px;
+
+        &:nth-of-type(1) {
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
     }
 
     #quadrant-skip {
         margin-bottom: 4em;
         width: fit-content;
         padding: 24px 20px;
-        background-color: var(--navBackground);
-        border-radius: 10px;
+        background-color: var(--toolTipBackground);
+        border-radius: 5px;
+        box-shadow: .6px .6px .8px var(--boxShadowColor);
+        position: relative;
+        left: 30px;
 
         h3 {
             margin-top: 0;
@@ -30,7 +43,7 @@
             gap: 1em;
 
             a {
-                color: var(--bodyTextColor);
+                color: var(--secondary-500);
                 font-weight: 500;
             }
         }
@@ -42,7 +55,8 @@
         grid-template-rows: minmax(400px, auto) 100px minmax(400px, auto);
         justify-items: center;
         width: 90%;
-        gap: 4em;
+        margin: auto;
+        gap: 24px;
 
         .top,
         .bottom {
@@ -59,7 +73,7 @@
                 .quadrant-container {
                     border-radius: 5px;
                     background-color: var(--userPanelBackground);
-                    box-shadow: 2px 2px 5px var(--boxShadowColor);
+                    box-shadow: .6px .6px .8px var(--boxShadowColor);
 
 
                     .menubar {
@@ -89,7 +103,7 @@
                             }
 
                             .is-active {
-                                background-color: var(--primary-400);
+                                background-color: var(--primary-100);
                             }
                         }
                     }
@@ -116,7 +130,7 @@
                     font-size: 1.4rem;
                     text-align: center;
                     margin: auto;
-                    margin-bottom: 1em;
+                    margin-bottom: 44px;
                     margin-top: 1em;
                     max-width: max-content;
 
@@ -140,17 +154,18 @@
         padding: 1em;
         border-radius: 50%;
         background-color: var(--userPanelBackground);
-        color: var(--primary-700);
         text-align: center;
         display: flex;
         align-items: center;
         align-self: end;
         font-weight: 600;
-        box-shadow: 2px 2px 5px var(--boxShadowColor);
+        box-shadow: .6px .6px .8px var(--boxShadowColor);
 
         span {
             position: relative;
             bottom: 5px;
+            font-size: 12px;
+            color: var(--primary-400);
         }
     }
 
@@ -183,12 +198,22 @@
 
         span {
             font-weight: 500;
-            font-size: 1.2rem;
+            font-size: 15px;
+            letter-spacing: 1.2px;
+            color: var(--grey-500);
         }
 
         .right {
             align-self: end;
         }
+    }
+
+    .arrow-right {
+        justify-self: end;
+    }
+
+    .arrow-left {
+        justify-self: start;
     }
 
     // skip to top
@@ -197,6 +222,9 @@
         font-weight: 500;
         display: block;
         margin-top: 2em;
+        width: fit-content;
+        position: relative;
+        left: 30px;
     }
 
     // preview styles
@@ -278,11 +306,12 @@
             padding-bottom: 3em;
 
             .label {
-                bottom: 5px; 
+                bottom: 5px;
             }
         }
 
-        .quadrant-2, .quadrant-4 {
+        .quadrant-2,
+        .quadrant-4 {
             border-left: 1px solid var(--grey-500);
         }
 
@@ -336,6 +365,18 @@
 }
 
 /* tablet */
+@media screen and (min-width: 800px) {
+    .matrix-container {
+
+        section {
+            padding: 30px;
+        }
+
+        #matrix {
+            width: 100%;
+        }
+    }
+}
 
 /* desktop */
 @media screen and (min-width: 900px) {

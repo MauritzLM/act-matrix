@@ -1,13 +1,15 @@
 /* STYLES FOR USER DASHBOARD PAGE */
 #main {
+    background-color: var(--bodyBackgroundColor);
+
     .container {
         display: flex;
         flex-direction: column;
-        
+
         .user-panel-wrapper {
             .show-panel-btn {
                 padding: 10px 20px;
-                background-color: var(--primary-700);
+                background-color: var(--secondary-500);
                 border-top-right-radius: 5px;
                 border-bottom-right-radius: 5px;
                 color: var(--grey-50);
@@ -16,10 +18,10 @@
             .hide-panel-btn {
                 padding: 10px 20px;
                 border-radius: 5px;
-                background-color: var(--primary-700);
+                background-color: var(--secondary-500);
                 color: var(--grey-50);
                 width: fit-content;
-                
+
             }
         }
 
@@ -29,10 +31,11 @@
             position: fixed;
             top: 0;
             z-index: -100;
-            background-color: #0c0c0c50;
+            background-color: #0c0c0c7c;
 
             &.cs-active {
                 z-index: 10;
+
                 .user-panel {
                     transform: scaleX(1);
                     opacity: 1;
@@ -103,7 +106,7 @@
                         box-shadow: none;
 
                         .cs-button {
-                            color: var(--grey-50);
+                            color: var(--grey-500);
                         }
                     }
 
@@ -116,7 +119,7 @@
                         border-radius: 5px;
 
                         &:hover {
-                           background-color: var(--primary-500);
+                            background-color: var(--primary-100);
                         }
 
                         button {
@@ -163,43 +166,50 @@
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                background-color: rgba(0, 0, 0, 0.164);
+                background-color: rgba(0, 0, 0, 0.671);
                 z-index: 99;
 
 
                 #update-form {
                     width: 100%;
                     max-width: 350px;
-                    border-radius: 10px;
+                    border-radius: 5px;
                     background-color: var(--bodyBackgroundColor);
-                    padding: .5em;
-                    box-shadow: 2px 2px 5px var(--formBoxShadowColor);
+                    padding: 30px 24px;
+                    box-shadow: .6px .6px .8px var(--formBoxShadowColor);
+                    position: relative;
+
+                    h2 {
+                        margin-top: 0;
+                    }
 
                     .close-btn {
-                        float: right;
+                        position: absolute;
+                        right: 10px;
+                        top: 10px;
                     }
 
                     form {
                         display: flex;
                         flex-direction: column;
-                        gap: .7em;
-                        clear: right;
-                        padding: 2em 3em;
+                        gap: 24px;
                         padding-top: 0;
 
                         label {
                             font-weight: 500;
-                            font-size: 1.2rem;
-                            text-transform: capitalize;
+                            font-size: 14px;
+                            display: block;
+                            margin-bottom: 10px;
                         }
 
                         input {
                             padding: .5em;
                             font: inherit;
                             border-radius: 5px;
-                            border: 1px solid var(--grey-500);
+                            border: 1px solid var(--grey-300);
                             background: transparent;
                             color: var(--bodyTextColor);
+                            width: 100%;
                         }
 
                         span {
@@ -210,6 +220,7 @@
                             color: #B00020;
                             font-weight: 500;
                             font-size: 1.2rem;
+                            margin: 0;
                         }
 
                         button {
@@ -227,19 +238,10 @@
         }
 
         .matrix-container {
-            width: 90%;
-            margin: auto;
-            padding: 3em 0;
-
             .title {
                 font-size: 2rem;
                 margin-top: 0;
             }
-
-            #matrix {
-                width: 100%;
-            }
-
         }
     }
 }
@@ -254,10 +256,12 @@
             .user-panel {
                 margin-top: 85px;
 
-                #update-form {
-                    max-width: 400px;
+                .form-wrapper {
+                    #update-form {
+                        max-width: 400px;
+                        padding: 30px;
+                    }
                 }
-
             }
         }
     }
