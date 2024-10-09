@@ -4,13 +4,12 @@ import { useAuth0 } from "@auth0/auth0-react";
 import UpdateForm from "./updateForm";
 import editIcon from "../assets/svgs/edit.svg";
 import deleteIcon from "../assets/svgs/delete.svg"
-import addIcon from "../assets/svgs/add.svg";
 
 function Userpanel() {
     const { getAccessTokenSilently, user } = useAuth0();
     const userInfo = useContext(userContext);
 
-    const [update, setUpdate] = useState({ type: '', errorMsg: '', id: '', title: '', label: '' });
+    const [update, setUpdate] = useState({ type: '', errorMsg: '', id: '', title: '', label: '', name: '' });
     const [activePanel, setActivePanel] = useState('')
 
     // create new matrix function
@@ -246,11 +245,11 @@ function Userpanel() {
                                     <button title="select instance" className={item.title === userInfo.selectedMatrix.title ? 'cs-active cs-button' : 'cs-button'} onClick={() => updateSelection(item)}>{item.title}</button>
                                     {/* edit and delete buttons */}
                                     <div>
-                                        <button title="edit title" onClick={() => setUpdate({ ...update, type: 'new title', id: item.instance_id, label: 'new title' })}>
+                                        <button title="edit title" onClick={() => setUpdate({ ...update, title: 'Edit Matrix', type: 'new title', id: item.instance_id, label: 'new title' })}>
                                             <img alt="edit" src={editIcon} aria-hidden='true'></img>
                                         </button>
 
-                                        <button title="delete matrix" onClick={() => setUpdate({ ...update, type: 'delete', id: item.instance_id, title: item.title, label: 'enter the title you want to delete' })}>
+                                        <button title="delete matrix" onClick={() => setUpdate({ ...update, title: 'Delete Matrix', type: 'delete', id: item.instance_id,  label: 'enter the title you want to delete', name: item.title })}>
                                             <img alt="delete" src={deleteIcon} aria-hidden='true'></img>
                                         </button>
                                     </div>
@@ -261,7 +260,7 @@ function Userpanel() {
 
                         {/* if user has less than 3 instances render create new button */}
                         {userInfo.userMatrices.length < 3 && (
-                            <button data-testid="new" title="create new matrix" className="new-btn" onClick={() => setUpdate({ ...update, type: 'new matrix', label: 'new matrix title' })}>
+                            <button data-testid="new" title="create new matrix" className="new-btn" onClick={() => setUpdate({ ...update, title: 'Create New Matrix', type: 'new matrix', label: 'new matrix title' })}>
                                 {/* <img alt="add" src={addIcon} aria-hidden="true" height="20px" width="20px"></img> */}
                                 + New Matrix
                             </button>
