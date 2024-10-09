@@ -81,38 +81,42 @@ export default function Matrix() {
                     <button className="preview-btn" onClick={() => setPreview(true)}>preview</button>
                 </div>
 
-                <h3 className="matrix-heading">Five senses awareness</h3>
+                <section>
 
-                <div id="matrix">
-                    {/* top */}
-                    <div className="top">
-                        <Quadrant title={'Actions that move us away'} id={1} currentContent={currentContent} setCurrentContent={setCurrentContent} />
-                        <div className="arrow-up"></div>
-                        <Quadrant title={'Committed Actions'} id={2} currentContent={currentContent} setCurrentContent={setCurrentContent} />
-                    </div>
+                    <h3 className="matrix-heading">FIVE SENSES AWARENESS</h3>
 
-                    {/* arrow pointing left and right */}
-                    <div className="middle">
-                        <div className="arrow-left">
-                            <span className='left'>Away</span>
-                            <div></div>
+                    <div id="matrix">
+                        {/* top */}
+                        <div className="top">
+                            <Quadrant title={'Actions that move us away'} id={1} currentContent={currentContent} setCurrentContent={setCurrentContent} />
+                            <div className="arrow-up"></div>
+                            <Quadrant title={'Committed Actions'} id={2} currentContent={currentContent} setCurrentContent={setCurrentContent} />
                         </div>
-                        <div className="circle"><span>Me noticing (awareness)</span></div>
-                        <div className="arrow-right">
-                            <span className='right'>Toward</span>
-                            <div></div>
+
+                        {/* arrow pointing left and right */}
+                        <div className="middle">
+                            <div className="arrow-left">
+                                <span className='left'>AWAY</span>
+                                <div></div>
+                            </div>
+                            <div className="circle"><span>Me noticing (awareness)</span></div>
+                            <div className="arrow-right">
+                                <span className='right'>TOWARD</span>
+                                <div></div>
+                            </div>
+                        </div>
+
+                        {/* bottom */}
+                        <div className="bottom">
+                            <Quadrant title={'What gets in the way?'} id={3} currentContent={currentContent} setCurrentContent={setCurrentContent} />
+                            <div className="arrow-down"></div>
+                            <Quadrant title={'What / Who is important?'} id={4} currentContent={currentContent} setCurrentContent={setCurrentContent} />
                         </div>
                     </div>
 
-                    {/* bottom */}
-                    <div className="bottom">
-                        <Quadrant title={'What gets in the way?'} id={3} currentContent={currentContent} setCurrentContent={setCurrentContent} />
-                        <div className="arrow-down"></div>
-                        <Quadrant title={'What / Who is important?'} id={4} currentContent={currentContent} setCurrentContent={setCurrentContent} />
-                    </div>
-                </div>
+                    <h3 className="matrix-heading">INNER EXPERIENCE</h3>
 
-                <h3 className="matrix-heading">Inner experience</h3>
+                </section>
 
                 {/* scroll to top */}
                 <HashLink className="scroll-top" smooth to="#top">back to top</HashLink>
