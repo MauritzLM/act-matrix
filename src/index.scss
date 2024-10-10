@@ -4,8 +4,8 @@
 :root {
   --primary-50: #fff8ed;
   --primary-100: #ffe4bb;
-  --primary-200: #80DEEA;
-  --primary-300: #4DD0E1;
+  --primary-200: #ffd594;
+  --primary-300: #e1944d;
   --primary-400: #f39931;
   --primary-500: #f87e0d;
   --primary-600: #00ACC1;
@@ -14,6 +14,7 @@
   --primary-900: #006064;
 
   --secondary-500: #6494bb;
+  --secondary-800: #093b59;
 
   --grey-50: #FAFAFA;
   --grey-100: #f9f9f9;
@@ -70,7 +71,7 @@
   --formBoxShadowColor: var(--grey-500);
   --editorColor: #fff;
   --userPanelBackground: #fff;
-  --selectedBackground: var(--primary-100);
+  --selectedBackground: var(--primary-200);
   --borderColor: var(--grey-200);
   --navBackground: white;
 

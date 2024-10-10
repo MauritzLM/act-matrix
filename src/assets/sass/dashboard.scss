@@ -13,14 +13,25 @@
                 border-top-right-radius: 5px;
                 border-bottom-right-radius: 5px;
                 color: var(--grey-50);
+                position: relative;
+                top: 20px;
+                font-size: 14px;
             }
 
             .hide-panel-btn {
                 padding: 10px 20px;
-                border-radius: 5px;
-                background-color: var(--secondary-500);
-                color: var(--grey-50);
+                border-top-right-radius: 5px;
+                border-bottom-right-radius: 5px;
                 width: fit-content;
+                font-size: 14px;
+                position: relative;
+                right: 20px;
+                color: var(--grey-500);
+
+                &:hover {
+                    background-color: var(--secondary-500);
+                    color: var(--grey-50);
+                }
 
             }
         }
@@ -102,11 +113,11 @@
                     margin: 0;
 
                     li[class="cs-active"] {
-                        background-color: var(--selectedBackground);
+                        background-color: var(--primary-200);
                         box-shadow: none;
 
                         .cs-button {
-                            color: var(--grey-500);
+                            color: var(--secondary-800);
                         }
                     }
 
@@ -119,7 +130,7 @@
                         border-radius: 5px;
 
                         &:hover {
-                            background-color: var(--primary-100);
+                            background-color: var(--primary-200);
                         }
 
                         button {
@@ -134,9 +145,9 @@
                             color: var(--bodyTextColor);
                             border-radius: 20px;
 
-                            &:hover {
-                                color: var(--grey-50);
-                            }
+                            // &:hover {
+                            //     color: var(--grey-50);
+                            // }
                         }
 
                         div {
@@ -171,7 +182,7 @@
 
 
                 #update-form {
-                    width: 100%;
+                    width: 90%;
                     max-width: 350px;
                     border-radius: 5px;
                     background-color: var(--bodyBackgroundColor);
@@ -213,11 +224,11 @@
                         }
 
                         span {
-                            color: #B00020;
+                            color: #e95252;
                         }
 
                         p {
-                            color: #B00020;
+                            color: #e95252;
                             font-weight: 500;
                             font-size: 1.2rem;
                             margin: 0;
@@ -234,13 +245,6 @@
 
                     }
                 }
-            }
-        }
-
-        .matrix-container {
-            .title {
-                font-size: 2rem;
-                margin-top: 0;
             }
         }
     }
