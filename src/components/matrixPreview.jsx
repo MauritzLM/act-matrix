@@ -6,11 +6,11 @@ export default function MatrixPreview({ currentContent }) {
   return (
     <>
       <div id="matrix-preview">
-        <span className="label">Five senses experience</span>
+        <span className="label">FIVE SENSES EXPERIENCE</span>
         <div className="quadrant-1">
           <h3 className="heading">Actions that move us away</h3>
           {parse(currentContent.quadrant_1)}
-          <span className="label">Away</span>
+          <span className="label">AWAY</span>
 
           {/* middle circle */}
           <div className="awareness">
@@ -21,7 +21,7 @@ export default function MatrixPreview({ currentContent }) {
         <div className="quadrant-2">
           <h3 className="heading">Committed actions</h3>
           {parse(currentContent.quadrant_2)}
-          <span className="label">Toward</span>
+          <span className="label">TOWARD</span>
         </div>
 
         <div className="quadrant-3">
@@ -33,7 +33,7 @@ export default function MatrixPreview({ currentContent }) {
           <h3 className="heading">What / who is important</h3>
           {parse(currentContent.quadrant_4)}
         </div>
-        <span className="label">Inner experience</span>
+        <span className="label">INNER EXPERIENCE</span>
       </div>
     </>
   )
