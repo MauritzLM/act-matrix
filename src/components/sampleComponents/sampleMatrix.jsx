@@ -17,40 +17,44 @@ export default function SampleMatrix() {
                     </div>
                 </div>
 
-                <h3 className='matrix-heading'>Five senses awareness</h3>
+                <section>
 
-                <div id="matrix">
-                    {/* top */}
-                    <div className="top">
-                        <SampleQuadrant title={'Actions that move us away'} id={1} />
-                        <div className="arrow-up"></div>
-                        <SampleQuadrant title={'Committed actions'} id={2} />
-                    </div>
+                    <h3 className='matrix-heading'>FIVE SENSES AWARENESS</h3>
 
-                    {/* arrow pointing left and right */}
-                    <div className="middle">
-                        <div className="arrow-left">
-                            <span className='left'>Away</span>
-                            <div></div>
+                    <div id="matrix">
+                        {/* top */}
+                        <div className="top">
+                            <SampleQuadrant title={'Actions that move us away'} id={1} />
+                            <div className="arrow-up"></div>
+                            <SampleQuadrant title={'Committed actions'} id={2} />
                         </div>
 
-                        <div className="circle"><span>Me noticing (awareness)</span></div>
+                        {/* arrow pointing left and right */}
+                        <div className="middle">
+                            <div className="arrow-left">
+                                <span className='left'>AWAY</span>
+                                <div></div>
+                            </div>
 
-                        <div className="arrow-right">
-                            <span className='right'>Toward</span>
-                            <div></div>
+                            <div className="circle"><span>Me noticing (awareness)</span></div>
+
+                            <div className="arrow-right">
+                                <span className='right'>TOWARD</span>
+                                <div></div>
+                            </div>
+                        </div>
+
+                        {/* bottom */}
+                        <div className="bottom">
+                            <SampleQuadrant title={'What gets in the way?'} id={3} />
+                            <div className="arrow-down"></div>
+                            <SampleQuadrant title={'What / Who is important?'} id={4} />
                         </div>
                     </div>
 
-                    {/* bottom */}
-                    <div className="bottom">
-                        <SampleQuadrant title={'What gets in the way?'} id={3} />
-                        <div className="arrow-down"></div>
-                        <SampleQuadrant title={'What / Who is important?'} id={4} />
-                    </div>
-                </div>
+                    <h3 className='matrix-heading'>INNER EXPERIENCE</h3>
 
-                <h3 className='matrix-heading'>Inner experience</h3>
+                </section>
 
                 <HashLink className="scroll-top" smooth to="#top">back to top</HashLink>
 

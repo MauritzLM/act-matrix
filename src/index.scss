@@ -2,21 +2,22 @@
 
 /* variables */
 :root {
-  --primary-50: #E0F7FA;
-  --primary-100: #B2EBF2;
-  --primary-200: #80DEEA;
-  --primary-300: #4DD0E1;
-  --primary-400: #26C6DA;
-  --primary-500: #00BCD4;
+  --primary-50: #fff8ed;
+  --primary-100: #ffe4bb;
+  --primary-200: #ffd594;
+  --primary-300: #e1944d;
+  --primary-400: #f39931;
+  --primary-500: #f87e0d;
   --primary-600: #00ACC1;
   --primary-700: #0097A7;
   --primary-800: #00838F;
   --primary-900: #006064;
 
-  --secondary-500: #7973b5;
+  --secondary-500: #6494bb;
+  --secondary-800: #093b59;
 
   --grey-50: #FAFAFA;
-  --grey-100: #f5f5f5;
+  --grey-100: #f9f9f9;
   --grey-200: #EEEEEE;
   --grey-300: #E0E0E0;
   --grey-400: #BDBDBD;
@@ -40,6 +41,8 @@
   --selectedBackground: #00838f;
   --borderColor: #bdbdbd;
   --navBackground: #00838f;
+  --surfaceColor-1: var(--grey-100);
+  --toolTipBackground: var(--primary-50);
 
   // matrix colors
   --matrixBackground: orange;
@@ -56,8 +59,9 @@
 
 // theme colors
 .app[data-theme='light'] {
-  --bodyBackgroundColor: var(--grey-50);
-  --bodyTextColor: var(--grey-900);
+  --bodyBackgroundColor: #f7fbff;
+  --headingColor: var(--grey-800);
+  --bodyTextColor: var(--grey-800);
   --matrixBackground: var(--primary-50);
   --matrixSaveBtn: var(--accentGreen-100);
   --matrixText: var(--grey-900);
@@ -67,14 +71,18 @@
   --formBoxShadowColor: var(--grey-500);
   --editorColor: #fff;
   --userPanelBackground: #fff;
-  --selectedBackground: var(--primary-50);
-  --borderColor: var(--primary-100);
-  --navBackground: var(--primary-800);
+  --selectedBackground: var(--primary-200);
+  --borderColor: var(--grey-200);
+  --navBackground: white;
+
+  --surfaceColor-1: white;
+  --toolTipBackground: white;
 }
 
 .app[data-theme='dark'] {
   --bodyBackgroundColor: var(--grey-900);
-  --bodyTextColor: var(--grey-200);
+  --headingColor: var(--grey-100);
+  --bodyTextColor: var(--grey-400);
   --matrixBackground: var(--primary-700);
   --matrixSaveBtn: var(--accentGreen-500);
   --matrixText: var(--grey-100);
@@ -85,16 +93,57 @@
   --editorColor: #000000;
   --userPanelBackground: var(--grey-800);
   --selectedBackground: var(--primary-900);
-  --borderColor: var(--grey-700);
+  --borderColor: var(--grey-900);
   --navBackground: var(--grey-800);
+
+  --surfaceColor-1: var(--grey-800);
+  --toolTipBackground: var(--grey-800);
 }
+
+/* FONTS */
+/* inter-regular - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  src: url('./assets/fonts/inter-v18-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* inter-500 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  src: url('./assets/fonts/inter-v18-latin-500.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* inter-600 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  src: url('./assets/fonts/inter-v18-latin-600.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* inter-700 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  src: url('./assets/fonts/inter-v18-latin-700.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
 
 * {
   box-sizing: border-box;
 }
 
 html {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   overflow: auto;
 }
 
@@ -109,8 +158,22 @@ body {
   min-height: 100vh;
 }
 
+// main {
+//   background-color: var(--bodyBackgroundColor);
+// }
+
 h1 {
   font-size: var(--headerFontSize);
+}
+
+h1, h2, h3, h4 ,h5 h6 {
+  color: var(--headingColor);
+}
+
+.heading-small {
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
 }
 
 button {
@@ -122,12 +185,10 @@ button {
 
 a {
   text-decoration: none;
-  color: var(--primary-700);
+  color: var(--secondary-500);
 }
 
-// main {
-//   padding-top: 4.5em;
-// }
+
 
 /* NAV STYLES */
 #nav {
@@ -137,7 +198,7 @@ a {
   padding: 1em;
   z-index: 10000;
   position: relative;
-  width: 100%;
+  margin: auto;
   background-color: var(--navBackground);
 
   &.cs-active {
@@ -161,7 +222,6 @@ a {
     background-color: transparent;
     border: none;
     display: flex;
-    justify-content: center;
     align-items: center;
   }
 
@@ -195,7 +255,7 @@ a {
     width: 100%;
     height: 2px;
     border-radius: 2px;
-    background-color: var(--primary-200);
+    background-color: var(--grey-500);
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
@@ -227,15 +287,15 @@ a {
   }
 
   .ul-wrapper {
-    height: 100vh;
     opacity: 0;
-    background-color: var(--navBackground);
+    // background-color: var(--navBackground);
     overflow: hidden;
     position: absolute;
     top: 100%;
     left: 0;
     right: auto;
     z-index: -1;
+    
     transform: scaleX(0);
     transform-origin: top left;
     transition: transform 0.4s, opacity 0.3s;
@@ -243,19 +303,20 @@ a {
     flex-direction: column;
     align-items: center;
     gap: 4em;
+    width: 100vw;
 
 
     ul {
       margin: 0;
       padding: 0;
-      width: 100vw;
-      min-width: 40%;
-      height: 40vh;
       display: flex;
-      justify-content: center;
       flex-direction: column;
       align-items: start;
+      justify-content: center;
       gap: 1.5em;
+      width: 100%;
+      height: 200px;
+      background-color: var(--toolTipBackground);
 
       li {
         text-align: center;
@@ -264,7 +325,7 @@ a {
         margin-right: 0;
 
         a {
-          color: var(--grey-100);
+          color: var(--bodyTextColor);
           text-decoration: none;
           padding-bottom: .1em;
           font-weight: 500;
@@ -295,7 +356,6 @@ a {
     .cs-button {
       border: none;
       background-color: var(--primary-400);
-      box-shadow: 2px 2px 5px var(--boxShadowColor2);
       padding: .5em .7em;
       font-weight: 500;
       text-decoration: none;
@@ -324,11 +384,15 @@ a {
       background-color: inherit;
       display: flex;
       justify-content: center;
+      width: auto;
+      padding: 0;
 
       ul {
         width: auto;
         height: auto;
         flex-direction: row;
+        padding: 0;
+        background-color: inherit;
 
         li {
 

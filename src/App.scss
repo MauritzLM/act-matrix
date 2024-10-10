@@ -1,22 +1,84 @@
 /* Styles for home page */
 #main {
     .description-text {
-        padding: 2em;
+        padding: 1em;
         margin: auto;
+
+        .section-wrapper {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+
+            section {
+                padding: 20px;
+                background-color: var(--surfaceColor-1);
+                border-radius: 10px;
+                box-shadow: .6px .6px .8px var(--boxShadowColor);
+
+                h2 {
+                    font-size: 1.7rem;
+                    margin-top: 0;
+                }
+
+                p {
+                    font-size: 15px;
+                }
+
+            }
+        }
 
         h1 {
             margin-bottom: 1.5em;
         }
 
-        h2 {
-            margin-top: 2em;
-            font-size: 1.7rem;
-        }
+
 
         .links {
             display: flex;
             flex-direction: column;
             gap: 1em;
+        }
+
+       
+    }
+}
+
+@media screen and (min-width: 700px) {
+    #main {
+        .description-text {
+            padding: 1em 3em;
+        }
+    }
+}
+
+@media screen and (min-width: 800px) {
+    #main {
+        .description-text {
+
+
+            .section-wrapper {
+                grid-template-areas: "section1 section2"
+                    "section3 section2";
+                grid-template-columns: 1fr 1fr;
+                gap: 24px;
+
+                section {
+                    padding: 30px;
+                    max-width: 700px;
+
+                    &:nth-of-type(1) {
+                        grid-area: section1;
+                    }
+
+                    &:nth-of-type(2) {
+                        grid-area: section2;
+                    }
+
+                    &:nth-of-type(3) {
+                        grid-area: section3;
+                    }
+                }
+            }
         }
     }
 }

@@ -14,12 +14,27 @@ const Dashboard = ({ children }) => {
   function changeMatrix(obj) {
     setSelectedMatrix({ ...obj })
   }
+  
+  // function to update context when saving quadrant
+  function updateUserMatrices(id, quadrant, quadrant_content) {
+    setUserMatrices(userMatrices.map(matrix => {
+      if (matrix.instance_id === id) {
+        // Create a *new* object with changes
+        return { ...matrix, [quadrant]: quadrant_content };
+      }
+
+      else {
+        return matrix
+      }
+    }));
+  }
+
   // get user data
   useEffect(() => {
 
     // async function to get user data
     const getUserMetadata = async () => {
-      
+
       const audience = import.meta.env.VITE_AUTH0_API_AUDIENCE;
 
       try {
@@ -33,7 +48,7 @@ const Dashboard = ({ children }) => {
           },
         });
 
-        // fetch all instances for user 
+        // fetch all instances for user
         const userInstancesUrl = `https://actmatrixserver-production.up.railway.app/all-matrix`;
 
         const userInstancesResponse = await fetch(userInstancesUrl, {
@@ -65,6 +80,7 @@ const Dashboard = ({ children }) => {
   // context data
   const contextData = {
     userMatrices: userMatrices,
+    updateUserMatrices: updateUserMatrices,
     user: user,
     selectedMatrix: selectedMatrix,
     changeMatrix: changeMatrix,
@@ -78,11 +94,11 @@ const Dashboard = ({ children }) => {
 
   return (
     isAuthenticated && (
-        <div className="container">
-          <userContext.Provider value={contextData}>
-            {children}
-          </userContext.Provider>
-        </div>
+      <div className="container">
+        <userContext.Provider value={contextData}>
+          {children}
+        </userContext.Provider>
+      </div>
     )
   );
 };
