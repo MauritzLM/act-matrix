@@ -42,7 +42,7 @@ export default function Matrix() {
         return (
             <>
                 <div className="matrix-container">
-                    <h2>Select a matrix</h2>
+                    <h2 className="title">Select a matrix</h2>
                 </div>
             </>
         )
