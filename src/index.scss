@@ -14,7 +14,7 @@
   --primary-900: #006064;
 
   --secondary-500: #6494bb;
-  --secondary-800: #093b59;
+  --secondary-800: #20303a;
 
   --grey-50: #FAFAFA;
   --grey-100: #f9f9f9;
@@ -59,15 +59,15 @@
 
 // theme colors
 .app[data-theme='light'] {
-  --bodyBackgroundColor: #f7fbff;
-  --headingColor: var(--grey-800);
-  --bodyTextColor: var(--grey-800);
+  --bodyBackgroundColor: #f2f8ff;
+  --headingColor: var(--secondary-800);
+  --bodyTextColor: var(--secondary-800);
   --matrixBackground: var(--primary-50);
   --matrixSaveBtn: var(--accentGreen-100);
   --matrixText: var(--grey-900);
   --editorButton: #fff;
   --boxShadowColor: rgba(221, 221, 221, .8);
-  --boxShadowColor2: #1f5e58;
+  --boxShadowColor2: #c8dbd9;
   --formBoxShadowColor: var(--grey-500);
   --editorColor: #fff;
   --userPanelBackground: #fff;
@@ -103,38 +103,46 @@
 /* FONTS */
 /* inter-regular - latin */
 @font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-display: swap;
+  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
   font-family: 'Inter';
   font-style: normal;
   font-weight: 400;
-  src: url('./assets/fonts/inter-v18-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  src: url('./assets/fonts/inter-v18-latin-regular.woff2') format('woff2');
+  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
 /* inter-500 - latin */
 @font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-display: swap;
+  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
   font-family: 'Inter';
   font-style: normal;
   font-weight: 500;
-  src: url('./assets/fonts/inter-v18-latin-500.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  src: url('./assets/fonts/inter-v18-latin-500.woff2') format('woff2');
+  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
 /* inter-600 - latin */
 @font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-display: swap;
+  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
   font-family: 'Inter';
   font-style: normal;
   font-weight: 600;
-  src: url('./assets/fonts/inter-v18-latin-600.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  src: url('./assets/fonts/inter-v18-latin-600.woff2') format('woff2');
+  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
 /* inter-700 - latin */
 @font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-display: swap;
+  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
   font-family: 'Inter';
   font-style: normal;
   font-weight: 700;
-  src: url('./assets/fonts/inter-v18-latin-700.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  src: url('./assets/fonts/inter-v18-latin-700.woff2') format('woff2');
+  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
 
@@ -156,6 +164,8 @@ body {
   color: var(--bodyTextColor);
   background-color: var(--bodyBackgroundColor);
   min-height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
 }
 
 // main {
@@ -166,7 +176,11 @@ h1 {
   font-size: var(--headerFontSize);
 }
 
-h1, h2, h3, h4 ,h5 h6 {
+h1,
+h2,
+h3,
+h4,
+h5 h6 {
   color: var(--headingColor);
 }
 
@@ -187,8 +201,6 @@ a {
   text-decoration: none;
   color: var(--secondary-500);
 }
-
-
 
 /* NAV STYLES */
 #nav {
@@ -295,7 +307,7 @@ a {
     left: 0;
     right: auto;
     z-index: -1;
-    
+
     transform: scaleX(0);
     transform-origin: top left;
     transition: transform 0.4s, opacity 0.3s;
@@ -313,7 +325,7 @@ a {
       flex-direction: column;
       align-items: start;
       justify-content: center;
-      gap: 1.5em;
+      gap: 20px;
       width: 100%;
       height: 200px;
       background-color: var(--toolTipBackground);
@@ -357,7 +369,6 @@ a {
       border: none;
       background-color: var(--primary-400);
       padding: .5em .7em;
-      font-weight: 500;
       text-decoration: none;
       color: var(--grey-100);
       height: fit-content;
@@ -370,7 +381,25 @@ a {
   }
 }
 
-/* Desktop nav */
+footer {
+  background-color: var(--navBackground);
+  padding: 1em;
+
+  ul {
+    list-style: none;
+    display: flex;
+    padding: 0;
+    gap: 20px;
+
+    li {
+      a {
+        color: var(--bodyTextColor);
+      }
+    }
+  }
+}
+
+/* Desktop nav & footer */
 @media screen and (min-width: 700px) {
   #nav {
     padding: 1.5em 3em;
@@ -406,6 +435,10 @@ a {
     .cs-toggle {
       display: none;
     }
+  }
+
+  footer {
+    padding: 1.5em 3em;
   }
 }
 
