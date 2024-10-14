@@ -9,6 +9,7 @@ import Dashboard from './pages/dashboard';
 import Userpanel from './components/userPanel';
 import SampleMatrix from './components/sampleComponents/sampleMatrix';
 import ErrorPage from './pages/error-page';
+import Footer from './components/footer';
 
 
 function App() {
@@ -40,6 +41,7 @@ function App() {
             </Route>
           </Routes>
         </main>
+        <Footer />
       </div>
     </>
   )

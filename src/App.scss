@@ -1,8 +1,9 @@
 /* Styles for home page */
 #main {
     .description-text {
-        padding: 1em;
+        padding: 0 1em;
         margin: auto;
+        margin-bottom: 40px;
 
         .section-wrapper {
             display: grid;
@@ -28,7 +29,7 @@
         }
 
         h1 {
-            margin-bottom: 1.5em;
+            margin: 40px 0;
         }
 
 
@@ -46,7 +47,11 @@
 @media screen and (min-width: 700px) {
     #main {
         .description-text {
-            padding: 1em 3em;
+            padding: 0 3em;
+
+            h1 {
+                margin: 1.2em 0;
+            }
         }
     }
 }

@@ -266,7 +266,7 @@ const extensions = [
 
 export default function SampleTextEditor({ id, placeholder }) {
   const [editorContent, setEditorContent] = useState("");
-  const [savedText, setSavedText] = useState("save");
+  const [savedText, setSavedText] = useState("SAVE");
 
   // get local storage if available
   const content = window.localStorage.getItem(id) || `<h4>${placeholder}</h4>`
@@ -275,7 +275,7 @@ export default function SampleTextEditor({ id, placeholder }) {
   const save = () => {
     window.localStorage.setItem(id, editorContent)
 
-    setSavedText("saved")
+    setSavedText("SAVED")
   }
 
   // change save button text back
