@@ -9,7 +9,7 @@
     // }
 
     .title {
-        margin-bottom: 40px;
+        margin: 40px;
         text-align: center;
     }
 
@@ -59,7 +59,7 @@
         grid-template-columns: 1fr;
         grid-template-rows: minmax(400px, auto) 100px minmax(400px, auto);
         justify-items: center;
-        width: 90%;
+        width: 95%;
         margin: auto;
         gap: 24px;
 
@@ -117,11 +117,11 @@
                         color: var(--bodyTextColor);
                         padding: .4em 1em;
                         font: inherit;
-                        font-weight: 600;
+                        // font-weight: 500;
                         margin: 1em;
                         border-radius: 5px;
-                        font-size: 1.1rem;
-                        letter-spacing: .1em;
+                        font-size: 16px;
+                        letter-spacing: 1px;
 
                         &:hover {
                             color: var(--secondary-500);
@@ -239,13 +239,12 @@
         color: var(--grey-100);
         padding: .4em .6em;
         border-radius: 5px;
-        font-weight: 600;
     }
 
     .back-btn {
         position: relative;
         left: 20px;
-        top: 10px;
+        top: 30px;
     }
 
     .preview-btn {
@@ -264,6 +263,7 @@
         grid-template-columns: minmax(150px, 1fr) minmax(150px, 1fr);
         margin: auto;
         margin-top: 7em;
+        margin-bottom: 5em;
         position: relative;
         width: 95%;
 

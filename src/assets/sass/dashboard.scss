@@ -8,14 +8,17 @@
 
         .user-panel-wrapper {
             .show-panel-btn {
-                padding: 10px 20px;
+                padding: 10px;
                 background-color: var(--secondary-500);
                 border-top-right-radius: 5px;
                 border-bottom-right-radius: 5px;
                 color: var(--grey-50);
                 position: relative;
-                top: 20px;
+                top: 40px;
                 font-size: 14px;
+                display: flex;
+                align-items: center;
+                gap: 6px;
             }
 
             .hide-panel-btn {
@@ -27,10 +30,22 @@
                 position: relative;
                 right: 20px;
                 color: var(--grey-500);
+                display: flex;
+                align-items: center;
+                gap: 6px;
 
                 &:hover {
                     background-color: var(--secondary-500);
                     color: var(--grey-50);
+
+                    svg {
+                        fill: var(--grey-50);
+                    }
+                }
+
+                svg {
+                    fill: var(--grey-500);
+
                 }
 
             }
@@ -80,7 +95,7 @@
                 }
 
                 button {
-                    color: var(--primary-700);
+                    color: var(--secondary-500);
                     font-size: .8rem;
                 }
 
@@ -101,7 +116,6 @@
                 border-radius: 10px;
                 max-width: 500px;
                 // position: relative;
-                padding: 1em 0;
 
                 ul {
                     list-style: none;
@@ -131,6 +145,10 @@
 
                         &:hover {
                             background-color: var(--primary-200);
+
+                            .cs-button {
+                                color: var(--secondary-800);
+                            }
                         }
 
                         button {
@@ -144,10 +162,6 @@
                             font-weight: 600;
                             color: var(--bodyTextColor);
                             border-radius: 20px;
-
-                            // &:hover {
-                            //     color: var(--grey-50);
-                            // }
                         }
 
                         div {
@@ -240,7 +254,6 @@
                             color: var(--grey-100);
                             background-color: var(--primary-400);
                             border-radius: 5px;
-                            font-weight: 500;
                         }
 
                     }
@@ -258,7 +271,7 @@
             // }
 
             .user-panel {
-                margin-top: 85px;
+                margin-top: 84px;
 
                 .form-wrapper {
                     #update-form {
