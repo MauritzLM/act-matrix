@@ -25,11 +25,17 @@ export default function Description() {
 
                     <p>Below are links to various examples in using the ACT Matrix. (links will open in a new tab)</p>
 
-                    <div className="links">
-                        <Link to='https://www.youtube.com/watch?v=cCCSpOtDPV0' target="_blank">Video exercise</Link>
-                        <Link to='https://www.du.edu/sport-sense/news/unleashing-power-act-matrix-helpful-tool-coaches-nurture-athletes-mindset-build-psychological-flexibility-and-increase-resilience' target="_blank">College athlete example</Link>
-                        <Link to='https://masteraba.com/how-to-use-the-act-matrix-to-reach-your-goals/' target="_blank">Behaviour analyst example</Link>
-                    </div>
+                    <ol className="links">
+                        <li>
+                            <Link to='https://www.youtube.com/watch?v=cCCSpOtDPV0' target="_blank">Video exercise</Link>
+                        </li>
+                        <li>
+                            <Link to='https://www.du.edu/sport-sense/news/unleashing-power-act-matrix-helpful-tool-coaches-nurture-athletes-mindset-build-psychological-flexibility-and-increase-resilience' target="_blank">College athlete example</Link>
+                        </li>
+                        <li>
+                            <Link to='https://masteraba.com/how-to-use-the-act-matrix-to-reach-your-goals/' target="_blank">Behaviour analyst example</Link>
+                        </li>
+                    </ol>
                 </section>
             </div>
 
