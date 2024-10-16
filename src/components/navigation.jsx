@@ -36,17 +36,17 @@ export default function Nav({ location, theme, switchTheme }) {
 
                 <div className={`ul-wrapper ${active}`}>
                     <ul>
-                        <li><Link className={location === '/' ? 'cs-active' : ''} to='/'>Home</Link></li>
-                        <li><Link className={location === '/act-matrix' ? 'cs-active' : ''} to='/act-matrix'>Matrix</Link></li>
-                        {isAuthenticated && (<li><Link className={location === '/dashboard' ? 'cs-active' : ''} to='/dashboard'>Dashboard</Link></li>)}
+                        <li><Link data-testid="navlink" className={location === '/' ? 'cs-active' : ''} to='/'>Home</Link></li>
+                        <li><Link data-testid="navlink" className={location === '/act-matrix' ? 'cs-active' : ''} to='/act-matrix'>Matrix</Link></li>
+                        {isAuthenticated && (<li><Link data-testid="navlink" className={location === '/dashboard' ? 'cs-active' : ''} to='/dashboard'>Dashboard</Link></li>)}
                     </ul>
                 </div>
 
 
                 <div className='theme-login-wrapper'>
                     {/* theme toggle */}
-                    <button onClick={switchTheme} className='theme-toggle'>
-                        <img src={theme === 'light' ? darkmode : lightmode}></img>
+                    <button data-testid="theme-toggle" onClick={switchTheme} className='theme-toggle'>
+                        <img src={theme === 'light' ? darkmode : lightmode} alt="theme-toggle"></img>
                     </button>
 
                     {!isAuthenticated && (
@@ -54,7 +54,6 @@ export default function Nav({ location, theme, switchTheme }) {
                     )}
 
                     {isAuthenticated && (
-
                         <LogoutButton />
                     )}
                 </div>
