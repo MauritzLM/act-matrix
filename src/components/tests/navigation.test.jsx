@@ -1,20 +1,22 @@
-import { describe, it, expect, vi, afterAll } from 'vitest';
-import { render, screen } from '@testing-library/react';
-import Nav from '../navigation';
-import { BrowserRouter } from "react-router-dom";
-import userEvent from '@testing-library/user-event';
+/* eslint-disable no-import-assign */
+import { describe, it, expect, vi, afterAll } from 'vitest'
+import { render, screen } from '@testing-library/react'
+import Nav from '../navigation'
+import { BrowserRouter } from "react-router-dom"
+import userEvent from '@testing-library/user-event'
+// eslint-disable-next-line no-unused-vars
+import { useAuth0 } from '@auth0/auth0-react'
+
+vi.mock('@auth0/auth0-react');
 
 const switchThemeMock = vi.fn()
 
 describe('navigation tests', () => {
     it('rendering when user logged in', async () => {
-        const auth0Mock = vi.fn(() => ({
-            user: {},
+        useAuth0 = vi.fn().mockReturnValue({
             isAuthenticated: true,
-            isLoading: false,
-            getAccessTokenSilently: vi.fn(),
-        }));
-        vi.stubGlobal('useAuth0', auth0Mock)
+            isLoading: false
+        });
 
         render(<BrowserRouter><Nav location={'/'} theme={'light'} switchTheme={switchThemeMock} /></BrowserRouter>)
 
@@ -26,8 +28,9 @@ describe('navigation tests', () => {
             navLinks = await screen.findAllByTestId('navlink')
         });
 
-        // dashboard link (test not working)*
-        // expect(navLinks).toHaveLength(3);
+        // dashboard link
+        expect(navLinks).toHaveLength(3);
+        expect(navLinks[2]).toHaveTextContent(/dashboard/i);
 
         // active link
         expect(navLinks[0]).toHaveClass('cs-active')
@@ -38,6 +41,26 @@ describe('navigation tests', () => {
         await user.click(theme_toggle)
 
         expect(switchThemeMock).toHaveBeenCalled();
+
+        // logout button
+        expect(screen.getByText(/log out/i)).toBeInTheDocument();
+    });
+
+    it('rendering when user not logged in', async () => {
+        useAuth0 = vi.fn().mockReturnValue({
+            isAuthenticated: false,
+            isLoading: false
+        });
+
+        render(<BrowserRouter><Nav location={'/'} theme={'light'} switchTheme={switchThemeMock} /></BrowserRouter>);
+
+        const navLinks = await screen.findAllByTestId('navlink');
+
+        expect(navLinks).toHaveLength(2);
+
+        // login button
+        expect(screen.getByText(/log in/i)).toBeInTheDocument();
+
     });
 
     afterAll(() => {

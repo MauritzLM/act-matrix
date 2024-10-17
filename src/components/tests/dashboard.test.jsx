@@ -1,6 +1,11 @@
-import { describe, it, expect, vi, afterAll } from 'vitest';
-import { render, screen } from '@testing-library/react';
-import Dashboard from '../../pages/dashboard';
+/* eslint-disable no-import-assign */
+import { describe, it, expect, vi, afterAll } from 'vitest'
+import { render, screen } from '@testing-library/react'
+import Dashboard from '../../pages/dashboard'
+// eslint-disable-next-line no-unused-vars
+import { useAuth0 } from '@auth0/auth0-react'
+
+vi.mock('@auth0/auth0-react');
 
 describe('description component tests', () => {
 
@@ -13,14 +18,10 @@ describe('description component tests', () => {
     );
     vi.stubGlobal('fetch', fetchMock);
 
-    const auth0Mock = vi.fn(() => ({
-      user: {},
+    useAuth0 = vi.fn().mockReturnValue({
       isAuthenticated: true,
-      isLoading: true,
-      getAccessTokenSilently: vi.fn(),
-    }));
-
-    vi.stubGlobal('useAuth0', auth0Mock)
+      isLoading: true
+    });
 
     render(<Dashboard />)
 
@@ -37,14 +38,10 @@ describe('description component tests', () => {
     );
     vi.stubGlobal('fetch', fetchMock);
 
-    const auth0Mock = vi.fn(() => ({
-      user: {},
+    useAuth0 = vi.fn().mockReturnValue({
       isAuthenticated: true,
-      isLoading: false,
-      getAccessTokenSilently: vi.fn(),
-    }));
-
-    vi.stubGlobal('useAuth0', auth0Mock)
+      isLoading: false
+    });
 
     expect(screen.queryByText('Loading ...')).not.toBeInTheDocument();
   })
