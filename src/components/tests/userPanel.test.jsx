@@ -3,17 +3,23 @@ import { render, screen } from '@testing-library/react';
 import Userpanel from '../userPanel';
 import { userContext } from '../../context/usercontext';
 import userEvent from '@testing-library/user-event';
+// eslint-disable-next-line no-unused-vars
+import { useAuth0 } from '@auth0/auth0-react'
 
-
-// auth0 -> user, getaccesstokensilently
-// state -> active panel
 // mocks
+vi.mock('@auth0/auth0-react');
 const contextMock = { userMatrices: [{ instance_id: '1', title: 'one' }, { instance_id: '2', title: 'two' }], updateUserMatrices: () => { return 1 }, user: {}, selectedMatrix: { instance_id: '2', title: 'two' }, changeMatrix: () => { return 1 } }
-// const updateSelectionMock = vi.spyOn(Userpanel, 'updateSelection');
 
 describe('userpanel tests', () => {
 
     it('test show / hide panel buttons', async () => {
+
+        // eslint-disable-next-line no-import-assign
+        useAuth0 = vi.fn().mockReturnValue({
+            isAuthenticated: true,
+            getAccessTokenSilently: vi.fn()
+          });
+
         render(<Userpanel />)
 
         const user = userEvent.setup();
@@ -39,14 +45,12 @@ describe('userpanel tests', () => {
     });
 
     it('test user matrices', async () => {
-        const auth0Mock = vi.fn(() => ({
+        // eslint-disable-next-line no-import-assign
+        useAuth0 = vi.fn().mockReturnValue({
             user: { nickname: 'Frodo' },
             isAuthenticated: true,
-            isLoading: false,
-            getAccessTokenSilently: vi.fn(),
-        }));
-
-        vi.stubGlobal('useAuth0', auth0Mock);
+            getAccessTokenSilently: vi.fn()
+          });
 
         render(
             <userContext.Provider value={contextMock}>
@@ -58,15 +62,15 @@ describe('userpanel tests', () => {
 
         const user_list = screen.getAllByRole('listitem');
         const select_buttons = screen.getAllByTestId('select-btn');
-
+        
+        // username
+        expect(screen.getByText(/hi frodo/i)).toBeInTheDocument();
         expect(user_list).toHaveLength(2);
         expect(user_list[1]).toHaveClass('cs-active');
         expect(screen.getByTestId('new')).toBeInTheDocument();
 
         await user.click(select_buttons[0]);
 
-        // how to mock function inside component ?*
-        // expect(updateSelectionMock).toHaveBeenCalled();
     });
 
     afterAll(() => {

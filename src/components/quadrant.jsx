@@ -8,7 +8,7 @@ import { userContext } from '../context/usercontext';
 export default function Quadrant({ title, id, currentContent, setCurrentContent }) {
     const userInfo = useContext(userContext);
     const { getAccessTokenSilently } = useAuth0();
-    const [savedText, setSavedText] = useState('SAVE');
+    const [savedText, setSavedText] = useState('save');
 
     // function to save quadrant content in db and update context
     async function handleSave() {
@@ -34,12 +34,13 @@ export default function Quadrant({ title, id, currentContent, setCurrentContent 
                 body: JSON.stringify({ instance_id: userInfo.selectedMatrix.instance_id, quadrant_content: currentContent[`quadrant_${id}`], quadrant_number: id })
             });
 
+            // eslint-disable-next-line no-unused-vars
             const message = await response.json();
 
             // update matrix in context
             userInfo.updateUserMatrices(userInfo.selectedMatrix.instance_id, `quadrant_${id}`, currentContent[`quadrant_${id}`])
             
-            setSavedText('SAVED');
+            setSavedText('saved');
 
         }
         catch (error) {
@@ -49,7 +50,7 @@ export default function Quadrant({ title, id, currentContent, setCurrentContent 
 
     useEffect(() => {
         // after 3 seconds set saved text to save
-        setTimeout(() => setSavedText('SAVE'), 3000)
+        setTimeout(() => setSavedText('save'), 3000)
 
     }, [savedText])
 

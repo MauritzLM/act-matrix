@@ -269,6 +269,11 @@ export default function TextEditor({ id, currentContent, setCurrentContent }) {
     extensions,
     content: currentContent[`quadrant-${id}`],
     onUpdate: ({ editor }) => setCurrentContent({ ...currentContent, [`quadrant_${id}`]: editor.getHTML() }),
+    editorProps: {
+      attributes :{
+        'data-testid': `${id}`
+      }
+    }
   });
 
   // set content to intial content &

@@ -1,8 +1,9 @@
 
-import { useAuth0 } from "@auth0/auth0-react";
-import { useState, useEffect } from "react";
-import { userContext } from "../context/usercontext";
-import "../assets/sass/dashboard.scss";
+import { useAuth0 } from "@auth0/auth0-react"
+import { useState, useEffect } from "react"
+import { userContext } from "../context/usercontext"
+import "../assets/sass/dashboard.scss"
+import PropTypes from 'prop-types'
 
 const Dashboard = ({ children }) => {
   const { user, isAuthenticated, isLoading, getAccessTokenSilently } = useAuth0();
@@ -14,7 +15,7 @@ const Dashboard = ({ children }) => {
   function changeMatrix(obj) {
     setSelectedMatrix({ ...obj })
   }
-  
+
   // function to update context when saving quadrant
   function updateUserMatrices(id, quadrant, quadrant_content) {
     setUserMatrices(userMatrices.map(matrix => {
@@ -85,11 +86,14 @@ const Dashboard = ({ children }) => {
     selectedMatrix: selectedMatrix,
     changeMatrix: changeMatrix,
     updateMade: updateMade,
-    setUpdateMade: setUpdateMade
+    setUpdateMade: setUpdateMade,
   }
 
   if (isLoading) {
-    return <div className="container">Loading ...</div>;
+    return <div className="container">
+      {/* add loading spinner / indicator* */}
+      Loading ...
+    </div>;
   }
 
   return (
@@ -102,5 +106,9 @@ const Dashboard = ({ children }) => {
     )
   );
 };
+
+Dashboard.propTypes = {
+  children: PropTypes.node
+}
 
 export default Dashboard;

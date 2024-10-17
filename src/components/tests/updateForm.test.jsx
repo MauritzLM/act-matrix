@@ -1,7 +1,7 @@
-import { describe, it, expect, vi } from 'vitest';
-import { render, screen } from '@testing-library/react';
-import userEvent from "@testing-library/user-event";
-import UpdateForm from '../updateForm';
+import { describe, it, expect, vi } from 'vitest'
+import { render, screen } from '@testing-library/react'
+import userEvent from "@testing-library/user-event"
+import UpdateForm from '../updateForm'
 
 describe('update form', () => {
     const updateObj = { type: 'profile', errorMsg: 'please enter a valid name', }
@@ -19,8 +19,10 @@ describe('update form', () => {
     });
 
     it('submit button testing', async () => {
-        const user = userEvent.setup()
+        
         render(<UpdateForm updateObj={updateObj} setUpdate={setUpdate} updateFunction={updateFunction} />)
+
+        const user = userEvent.setup()
 
         const submitBtn = screen.getByTestId('submit')
 
@@ -30,8 +32,10 @@ describe('update form', () => {
     });
 
     it('close button testing', async () => {
-        const user = userEvent.setup()
+        
         render(<UpdateForm updateObj={updateObj} setUpdate={setUpdate} updateFunction={updateFunction} />)
+
+        const user = userEvent.setup()
 
         const closeBtn = screen.getByTestId('close')
 
@@ -41,7 +45,7 @@ describe('update form', () => {
     });
 
     it('delete message and no error', () => {
-        const deleteObj = {type: 'delete', title: 'One', errorMsg: ''}
+        const deleteObj = {type: 'delete', name: 'One', errorMsg: '', title: 'Delete Matrix'}
 
         render(<UpdateForm updateObj={deleteObj} setUpdate={setUpdate} updateFunction={updateFunction}/>)
 

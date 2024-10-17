@@ -1,9 +1,9 @@
-import { describe, it, expect, vi } from 'vitest';
-import { render, screen } from '@testing-library/react';
-import Matrix from '../matrix';
-import { userContext } from '../../context/usercontext';
-import { BrowserRouter } from 'react-router-dom';
-import userEvent from '@testing-library/user-event';
+import { describe, it, expect, vi } from 'vitest'
+import { render, screen } from '@testing-library/react'
+import Matrix from '../matrix'
+import { userContext } from '../../context/usercontext'
+import { BrowserRouter } from 'react-router-dom'
+import userEvent from '@testing-library/user-event'
 
 // mocks
 vi.mock('../quadrant');
