@@ -13,7 +13,7 @@
   --primary-800: #00838F;
   --primary-900: #006064;
 
-  --secondary-500: #6494bb;
+  --secondary-500: #2b8edf;
   --secondary-800: #20303a;
 
   --grey-50: #FAFAFA;
@@ -367,7 +367,7 @@ a {
 
     .cs-button {
       border: none;
-      background-color: var(--primary-400);
+      background-color: var(--primary-500);
       padding: .5em .7em;
       text-decoration: none;
       color: var(--grey-100);
@@ -389,7 +389,7 @@ footer {
     list-style: none;
     display: flex;
     padding: 0;
-    gap: 20px;
+    gap: 40px;
 
     li {
       a {
@@ -422,6 +422,7 @@ footer {
         flex-direction: row;
         padding: 0;
         background-color: inherit;
+        gap: 40px;
 
         li {
 
