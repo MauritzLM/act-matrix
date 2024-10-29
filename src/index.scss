@@ -4,16 +4,16 @@
 :root {
   --primary-50: #fff8ed;
   --primary-100: #ffe4bb;
-  --primary-200: #ffd594;
+  --primary-200: #efd6b0;
   --primary-300: #e1944d;
-  --primary-400: #f39931;
+  --primary-400: #f3a22b;
   --primary-500: #f87e0d;
   --primary-600: #00ACC1;
   --primary-700: #0097A7;
   --primary-800: #00838F;
   --primary-900: #006064;
 
-  --secondary-500: #2b8edf;
+  --secondary-500: #418bc7;
   --secondary-800: #20303a;
 
   --grey-50: #FAFAFA;
@@ -23,9 +23,9 @@
   --grey-400: #BDBDBD;
   --grey-500: #9E9E9E;
   --grey-600: #757575;
-  --grey-700: #616161;
-  --grey-800: #292a2b;
-  --grey-900: #212121;
+  --grey-700: #353637;
+  --grey-800: #252729;
+  --grey-900: #1a1919;
 
   --accentGreen-100: rgb(171, 255, 175);
   --accentGreen-200: #88D6CA;
@@ -35,7 +35,7 @@
   --headerFontSize: clamp(1.9375rem, 4.2vw, 3.5rem);
 
   // background and text
-  --bodyBackgroundColor: #fafafa;
+  --bodyBackgroundColor: #f1efec;
   --bodyTextColor: black;
   --userPanelBackground: #f5f5f5;
   --selectedBackground: #00838f;
@@ -59,9 +59,9 @@
 
 // theme colors
 .app[data-theme='light'] {
-  --bodyBackgroundColor: #f2f8ff;
+  --bodyBackgroundColor: #f1efec;
   --headingColor: var(--secondary-800);
-  --bodyTextColor: var(--secondary-800);
+  --bodyTextColor: var(--grey-700);
   --matrixBackground: var(--primary-50);
   --matrixSaveBtn: var(--accentGreen-100);
   --matrixText: var(--grey-900);
@@ -73,7 +73,7 @@
   --userPanelBackground: #fff;
   --selectedBackground: var(--primary-200);
   --borderColor: var(--grey-200);
-  --navBackground: white;
+  --navBackground: var(--grey-700);
 
   --surfaceColor-1: white;
   --toolTipBackground: white;
@@ -267,7 +267,7 @@ a {
     width: 100%;
     height: 2px;
     border-radius: 2px;
-    background-color: var(--grey-500);
+    background-color: var(--grey-100);
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
@@ -328,8 +328,8 @@ a {
       gap: 20px;
       width: 100%;
       border-radius: 5px;
-      height: 120px;
-      background-color: var(--toolTipBackground);
+      padding: 35px;
+      background-color: var(--navBackground);
 
       li {
         text-align: center;
@@ -338,14 +338,14 @@ a {
         margin-right: 0;
 
         a {
-          color: var(--bodyTextColor);
+          color: var(--grey-100);
           text-decoration: none;
           padding-bottom: .1em;
           font-size: 16px;
         }
 
         .cs-active {
-          border-bottom: 2px solid var(--primary-400);
+          border-bottom: 2px solid var(--primary-200);
         }
 
       }
@@ -355,7 +355,7 @@ a {
   .theme-login-wrapper {
     display: flex;
     align-items: center;
-    gap: 1.5em;
+    gap: 16px;
 
     .theme-toggle {
       height: fit-content;
@@ -363,16 +363,16 @@ a {
 
     .cs-button {
       border: none;
-      background-color: var(--primary-500);
-      padding: .5em .7em;
+      // background-color: var(--grey-100);
+      // padding: .5em .7em;
       text-decoration: none;
       color: var(--grey-100);
       height: fit-content;
       border-radius: 5px;
 
-      &:hover {
-        box-shadow: 4px 4px 6px var(--boxShadowColor2);
-      }
+      // &:hover {
+      //   box-shadow: 4px 4px 6px var(--boxShadowColor2);
+      // }
     }
   }
 }
