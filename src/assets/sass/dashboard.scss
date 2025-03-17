@@ -9,16 +9,29 @@
         .user-panel-wrapper {
             .show-panel-btn {
                 padding: 10px;
-                background-color: var(--grey-700);
+                background-color: var(--surfaceColor-1);
                 border-top-right-radius: 5px;
                 border-bottom-right-radius: 5px;
                 color: var(--grey-50);
                 position: relative;
-                top: 40px;
+                top: 35px;
                 font-size: 14px;
                 display: flex;
                 align-items: center;
                 gap: 6px;
+                box-shadow: 5px 10px 10px rgba(0,0,0,.08);
+
+                &:hover {
+                    background-color: var(--grey-200);
+                
+                    // svg {
+                    //     fill: var(--grey-50);
+                    // }
+                }
+
+                svg {
+                    fill: var(--secondary-500);
+                }
             }
 
             .hide-panel-btn {
@@ -37,14 +50,10 @@
                 &:hover {
                     background-color: var(--grey-700);
                     color: var(--grey-50);
-
-                    svg {
-                        fill: var(--grey-50);
-                    }
                 }
 
                 svg {
-                    fill: var(--grey-500);
+                    fill: var(--secondary-500);
 
                 }
 
@@ -121,7 +130,7 @@
                     list-style: none;
                     display: flex;
                     flex-direction: column;
-                    gap: 1em;
+                    gap: 10px;
                     padding: 1em;
                     padding-left: 0;
                     margin: 0;

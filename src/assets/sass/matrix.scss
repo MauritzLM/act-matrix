@@ -1,7 +1,7 @@
 /* MATRIX STYLES */
 /* layout */
 .matrix-container {
-    padding: 40px 0;
+    // padding: 40px 0;
 
     // section {
     //     padding: 30px;
@@ -9,8 +9,9 @@
     // }
 
     .title {
-        margin: 40px;
+        margin: 0 32px 32px 32px;
         text-align: center;
+        letter-spacing: .5px;
     }
 
     .matrix-heading {
@@ -30,12 +31,12 @@
 
     #quadrant-skip {
         margin-bottom: 4em;
-        margin-top: 20px;
+        margin-top: 40px;
         width: fit-content;
         padding: 24px 20px;
         background-color: var(--toolTipBackground);
-        border-radius: 5px;
-        box-shadow: .6px .6px .8px var(--boxShadowColor);
+        border-radius: 10px;
+        box-shadow: 5px 10px 10px rgba(0,0,0,.08);
         position: relative;
         left: 20px;
 
