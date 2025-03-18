@@ -22,7 +22,7 @@ export default function UpdateForm({ updateObj, setUpdate, updateFunction }) {
 
                 {/* delete warning */}
                 {updateObj.type === 'delete' && (
-                    <p data-testid="delete">Are you sure you want to delete {updateObj.name}?</p>
+                    <p data-testid="delete">Warning! This cannot be reversed.</p>
                 )}
 
                 <button data-testid="submit">submit</button>

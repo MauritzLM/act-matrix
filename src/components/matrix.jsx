@@ -81,6 +81,8 @@ export default function Matrix() {
                     <button data-testid="preview-btn" className="preview-btn" onClick={() => setPreview(true)}>preview</button>
                 </div>
 
+                <button data-testid="preview-btn-desktop" className="preview-btn-desktop" onClick={() => setPreview(true)}>preview</button>
+
                 <section>
 
                     <h3 className="matrix-heading">FIVE SENSES AWARENESS</h3>
