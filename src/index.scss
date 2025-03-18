@@ -7,7 +7,7 @@
   --primary-200: #efd6b0;
   --primary-300: #e1944d;
   --primary-400: #f3a22b;
-  --primary-500: #f87e0d;
+  --primary-500: #fb7232;
   --primary-600: #00ACC1;
   --primary-700: #0097A7;
   --primary-800: #00838F;
@@ -17,7 +17,7 @@
   --secondary-800: #20303a;
 
   --grey-50: #FAFAFA;
-  --grey-100: #f9f9f9;
+  --grey-100: #f9f8f6;
   --grey-200: #EEEEEE;
   --grey-300: #E0E0E0;
   --grey-400: #BDBDBD;
@@ -42,6 +42,7 @@
   --borderColor: #bdbdbd;
   --navBackground: #00838f;
   --surfaceColor-1: var(--grey-100);
+  --surfaceColor-2: var(--grey-300);
   --toolTipBackground: var(--primary-50);
 
   // matrix colors
@@ -59,8 +60,8 @@
 
 // theme colors
 .app[data-theme='light'] {
-  --bodyBackgroundColor: #f1efec;
-  --headingColor: var(--secondary-800);
+  --bodyBackgroundColor: var(--grey-100);
+  --headingColor: var(--grey-900);
   --bodyTextColor: var(--grey-700);
   --matrixBackground: var(--primary-50);
   --matrixSaveBtn: var(--accentGreen-100);
@@ -69,19 +70,20 @@
   --boxShadowColor: rgba(221, 221, 221, .8);
   --boxShadowColor2: #c8dbd9;
   --formBoxShadowColor: var(--grey-500);
-  --editorColor: #fff;
+  --editorColor: var(--grey-100);
   --userPanelBackground: #fff;
   --selectedBackground: var(--primary-200);
   --borderColor: var(--grey-200);
   --navBackground: var(--grey-700);
 
   --surfaceColor-1: white;
+  --surfaceColor-2: var(--grey-200);
   --toolTipBackground: white;
 }
 
 .app[data-theme='dark'] {
   --bodyBackgroundColor: var(--grey-900);
-  --headingColor: var(--grey-100);
+  --headingColor: var(--grey-200);
   --bodyTextColor: var(--grey-400);
   --matrixBackground: var(--primary-700);
   --matrixSaveBtn: var(--accentGreen-500);
@@ -90,13 +92,14 @@
   --boxShadowColor: var(--grey-900);
   --boxShadowColor2: #131313;
   --formBoxShadowColor: var(--grey-900);
-  --editorColor: #000000;
+  --editorColor: #3D4144;
   --userPanelBackground: var(--grey-800);
   --selectedBackground: var(--primary-900);
   --borderColor: var(--grey-900);
   --navBackground: var(--grey-800);
 
   --surfaceColor-1: var(--grey-800);
+  --surfaceColor-2: var(--grey-700);
   --toolTipBackground: var(--grey-800);
 }
 
@@ -207,11 +210,10 @@ a {
   display: flex;
   justify-content: space-between;
   gap: 1em;
-  padding: 1em;
+  padding: 1em 1em 0 1em;
   z-index: 10000;
   position: relative;
   margin: auto;
-  background-color: var(--navBackground);
 
   &.cs-active {
     &:before {
@@ -223,24 +225,28 @@ a {
       opacity: 1;
       transform: scaleX(1);
       transition-delay: 0.2s;
+      box-shadow: 2px 2px 5px rgba(0,0,0,.08);
     }
   }
 
   .cs-toggle {
-    /* 44px - 48px */
-    width: clamp(2.75rem, 6vw, 3rem);
-    height: clamp(2.75rem, 6vw, 3rem);
-    border-radius: calc(4 / 16 * 1rem);
-    background-color: transparent;
+    border-radius: 10px;
+    background-color: var(--surfaceColor-1);
     border: none;
     display: flex;
     align-items: center;
+    justify-content: center;
+    padding: 5px;
+    height: 40px;
+    width: 50px;
+    box-shadow: 2px 2px 5px rgba(0,0,0,.08);
   }
 
   .cs-active {
     .cs-line1 {
       top: 50%;
       transform: translate(-50%, -50%) rotate(225deg);
+      width: 100%;
     }
 
     .cs-line2 {
@@ -252,6 +258,7 @@ a {
     .cs-line3 {
       bottom: 100%;
       opacity: 0;
+      width: 100%;
     }
   }
 
@@ -261,13 +268,14 @@ a {
     /* 14px - 16px */
     height: clamp(0.875rem, 1.5vw, 1rem);
     position: relative;
+    
   }
 
   .cs-line {
     width: 100%;
     height: 2px;
     border-radius: 2px;
-    background-color: var(--grey-100);
+    background-color: var(--headingColor);
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
@@ -281,6 +289,7 @@ a {
     animation-timing-function: ease;
     animation-fill-mode: forwards;
     animation-direction: normal;
+    width: 70%;
   }
 
   .cs-line2 {
@@ -291,11 +300,13 @@ a {
     animation-timing-function: ease;
     animation-fill-mode: forwards;
     animation-direction: normal;
+    
   }
 
   .cs-line3 {
     bottom: 0;
     transition: bottom 0.3s, opacity 0.3s;
+    width: 70%;
   }
 
   .ul-wrapper {
@@ -303,11 +314,10 @@ a {
     // background-color: var(--navBackground);
     overflow: hidden;
     position: absolute;
-    top: 90px;
+    top: 70px;
     left: 0;
     right: auto;
     z-index: -1;
-    padding: 0 1em;
     transform: scaleX(0);
     transform-origin: top left;
     transition: transform 0.4s, opacity 0.3s;
@@ -325,11 +335,11 @@ a {
       flex-direction: column;
       align-items: start;
       justify-content: center;
-      gap: 20px;
+      gap: 16px;
       width: 100%;
       border-radius: 5px;
       padding: 35px;
-      background-color: var(--navBackground);
+      background-color: var(--surfaceColor-1);
 
       li {
         text-align: center;
@@ -338,14 +348,14 @@ a {
         margin-right: 0;
 
         a {
-          color: var(--grey-100);
+          color: var(--headingColor);
           text-decoration: none;
-          padding-bottom: .1em;
+          padding-bottom: .5px;
           font-size: 16px;
         }
 
         .cs-active {
-          border-bottom: 2px solid var(--primary-200);
+          border-bottom: 1px solid var(--primary-400);
         }
 
       }
@@ -363,12 +373,13 @@ a {
 
     .cs-button {
       border: none;
-      // background-color: var(--grey-100);
-      // padding: .5em .7em;
+      padding: 6px 10px;
       text-decoration: none;
-      color: var(--grey-100);
+      color: var(--bodyTextColor);
       height: fit-content;
       border-radius: 5px;
+      // letter-spacing: 1px;
+      font-size: 14px;
 
       // &:hover {
       //   box-shadow: 4px 4px 6px var(--boxShadowColor2);
@@ -378,7 +389,6 @@ a {
 }
 
 footer {
-  background-color: inherit;
   padding: 1em;
 
   ul {
@@ -411,7 +421,11 @@ footer {
       display: flex;
       justify-content: center;
       width: auto;
-      padding: 0;
+      padding: 8px 20px;
+      background-color: var(--surfaceColor-1);
+      border-radius: 10px;
+      box-shadow: 5px 10px 10px rgba(0,0,0,.08);
+
 
       ul {
         width: auto;

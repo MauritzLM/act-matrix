@@ -2,8 +2,6 @@ import { useContext, useState } from "react";
 import { userContext } from "../context/usercontext";
 import { useAuth0 } from "@auth0/auth0-react";
 import UpdateForm from "./updateForm";
-import editIcon from "../assets/svgs/edit.svg";
-import deleteIcon from "../assets/svgs/delete.svg"
 
 function Userpanel() {
     const { getAccessTokenSilently, user } = useAuth0();
@@ -210,7 +208,7 @@ function Userpanel() {
     return (
         <div className="user-panel-wrapper">
             <button data-testid="showpanel" className="show-panel-btn" onClick={() => setActivePanel('cs-active')}>
-                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M500-640v320l160-160-160-160ZM200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h560q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H200Zm120-80v-560H200v560h120Zm80 0h360v-560H400v560Zm-80 0H200h120Z" /></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24" fill="#e8eaed"><path d="M500-640v320l160-160-160-160ZM200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h560q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H200Zm120-80v-560H200v560h120Zm80 0h360v-560H400v560Zm-80 0H200h120Z" /></svg>
                 {/* <span>user panel</span> */}
             </button>
 
@@ -245,7 +243,7 @@ function Userpanel() {
                             {/* add loading spinner / indicator here* */}
 
                             {!userInfo.userMatrices.length && (
-                               <p>Loading...</p>
+                                <p>Loading...</p>
                             )}
 
                             {userInfo.userMatrices.map(item =>
@@ -255,11 +253,11 @@ function Userpanel() {
                                     {/* edit and delete buttons */}
                                     <div>
                                         <button data-testid="edit-btn" title="edit title" onClick={() => setUpdate({ ...update, title: 'Edit Matrix', type: 'new title', id: item.instance_id, label: 'new title' })}>
-                                            <img alt="edit" src={editIcon} aria-hidden='true'></img>
+                                            <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" fill="#9E9E9E" width="20"><path d="M200-200h57l391-391-57-57-391 391v57Zm-80 80v-170l528-527q12-11 26.5-17t30.5-6q16 0 31 6t26 18l55 56q12 11 17.5 26t5.5 30q0 16-5.5 30.5T817-647L290-120H120Zm640-584-56-56 56 56Zm-141 85-28-29 57 57-29-28Z" /></svg>
                                         </button>
 
-                                        <button data-testid="delete-btn" title="delete matrix" onClick={() => setUpdate({ ...update, title: 'Delete Matrix', type: 'delete', id: item.instance_id, label: 'enter the title you want to delete', name: item.title })}>
-                                            <img alt="delete" src={deleteIcon} aria-hidden='true'></img>
+                                        <button data-testid="delete-btn" title="delete matrix" onClick={() => setUpdate({ ...update, title: 'Delete Matrix', type: 'delete', id: item.instance_id, label: `Enter '${item.title}' to delete`, name: item.title })}>
+                                            <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" fill="#9E9E9E" width="20"><path d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520ZM360-280h80v-360h-80v360Zm160 0h80v-360h-80v360ZM280-720v520-520Z" /></svg>
                                         </button>
                                     </div>
 
@@ -269,9 +267,9 @@ function Userpanel() {
 
                         {/* if user has less than 3 instances render create new button */}
                         {userInfo.userMatrices.length < 3 && (
-                            <button data-testid="new" title="create new matrix" className="new-btn" onClick={() => setUpdate({ ...update, title: 'Create New Matrix', type: 'new matrix', label: 'new matrix title' })}>
+                            <button data-testid="new" title="create new matrix" className="new-btn" onClick={() => setUpdate({ ...update, title: 'New Matrix', type: 'new matrix', label: 'Enter title' })}>
                                 {/* <img alt="add" src={addIcon} aria-hidden="true" height="20px" width="20px"></img> */}
-                                + New Matrix
+                                + Create New
                             </button>
                         )}
 
@@ -300,7 +298,7 @@ function Userpanel() {
                     )}
 
                     <button data-testid="hidepanel" className="hide-panel-btn" onClick={() => setActivePanel('')}>
-                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M660-320v-320L500-480l160 160ZM200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h560q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H200Zm120-80v-560H200v560h120Zm80 0h360v-560H400v560Zm-80 0H200h120Z" /></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24" fill="#e8eaed"><path d="M660-320v-320L500-480l160 160ZM200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h560q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H200Zm120-80v-560H200v560h120Zm80 0h360v-560H400v560Zm-80 0H200h120Z" /></svg>
                         <span>Hide panel</span>
                     </button>
                 </div>
