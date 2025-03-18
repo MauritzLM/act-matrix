@@ -45,7 +45,7 @@ export default function Nav({ location, theme, switchTheme }) {
 
                 <div className='theme-login-wrapper'>
                     {/* theme toggle */}
-                    <button data-testid="theme-toggle" onClick={switchTheme} className='theme-toggle'>
+                    <button data-testid="theme-toggle" onClick={switchTheme} className='theme-toggle' title={theme === 'light' ? 'switch to dark theme' : 'switch to light theme'}>
                         <img src={theme === 'light' ? darkmode : lightmode} alt="theme-toggle"></img>
                     </button>
 
