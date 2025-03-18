@@ -42,6 +42,7 @@
   --borderColor: #bdbdbd;
   --navBackground: #00838f;
   --surfaceColor-1: var(--grey-100);
+  --surfaceColor-2: var(--grey-300);
   --toolTipBackground: var(--primary-50);
 
   // matrix colors
@@ -69,19 +70,20 @@
   --boxShadowColor: rgba(221, 221, 221, .8);
   --boxShadowColor2: #c8dbd9;
   --formBoxShadowColor: var(--grey-500);
-  --editorColor: #fff;
+  --editorColor: var(--grey-100);
   --userPanelBackground: #fff;
   --selectedBackground: var(--primary-200);
   --borderColor: var(--grey-200);
   --navBackground: var(--grey-700);
 
   --surfaceColor-1: white;
+  --surfaceColor-2: var(--grey-200);
   --toolTipBackground: white;
 }
 
 .app[data-theme='dark'] {
   --bodyBackgroundColor: var(--grey-900);
-  --headingColor: var(--grey-100);
+  --headingColor: var(--grey-200);
   --bodyTextColor: var(--grey-400);
   --matrixBackground: var(--primary-700);
   --matrixSaveBtn: var(--accentGreen-500);
@@ -90,13 +92,14 @@
   --boxShadowColor: var(--grey-900);
   --boxShadowColor2: #131313;
   --formBoxShadowColor: var(--grey-900);
-  --editorColor: #000000;
+  --editorColor: #3D4144;
   --userPanelBackground: var(--grey-800);
   --selectedBackground: var(--primary-900);
   --borderColor: var(--grey-900);
   --navBackground: var(--grey-800);
 
   --surfaceColor-1: var(--grey-800);
+  --surfaceColor-2: var(--grey-700);
   --toolTipBackground: var(--grey-800);
 }
 
@@ -332,7 +335,7 @@ a {
       flex-direction: column;
       align-items: start;
       justify-content: center;
-      gap: 20px;
+      gap: 16px;
       width: 100%;
       border-radius: 5px;
       padding: 35px;
@@ -345,14 +348,14 @@ a {
         margin-right: 0;
 
         a {
-          color: var(--bodyTextColor);
+          color: var(--headingColor);
           text-decoration: none;
-          padding-bottom: .1em;
+          padding-bottom: .5px;
           font-size: 16px;
         }
 
         .cs-active {
-          border-bottom: 2px solid var(--primary-400);
+          border-bottom: 1px solid var(--primary-400);
         }
 
       }
@@ -370,13 +373,13 @@ a {
 
     .cs-button {
       border: none;
-      background-color: var(--secondary-800);
       padding: 6px 10px;
       text-decoration: none;
-      color: var(--grey-100);
+      color: var(--bodyTextColor);
       height: fit-content;
       border-radius: 5px;
-      letter-spacing: 1px;
+      // letter-spacing: 1px;
+      font-size: 14px;
 
       // &:hover {
       //   box-shadow: 4px 4px 6px var(--boxShadowColor2);
@@ -418,7 +421,11 @@ footer {
       display: flex;
       justify-content: center;
       width: auto;
-      padding: 0;
+      padding: 8px 20px;
+      background-color: var(--surfaceColor-1);
+      border-radius: 10px;
+      box-shadow: 5px 10px 10px rgba(0,0,0,.08);
+
 
       ul {
         width: auto;
