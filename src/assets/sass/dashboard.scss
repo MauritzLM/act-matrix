@@ -19,18 +19,18 @@
                 display: flex;
                 align-items: center;
                 gap: 6px;
-                box-shadow: 5px 10px 10px rgba(0,0,0,.08);
+                box-shadow: 5px 10px 10px rgba(0, 0, 0, .08);
 
                 &:hover {
-                    background-color: var(--grey-200);
-                
+                    background-color: var(--surfaceColor-2);
+
                     // svg {
                     //     fill: var(--grey-50);
                     // }
                 }
 
                 svg {
-                    fill: var(--secondary-500);
+                    fill: var(--primary-400);
                 }
             }
 
@@ -42,18 +42,18 @@
                 font-size: 14px;
                 position: relative;
                 right: 20px;
-                color: var(--grey-500);
+                color: var(--headingColor);
                 display: flex;
                 align-items: center;
                 gap: 6px;
 
                 &:hover {
-                    background-color: var(--grey-700);
-                    color: var(--grey-50);
+                    background-color: var(--surfaceColor-2);
+                    
                 }
 
                 svg {
-                    fill: var(--secondary-500);
+                    fill: var(--primary-400);
 
                 }
 
@@ -136,12 +136,12 @@
                     margin: 0;
 
                     li[class="cs-active"] {
-                        background-color: var(--grey-700);
+                        background-color: var(--surfaceColor-2);
                         box-shadow: none;
 
                         .cs-button {
-                            color: var(--grey-100);
-                        }
+                             color: var(--bodyTextColor);
+                         }
                     }
 
                     li {
@@ -153,11 +153,11 @@
                         border-radius: 5px;
 
                         &:hover {
-                            background-color: var(--grey-700);
+                            background-color: var(--editorColor);
 
                             .cs-button {
-                                color: var(--grey-100);
-                            }
+                                 color: var(--bodyTextColor);
+                             }
                         }
 
                         button {
@@ -171,11 +171,25 @@
                             font-weight: 400;
                             color: var(--bodyTextColor);
                             border-radius: 20px;
+                            flex-grow: 2;
+                            text-align: left;
                         }
 
                         div {
                             display: flex;
                             gap: 1.5em;
+
+                            button {
+                                svg {
+                                    fill: rgb(151, 81, 81);
+                                }
+
+                                &:nth-of-type(1) {
+                                    svg {
+                                        fill: rgb(108, 148, 108);
+                                    }
+                                }
+                            }
                         }
 
                         .cs-active {
@@ -187,7 +201,6 @@
                 .new-btn {
                     color: var(--secondary-500);
                     margin-top: 1em;
-                    font-weight: 700;
                 }
             }
 
@@ -209,7 +222,7 @@
                     max-width: 350px;
                     border-radius: 5px;
                     background-color: var(--bodyBackgroundColor);
-                    padding: 30px 24px;
+                    padding: 24px;
                     box-shadow: .6px .6px .8px var(--formBoxShadowColor);
                     position: relative;
 
@@ -231,9 +244,10 @@
 
                         label {
                             font-weight: 500;
-                            font-size: 14px;
+                            font-size: 15px;
                             display: block;
                             margin-bottom: 10px;
+                            color: var(--bodyTextColor);
                         }
 
                         input {
@@ -247,13 +261,14 @@
                         }
 
                         span {
-                            color: #e95252;
+                            color: #914747;
                         }
 
                         p {
-                            color: #e95252;
+                            color: #6b3737;
                             font-weight: 500;
-                            font-size: 1.2rem;
+                            font-size: 16px;
+
                             margin: 0;
                         }
 
@@ -261,7 +276,7 @@
                             padding: .5em .6em;
                             font: inherit;
                             color: var(--grey-100);
-                            background-color: var(--primary-400);
+                            background-color: var(--grey-700);
                             border-radius: 5px;
                         }
 
