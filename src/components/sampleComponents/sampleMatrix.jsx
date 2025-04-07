@@ -3,6 +3,7 @@ import '../../assets/sass/matrix.scss'
 import { HashLink } from 'react-router-hash-link'
 import { useState } from 'react'
 import MatrixPreview from '../matrixPreview'
+import { convertHtml } from '../../helpers/text'
 
 export default function SampleMatrix() {
     // preview state
@@ -16,6 +17,32 @@ export default function SampleMatrix() {
         quadrant_3: window.localStorage.getItem(3) || "<h4>What inner experience is showing up for me?</h4>",
         quadrant_4: window.localStorage.getItem(4) || "<h4>What matters to me?</h4>"
     })
+    
+    // download handler 
+    async function downloadText() {
+        // convert html string
+        const text = convertHtml([currentContent.quadrant_1, currentContent.quadrant_2])
+
+        const blob = new Blob([...text], { type: 'text/plain' });
+
+        // Create an object URL for the blob object
+        const url = URL.createObjectURL(blob);
+
+        // Create the `` element and append it invisibly
+        const a = document.createElement('a')
+
+        a.href = url
+        a.download = 'matrix.txt'
+        a.style.display = 'none';
+        document.body.append(a);
+        a.click()
+
+        // Revoke the blob URL and remove the element.
+        setTimeout(() => {
+            URL.revokeObjectURL(url);
+            a.remove();
+        }, 1000);
+    }
 
     // if preview state return preview component
     if (preview) {
@@ -32,6 +59,7 @@ export default function SampleMatrix() {
 
     return (
         <div className='container'>
+            <button onClick={() => downloadText()}>download text</button>
             <div id="top" className='matrix-container'>
 
                 <div id="quadrant-skip">
