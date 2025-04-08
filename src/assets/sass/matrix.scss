@@ -269,7 +269,7 @@
     // skip to top
     .scroll-top {
         // font-size: 1.2rem;
-        
+
         display: block;
         margin-top: 30px;
         margin-bottom: 20px;
@@ -300,7 +300,34 @@
         margin-top: 2em;
     }
 
-    .preview-btn-desktop {
+    .download-btn,
+    .download-btn-desktop {
+        display: flex;
+        align-items: flex-end;
+        gap: 6px;
+        font-size: 14px;
+        color: var(--bodyTextColor);
+        margin-top: 1rem;
+
+        svg {
+            path {
+                stroke: var(--bodyTextColor);
+            }
+        }
+
+        &:hover {
+
+            color: var(--headingColor);
+            svg {
+                path {
+                    stroke: var(--primary-400);
+                }
+            }
+        }
+    }
+
+    .preview-btn-desktop,
+    .download-btn-desktop {
         display: none;
     }
 
@@ -484,7 +511,14 @@
             display: inline-block;
             position: relative;
             left: 20px;
-            top: 20px;
+            // top: 10px;
+        }
+
+        .download-btn-desktop {
+            display: flex;
+            position: absolute;
+            left: 20px;
+            top: 160px;
         }
     }
 }
