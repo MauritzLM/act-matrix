@@ -365,7 +365,7 @@ a {
   .theme-login-wrapper {
     display: flex;
     align-items: center;
-    gap: 16px;
+    gap: 10px;
 
     .theme-toggle {
       height: fit-content;
@@ -380,6 +380,8 @@ a {
       border-radius: 5px;
       // letter-spacing: 1px;
       font-size: 14px;
+      text-transform: uppercase;
+      font-weight: 600;
 
       // &:hover {
       //   box-shadow: 4px 4px 6px var(--boxShadowColor2);
