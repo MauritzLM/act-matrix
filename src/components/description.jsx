@@ -1,24 +1,65 @@
+import { useState } from "react"
 import { Link } from "react-router-dom"
 
 export default function Description() {
+    const [activeAnswer, setActiveAnswer] = useState(1)
+    // add youtube videos iframe*
+
+    // event handler to toggle answer visibility*
+    function answerToggle(num) {
+        setActiveAnswer(num)
+    }
+
     return (
         <div className="description-text">
-            <h1>ACT Matrix Online Tool</h1>
+
             <div className="section-wrapper">
                 <section>
-                    <h2>What is the ACT Matrix</h2>
-                    <p>The Act Matrix is a tool designed to help increase awareness, promote acceptance, and guide actions aligned with personal values</p>
-                    <Link to='https://en.wikipedia.org/wiki/Acceptance_and_commitment_therapy' target="_blank">Act wikipedia page (opens in new tab)</Link>
+                    <h1>ACT Matrix Online Tool</h1>
+                    <p>The Act Matrix is a tool designed to help increase awareness, promote acceptance, and guide actions aligned with personal values.</p>
+                    <p>You can use this tool to create and save your own matrix.</p>
+                    <div className="home-button-group">
+                        <Link className="home-button" to='https://en.wikipedia.org/wiki/Acceptance_and_commitment_therapy' target="_blank">
+                            <span>Wikipedia</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 0 24 24" width="20px" fill="#000000"><path d="M0 0h24v24H0V0z" fill="none" /><path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z" /></svg>
+                        </Link>
+                        <Link className="home-button" to='/act-matrix'>Get started</Link>
+                    </div>
+
                 </section>
                 <section>
                     <h2>How to use this site</h2>
 
-                    <p>You can create an account by clicking on the login button (top right) and choosing the sign up option.</p>
-                    <p>Once you are signed up and logged in you can access the dashboard where you can create and manage up to three matrices and use them as you like. Remember to save your work!</p>
+                    <div className="faq">
+                        <ul>
+                            <li className={activeAnswer === 1 ? 'active' : ''} onClick={() => answerToggle(1)}>
+                                <span className="topic">Account</span>
+                                <div className="icon">
+                                    <span className="line line1"></span>
+                                    <span className="line line2"></span>
+                                </div>
+                                <span className="text">You can create an account by clicking on the login button (top right) and choosing the sign up option.</span>
+                            </li>
+                            <li className={activeAnswer === 2 ? 'active' : ''} onClick={() => answerToggle(2)}>
+                                <span className="topic">Dashboard</span>
+                                <div className="icon">
+                                    <span className="line line1"></span>
+                                    <span className="line line2"></span>
+                                </div>
+                                <span className="text">Once you are logged in you can access the dashboard where you can create and manage up to three matrices. Remember to save your work!</span>
 
-                    <p>Or</p>
+                            </li>
+                            <li className={activeAnswer === 3 ? 'active' : ''} onClick={() => answerToggle(3)}>
+                                <span className="topic">Sample matrix</span>
+                                <div className="icon">
+                                    <span className="line line1"></span>
+                                    <span className="line line2"></span>
+                                </div>
+                                <span className="text">You can use the sample matrix which uses browser strorage so the content would be erased if you clear your browser history.</span>
+                            </li>
+                        </ul>
 
-                    <p>You can use the  <Link to='/act-matrix'>sample matrix</Link> which uses browser strorage so the content would be erased if you clear your browser history.</p>
+                    </div>
                 </section>
                 <section>
                     <h2>Using the matrix</h2>
