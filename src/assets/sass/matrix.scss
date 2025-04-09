@@ -516,9 +516,9 @@
 
         .download-btn-desktop {
             display: flex;
-            position: absolute;
+            position: relative;
             left: 20px;
-            top: 160px;
+            top: auto;
         }
     }
 }
