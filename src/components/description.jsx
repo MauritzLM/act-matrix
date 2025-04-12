@@ -64,7 +64,7 @@ export default function Description() {
                 <section>
                     <h2>Using the matrix</h2>
 
-                    <p>Below are links to various examples using the ACT Matrix. (links will open in a new tab)</p>
+                    <p>Below are links to some examples using the ACT Matrix. (links will open in a new tab)</p>
 
                     <ol className="links">
                         <li>
