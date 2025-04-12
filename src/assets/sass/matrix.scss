@@ -19,7 +19,7 @@
     .matrix-heading {
         font-size: 15px;
         letter-spacing: 1.2px;
-        color: var(--grey-500);
+        color: var(--labelColor);
         text-align: center;
         font-weight: 500;
         margin-bottom: 0;
@@ -38,7 +38,7 @@
         width: fit-content;
         padding: 24px 20px;
         background-color: var(--toolTipBackground);
-        border-radius: 10px;
+        border-radius: 5px;
         box-shadow: 5px 10px 10px rgba(0, 0, 0, .08);
         position: relative;
         left: 20px;
@@ -250,7 +250,7 @@
             font-weight: 500;
             font-size: 15px;
             letter-spacing: 1.2px;
-            color: var(--grey-500);
+            color: var(--labelColor);
         }
 
         .right {
@@ -284,9 +284,17 @@
     .preview-btn-desktop {
         background-color: var(--surfaceColor-2);
         color: var(--headingColor);
-        padding: 6px 10px;
+        padding: 8px 16px;
         border-radius: 5px;
         font-size: 15px;
+        // border: 1px solid #437c90;
+
+        // &:hover {
+        //     background-color: #437c90;
+        //     color: var(--bodyBackgroundColor);
+            
+        // }
+
     }
 
     .back-btn {
@@ -318,6 +326,7 @@
         &:hover {
 
             color: var(--headingColor);
+
             svg {
                 path {
                     stroke: var(--primary-400);
@@ -353,7 +362,7 @@
             position: absolute;
             font-weight: 500;
             width: fit-content;
-            color: var(--grey-500);
+            color: var(--labelColor);
             letter-spacing: 1px;
 
             &:nth-of-type(1) {
