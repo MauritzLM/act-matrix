@@ -45,7 +45,7 @@
                     gap: 0;
                     position: relative;
                     cursor: pointer;
-                    border-bottom: 1px solid var(--bodyTextColor);
+                    border-bottom: 1px solid var(--grey-700);
                     padding: 1rem 0;
                     transition: height .7s;
                     // animation: 2s linear 1s slide-in;
@@ -101,7 +101,7 @@
                         width: 70%;
                         height: 1px;
                         border-radius: 2px;
-                        background-color: var(--headingColor);
+                        background-color: var(--grey-700);
                         position: absolute;
                         left: 50%;
                         transform: translateX(-50%);
@@ -161,7 +161,7 @@
 
     .home-button {
         padding: 8px 16px;
-        border: 1px solid #437c90;
+        border: 1px solid #52bcbf;
         border-radius: 20px;
         color: var(--bodyTextColor);
         display: flex;
@@ -171,9 +171,9 @@
         font-size: 15px;
 
         &:hover {
-            background-color: #437c90;
+            background-color: #52bcbf;
             color: var(--bodyBackgroundColor);
-            border-color: #437c90;
+            border-color: #52bcbf;
 
             svg {
                 fill: var(--bodyBackgroundColor);

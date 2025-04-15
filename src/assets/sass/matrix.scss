@@ -130,16 +130,28 @@
 
                                 svg {
                                     fill: var(--headingColor);
+
+                                    &:hover {
+                                        fill: var(--bodyBackgroundColor);
+                                    }
                                 }
 
                                 &:hover {
                                     background-color: var(--surfaceColor-2);
+
+                                    svg {
+                                        fill: var(--bodyBackgroundColor);
+                                    }
                                 }
 
                             }
 
                             .is-active {
                                 background-color: var(--surfaceColor-2);
+
+                                svg {
+                                    fill: var(--bodyBackgroundColor);
+                                }
                             }
                         }
                     }
@@ -164,11 +176,9 @@
                         }
 
                         &:hover {
-                            color: var(--grey-600);
-
-                            // svg {
-                            //     fill: var(--grey-600);
-                            // }
+                            svg {
+                                fill: var(--surfaceColor-2);
+                            }
                         }
                     }
                 }
@@ -282,7 +292,7 @@
     .preview-btn,
     .back-btn,
     .preview-btn-desktop {
-        background-color: var(--surfaceColor-2);
+        background-color: #939699;
         color: var(--headingColor);
         padding: 8px 16px;
         border-radius: 5px;
@@ -292,7 +302,7 @@
         // &:hover {
         //     background-color: #437c90;
         //     color: var(--bodyBackgroundColor);
-            
+
         // }
 
     }
@@ -329,7 +339,7 @@
 
             svg {
                 path {
-                    stroke: var(--primary-400);
+                    stroke: var(--surfaceColor-2);
                 }
             }
         }

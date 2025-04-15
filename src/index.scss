@@ -13,7 +13,7 @@
   --primary-800: #00838F;
   --primary-900: #006064;
 
-  --secondary-500: #418bc7;
+  --secondary-500: #52bcbf;
   --secondary-800: #20303a;
 
   --grey-50: #FAFAFA;
@@ -23,7 +23,7 @@
   --grey-400: #BDBDBD;
   --grey-500: #9E9E9E;
   --grey-600: #757575;
-  --grey-700: #353637;
+  --grey-700: #7a7d82;
   --grey-800: #252729;
   --grey-900: #1a1919;
 
@@ -79,12 +79,12 @@
   
   --labelColor: #0c1618;
   --surfaceColor-1: white;
-  --surfaceColor-2: var(--grey-200);
+  --surfaceColor-2: #7fcbcd;
   --toolTipBackground: white;
 }
 
 .app[data-theme='dark'] {
-  --bodyBackgroundColor: #0c1618;
+  --bodyBackgroundColor: #20252B;
   --headingColor: var(--grey-200);
   --bodyTextColor: var(--grey-300);
   --matrixBackground: var(--primary-700);
@@ -94,16 +94,16 @@
   --boxShadowColor: var(--grey-900);
   --boxShadowColor2: #131313;
   --formBoxShadowColor: var(--grey-900);
-  --editorColor: #3D4144;
-  --userPanelBackground: #424B54;
+  --editorColor: #35393f;
+  --userPanelBackground: #35393f;
   --selectedBackground: var(--primary-900);
-  --borderColor: var(--grey-900);
-  --navBackground: #424B54;
+  --borderColor: #7a7d82;
+  --navBackground: #35393f;
   
-  --labelColor: #faf4d3;
-  --surfaceColor-1: #424B54;
-  --surfaceColor-2: var(--grey-700);
-  --toolTipBackground: #424B54;
+  --labelColor: var(--bodyTextColor);
+  --surfaceColor-1: #35393f;
+  --surfaceColor-2: #7fcbcd;
+  --toolTipBackground: #35393f;
 }
 
 /* FONTS */
@@ -205,7 +205,7 @@ button {
 
 a {
   text-decoration: none;
-  color: var(--bodyTextColor);
+  color: #52bcbf;
 }
 
 /* NAV STYLES */
@@ -358,7 +358,7 @@ a {
         }
 
         .cs-active {
-          border-bottom: 1px solid #437c90;
+          border-bottom: 1px solid #52bcbf;
         }
 
       }
