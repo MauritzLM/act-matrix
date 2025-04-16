@@ -3,11 +3,11 @@
 /* variables */
 :root {
   --primary-50: #fff8ed;
-  --primary-100: #f9f8f8;
+  --primary-100: #c8e7e8;
   --primary-200: #efd6b0;
   --primary-300: #e1944d;
   --primary-400: #f3a22b;
-  --primary-500: #fb7232;
+  --primary-500: #7fcbcd;
   --primary-600: #00ACC1;
   --primary-700: #0097A7;
   --primary-800: #00838F;
@@ -57,6 +57,7 @@
   --boxShadowColor: gray;
   --boxShadowColor2: #1f5e58;
   --formBoxShadowColor: gray;
+  --buttonBg: var(--primary-100);
 }
 
 // theme colors
@@ -81,6 +82,7 @@
   --surfaceColor-1: white;
   --surfaceColor-2: #7fcbcd;
   --toolTipBackground: white;
+  --buttonBg: var(--primary-100);
 }
 
 .app[data-theme='dark'] {
@@ -104,6 +106,7 @@
   --surfaceColor-1: #35393f;
   --surfaceColor-2: #7fcbcd;
   --toolTipBackground: #35393f;
+  --buttonBg: var(--primary-500);
 }
 
 /* FONTS */
@@ -205,7 +208,7 @@ button {
 
 a {
   text-decoration: none;
-  color: #52bcbf;
+  color: #5285BF;
 }
 
 /* NAV STYLES */
@@ -414,9 +417,9 @@ footer {
 }
 
 /* Desktop nav & footer */
-@media screen and (min-width: 700px) {
+@media screen and (min-width: 850px) {
   #nav {
-    padding: 1.5em 3em;
+    padding: 1.5em 40px;
 
     .ul-wrapper {
       position: static;
@@ -456,7 +459,7 @@ footer {
   }
 
   footer {
-    padding: 1.5em 3em;
+    padding: 1.5em 40px;
 
 
   }

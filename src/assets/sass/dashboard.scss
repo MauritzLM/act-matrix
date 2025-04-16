@@ -22,15 +22,14 @@
                 box-shadow: 5px 10px 10px rgba(0, 0, 0, .08);
 
                 &:hover {
-                    background-color: var(--surfaceColor-2);
-
+                     background-color: var(--bodyBackgroundColor);
                     // svg {
                     //     fill: var(--grey-50);
                     // }
                 }
 
                 svg {
-                    fill: var(--primary-400);
+                    fill: #7fcbcd;
                 }
             }
 
@@ -48,12 +47,12 @@
                 gap: 6px;
 
                 &:hover {
-                    background-color: var(--surfaceColor-2);
+                    background-color: var(--bodyBackgroundColor);
 
                 }
 
                 svg {
-                    fill: var(--primary-400);
+                    fill: var(--primary-500);
 
                 }
 
@@ -104,7 +103,7 @@
                 }
 
                 button {
-                    color: var(--secondary-500);
+                    color: #5285BF;
                     font-size: .8rem;
                 }
 
@@ -136,7 +135,7 @@
                     margin: 0;
 
                     li[class="cs-active"] {
-                        background-color: var(--surfaceColor-2);
+                        background-color: var(--bodyBackgroundColor);
                         box-shadow: none;
 
                         .cs-button {
@@ -153,7 +152,7 @@
                         border-radius: 5px;
 
                         &:hover {
-                            background-color: var(--editorColor);
+                            background-color: var(--bodyBackgroundColor);
 
                             .cs-button {
                                 color: var(--bodyTextColor);
@@ -177,16 +176,16 @@
 
                         div {
                             display: flex;
-                            gap: 1.5em;
+                            gap: 1.5rem;
 
                             button {
                                 svg {
-                                    fill: rgb(151, 81, 81);
+                                    fill: #BF5552;
                                 }
 
                                 &:nth-of-type(1) {
                                     svg {
-                                        fill: rgb(108, 148, 108);
+                                        fill: #52BF8B;
                                     }
                                 }
                             }
@@ -199,7 +198,7 @@
                 }
 
                 .new-btn {
-                    color: var(--secondary-500);
+                    color: #5285BF;
                     margin-top: 1em;
                 }
             }
@@ -239,12 +238,12 @@
                     form {
                         display: flex;
                         flex-direction: column;
-                        gap: 24px;
+                        gap: 1rem;
                         padding-top: 0;
 
                         label {
                             font-weight: 500;
-                            font-size: 15px;
+                            // font-size: 15px;
                             display: block;
                             margin-bottom: 10px;
                             color: var(--bodyTextColor);
@@ -261,11 +260,14 @@
                         }
 
                         span {
-                            color: #914747;
+                            color: #BF5552;
+                            display: inline-block;
+                            margin-top: 1rem;
+                            font-size: 15px;
                         }
 
                         p {
-                            color: #6b3737;
+                            color: #BF5552;
                             font-weight: 500;
                             font-size: 16px;
 
@@ -275,8 +277,8 @@
                         button {
                             padding: .5em .6em;
                             font: inherit;
-                            color: var(--grey-100);
-                            background-color: var(--grey-700);
+                            color: #20252B;
+                            background-color: #7fcbcd;
                             border-radius: 5px;
                         }
 

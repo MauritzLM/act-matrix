@@ -39,6 +39,7 @@
 
                 li {
                     display: grid;
+                    grid-template-rows: 40px auto;
                     grid-template-columns: 1fr 1fr;
                     grid-template-areas: "question icon"
                         "answer answer";
@@ -101,7 +102,7 @@
                         width: 70%;
                         height: 1px;
                         border-radius: 2px;
-                        background-color: var(--grey-700);
+                        background-color: var(--bodyTextColor);
                         position: absolute;
                         left: 50%;
                         transform: translateX(-50%);
@@ -121,6 +122,7 @@
                 // active li
                 .active {
                     height: 150px;
+                    padding-bottom: 0;
 
                     .text {
                         opacity: 1;

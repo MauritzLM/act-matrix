@@ -292,8 +292,8 @@
     .preview-btn,
     .back-btn,
     .preview-btn-desktop {
-        background-color: #939699;
-        color: var(--headingColor);
+        background-color: var(--buttonBg);
+        color: #20252B;
         padding: 8px 16px;
         border-radius: 5px;
         font-size: 15px;
@@ -326,6 +326,7 @@
         font-size: 14px;
         color: var(--bodyTextColor);
         margin-top: 1rem;
+        padding: 0;
 
         svg {
             path {
@@ -482,33 +483,21 @@
     }
 }
 
-/* tablet */
-@media screen and (min-width: 800px) {
-    .matrix-container {
-
-        #quadrant-skip {
-            left: 40px;
-        }
-
-        section {
-            padding: 30px;
-        }
-
-        #matrix {
-            width: 100%;
-        }
-    }
-}
 
 /* desktop */
-@media screen and (min-width: 900px) {
+@media screen and (min-width: 850px) {
     .matrix-container {
+
+        section {
+            padding: 40px;
+        }
 
         #quadrant-skip {
             display: none;
         }
 
         #matrix {
+            width: 100%;
             display: grid;
             grid-template-columns: 1fr;
             grid-template-rows: minmax(400px, auto) 100px minmax(400px, auto);
@@ -526,17 +515,21 @@
             }
         }
 
+        .scroll-top {
+            margin-left: 40px;
+        }
+
         .preview-btn-desktop {
             display: inline-block;
             position: relative;
-            left: 20px;
+            left: 40px;
             // top: 10px;
         }
 
         .download-btn-desktop {
             display: flex;
             position: relative;
-            left: 20px;
+            left: 40px;
             top: auto;
         }
     }
