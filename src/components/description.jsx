@@ -33,29 +33,29 @@ export default function Description() {
                     <div className="faq">
                         <ul>
                             <li className={activeAnswer === 1 ? 'active' : ''} onClick={() => answerToggle(1)}>
+                                <span className="topic">Using the editor</span>
+                                <div className="icon">
+                                    <span className="line line1"></span>
+                                    <span className="line line2"></span>
+                                </div>
+                                <span className="text">The matrix tool consists of four text editors each of them saves individually. The default matrix saves the content in your browser storage.</span>
+                            </li>
+                            <li className={activeAnswer === 2 ? 'active' : ''} onClick={() => answerToggle(2)}>
                                 <span className="topic">Account</span>
                                 <div className="icon">
                                     <span className="line line1"></span>
                                     <span className="line line2"></span>
                                 </div>
-                                <span className="text">You can create an account by clicking on the login button (top right) and choosing the sign up option.</span>
+                                <span className="text">You can create an account by clicking on the login button (top right) and choosing the sign up option. Once you are logged in you can access the dashboard page.</span>
                             </li>
-                            <li className={activeAnswer === 2 ? 'active' : ''} onClick={() => answerToggle(2)}>
+                            <li className={activeAnswer === 3 ? 'active' : ''} onClick={() => answerToggle(3)}>
                                 <span className="topic">Dashboard</span>
                                 <div className="icon">
                                     <span className="line line1"></span>
                                     <span className="line line2"></span>
                                 </div>
-                                <span className="text">Once you are logged in you can access the dashboard where you can create and manage up to three matrices. Remember to save your work!</span>
+                                <span className="text">The dashboard page is where you can create and manage up to three matrices. Remember to save your work!</span>
 
-                            </li>
-                            <li className={activeAnswer === 3 ? 'active' : ''} onClick={() => answerToggle(3)}>
-                                <span className="topic">Sample matrix</span>
-                                <div className="icon">
-                                    <span className="line line1"></span>
-                                    <span className="line line2"></span>
-                                </div>
-                                <span className="text">You can use the sample matrix which uses browser strorage so the content would be erased if you clear your browser history.</span>
                             </li>
                         </ul>
 
