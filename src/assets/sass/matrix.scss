@@ -19,7 +19,7 @@
     .matrix-heading {
         font-size: 15px;
         letter-spacing: 1.2px;
-        color: var(--grey-500);
+        color: var(--labelColor);
         text-align: center;
         font-weight: 500;
         margin-bottom: 0;
@@ -38,7 +38,7 @@
         width: fit-content;
         padding: 24px 20px;
         background-color: var(--toolTipBackground);
-        border-radius: 10px;
+        border-radius: 5px;
         box-shadow: 5px 10px 10px rgba(0, 0, 0, .08);
         position: relative;
         left: 20px;
@@ -130,16 +130,28 @@
 
                                 svg {
                                     fill: var(--headingColor);
+
+                                    &:hover {
+                                        fill: var(--bodyBackgroundColor);
+                                    }
                                 }
 
                                 &:hover {
                                     background-color: var(--surfaceColor-2);
+
+                                    svg {
+                                        fill: var(--bodyBackgroundColor);
+                                    }
                                 }
 
                             }
 
                             .is-active {
                                 background-color: var(--surfaceColor-2);
+
+                                svg {
+                                    fill: var(--bodyBackgroundColor);
+                                }
                             }
                         }
                     }
@@ -164,11 +176,9 @@
                         }
 
                         &:hover {
-                            color: var(--grey-600);
-
-                            // svg {
-                            //     fill: var(--grey-600);
-                            // }
+                            svg {
+                                fill: var(--surfaceColor-2);
+                            }
                         }
                     }
                 }
@@ -250,7 +260,7 @@
             font-weight: 500;
             font-size: 15px;
             letter-spacing: 1.2px;
-            color: var(--grey-500);
+            color: var(--labelColor);
         }
 
         .right {
@@ -282,11 +292,19 @@
     .preview-btn,
     .back-btn,
     .preview-btn-desktop {
-        background-color: var(--surfaceColor-2);
-        color: var(--headingColor);
-        padding: 6px 10px;
+        background-color: var(--buttonBg);
+        color: #20252B;
+        padding: 8px 16px;
         border-radius: 5px;
         font-size: 15px;
+        // border: 1px solid #437c90;
+
+        // &:hover {
+        //     background-color: #437c90;
+        //     color: var(--bodyBackgroundColor);
+
+        // }
+
     }
 
     .back-btn {
@@ -308,6 +326,7 @@
         font-size: 14px;
         color: var(--bodyTextColor);
         margin-top: 1rem;
+        padding: 0;
 
         svg {
             path {
@@ -318,9 +337,10 @@
         &:hover {
 
             color: var(--headingColor);
+
             svg {
                 path {
-                    stroke: var(--primary-400);
+                    stroke: var(--surfaceColor-2);
                 }
             }
         }
@@ -353,7 +373,7 @@
             position: absolute;
             font-weight: 500;
             width: fit-content;
-            color: var(--grey-500);
+            color: var(--labelColor);
             letter-spacing: 1px;
 
             &:nth-of-type(1) {
@@ -463,33 +483,21 @@
     }
 }
 
-/* tablet */
-@media screen and (min-width: 800px) {
-    .matrix-container {
-
-        #quadrant-skip {
-            left: 40px;
-        }
-
-        section {
-            padding: 30px;
-        }
-
-        #matrix {
-            width: 100%;
-        }
-    }
-}
 
 /* desktop */
-@media screen and (min-width: 900px) {
+@media screen and (min-width: 850px) {
     .matrix-container {
+
+        section {
+            padding: 40px;
+        }
 
         #quadrant-skip {
             display: none;
         }
 
         #matrix {
+            width: 100%;
             display: grid;
             grid-template-columns: 1fr;
             grid-template-rows: minmax(400px, auto) 100px minmax(400px, auto);
@@ -507,17 +515,21 @@
             }
         }
 
+        .scroll-top {
+            margin-left: 40px;
+        }
+
         .preview-btn-desktop {
             display: inline-block;
             position: relative;
-            left: 20px;
+            left: 40px;
             // top: 10px;
         }
 
         .download-btn-desktop {
             display: flex;
             position: relative;
-            left: 20px;
+            left: 40px;
             top: auto;
         }
     }

@@ -1,20 +1,20 @@
 /* Styles for home page */
 #main {
     .description-text {
-        padding: 0 1em;
         margin: auto;
-        margin-bottom: 40px;
 
         .section-wrapper {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 24px;
+            gap: 40px;
+            padding: clamp(3rem, 6vw, 4rem) 0;
 
             section {
-                padding: 24px;
-                background-color: var(--surfaceColor-1);
-                border-radius: 10px;
-                box-shadow: 5px 10px 10px rgba(0,0,0,.08);
+                padding: 0 1rem;
+
+                h1 {
+                    margin-top: 0;
+                }
 
                 h2 {
                     font-size: 22px;
@@ -29,20 +29,162 @@
             }
         }
 
-        h1 {
-            margin: 32px 0;
+        .faq {
+            ul {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                padding: 0;
+                margin-bottom: 0;
+
+                li {
+                    display: grid;
+                    grid-template-rows: 40px auto;
+                    grid-template-columns: 1fr 1fr;
+                    grid-template-areas: "question icon"
+                        "answer answer";
+                    gap: 0;
+                    position: relative;
+                    cursor: pointer;
+                    border-bottom: 1px solid var(--grey-700);
+                    padding: 1rem 0;
+                    transition: height .7s;
+                    // animation: 2s linear 1s slide-in;
+                    // max-height: fit-content;
+                    height: 60px;
+
+                    &:last-child {
+                        border-bottom: none;
+                        padding-bottom: 0;
+                    }
+
+
+                    span {
+                        transition: height 5s;
+
+                        &:nth-of-type(1) {
+                            grid-area: question;
+                        }
+
+                        // &:nth-of-type(2) {
+                        //     visibility: hidden;
+                        //     height: 0;
+                        //     grid-area: answer;
+                        // }
+                    }
+
+                    .topic {
+                        font-weight: 600;
+
+                    }
+
+                    .text {
+                        visibility: hidden;
+                        height: 0;
+                        grid-area: answer;
+                        font-size: 15px;
+                        opacity: 0;
+                        transition: opacity 1s;
+                    }
+                }
+
+                .icon {
+                    position: relative;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    height: 20px;
+                    width: 20px;
+                    justify-self: end;
+                    grid-area: icon;
+
+                    .line {
+                        width: 70%;
+                        height: 1px;
+                        border-radius: 2px;
+                        background-color: var(--bodyTextColor);
+                        position: absolute;
+                        left: 50%;
+                        transform: translateX(-50%);
+                    }
+
+                    .line2 {
+                        // top: 50%;
+                        transform: translate(-50%, 50%) translateY(0) rotate(-270deg);
+                        transition: top 0.3s, left 0.3s, transform 0.5s;
+                        animation-duration: 0.7s;
+                        animation-timing-function: ease;
+                        animation-fill-mode: forwards;
+                        animation-direction: normal;
+                    }
+                }
+
+                // active li
+                .active {
+                    height: 150px;
+                    padding-bottom: 0;
+
+                    .text {
+                        opacity: 1;
+                        visibility: visible;
+                        height: auto;
+
+                    }
+
+                    .line2 {
+                        transform-origin: center;
+
+                        transform: translateX(-50%) translateY(0);
+                        height: 1px;
+                    }
+                }
+
+            }
+
+
         }
-
-
 
         .links {
             display: flex;
             flex-direction: column;
             gap: 6px;
             padding-left: 20px;
+            margin-bottom: 0;
         }
 
 
+    }
+
+    .home-button-group {
+        display: flex;
+        gap: 10px;
+        margin-top: 2rem;
+    }
+
+    .home-button {
+        padding: 8px 16px;
+        border: 1px solid #52bcbf;
+        border-radius: 20px;
+        color: var(--bodyTextColor);
+        display: flex;
+        width: fit-content;
+        align-items: center;
+        gap: 6px;
+        font-size: 15px;
+
+        &:hover {
+            background-color: #52bcbf;
+            color: var(--bodyBackgroundColor);
+            border-color: #52bcbf;
+
+            svg {
+                fill: var(--bodyBackgroundColor);
+            }
+        }
+
+        svg {
+            fill: var(--bodyTextColor);
+        }
     }
 }
 
@@ -50,10 +192,6 @@
     #main {
         .description-text {
             padding: 0 3em;
-
-            .section-wrapper {
-                margin-top: 80px;
-            }
         }
     }
 }
@@ -63,30 +201,10 @@
         margin: 40px 0;
 
         .description-text {
-            max-width: 1200px;
+            max-width: 1000px;
 
             .section-wrapper {
-                grid-template-areas: "section1 section2"
-                    "section3 section2";
-                grid-template-columns: 1fr 1fr;
-                gap: 24px;
-
-                section {
-                    padding: 30px;
-                    max-width: 700px;
-
-                    &:nth-of-type(1) {
-                        grid-area: section1;
-                    }
-
-                    &:nth-of-type(2) {
-                        grid-area: section2;
-                    }
-
-                    &:nth-of-type(3) {
-                        grid-area: section3;
-                    }
-                }
+                padding: 0;
             }
         }
     }

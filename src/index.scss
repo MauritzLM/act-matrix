@@ -3,17 +3,17 @@
 /* variables */
 :root {
   --primary-50: #fff8ed;
-  --primary-100: #ffe4bb;
+  --primary-100: #c8e7e8;
   --primary-200: #efd6b0;
   --primary-300: #e1944d;
   --primary-400: #f3a22b;
-  --primary-500: #fb7232;
+  --primary-500: #7fcbcd;
   --primary-600: #00ACC1;
   --primary-700: #0097A7;
   --primary-800: #00838F;
   --primary-900: #006064;
 
-  --secondary-500: #418bc7;
+  --secondary-500: #52bcbf;
   --secondary-800: #20303a;
 
   --grey-50: #FAFAFA;
@@ -23,7 +23,7 @@
   --grey-400: #BDBDBD;
   --grey-500: #9E9E9E;
   --grey-600: #757575;
-  --grey-700: #353637;
+  --grey-700: #7a7d82;
   --grey-800: #252729;
   --grey-900: #1a1919;
 
@@ -37,6 +37,7 @@
   // background and text
   --bodyBackgroundColor: #f1efec;
   --bodyTextColor: black;
+  --labelColor: #0c1618;
   --userPanelBackground: #f5f5f5;
   --selectedBackground: #00838f;
   --borderColor: #bdbdbd;
@@ -56,13 +57,14 @@
   --boxShadowColor: gray;
   --boxShadowColor2: #1f5e58;
   --formBoxShadowColor: gray;
+  --buttonBg: var(--primary-100);
 }
 
 // theme colors
 .app[data-theme='light'] {
   --bodyBackgroundColor: var(--grey-100);
   --headingColor: var(--grey-900);
-  --bodyTextColor: var(--grey-700);
+  --bodyTextColor: #0c1618;
   --matrixBackground: var(--primary-50);
   --matrixSaveBtn: var(--accentGreen-100);
   --matrixText: var(--grey-900);
@@ -70,21 +72,23 @@
   --boxShadowColor: rgba(221, 221, 221, .8);
   --boxShadowColor2: #c8dbd9;
   --formBoxShadowColor: var(--grey-500);
-  --editorColor: var(--grey-100);
+  --editorColor: #fff;
   --userPanelBackground: #fff;
   --selectedBackground: var(--primary-200);
   --borderColor: var(--grey-200);
   --navBackground: var(--grey-700);
-
+  
+  --labelColor: #0c1618;
   --surfaceColor-1: white;
-  --surfaceColor-2: var(--grey-200);
+  --surfaceColor-2: #7fcbcd;
   --toolTipBackground: white;
+  --buttonBg: var(--primary-100);
 }
 
 .app[data-theme='dark'] {
-  --bodyBackgroundColor: var(--grey-900);
+  --bodyBackgroundColor: #20252B;
   --headingColor: var(--grey-200);
-  --bodyTextColor: var(--grey-400);
+  --bodyTextColor: var(--grey-300);
   --matrixBackground: var(--primary-700);
   --matrixSaveBtn: var(--accentGreen-500);
   --matrixText: var(--grey-100);
@@ -92,15 +96,17 @@
   --boxShadowColor: var(--grey-900);
   --boxShadowColor2: #131313;
   --formBoxShadowColor: var(--grey-900);
-  --editorColor: #3D4144;
-  --userPanelBackground: var(--grey-800);
+  --editorColor: #35393f;
+  --userPanelBackground: #35393f;
   --selectedBackground: var(--primary-900);
-  --borderColor: var(--grey-900);
-  --navBackground: var(--grey-800);
-
-  --surfaceColor-1: var(--grey-800);
-  --surfaceColor-2: var(--grey-700);
-  --toolTipBackground: var(--grey-800);
+  --borderColor: #7a7d82;
+  --navBackground: #35393f;
+  
+  --labelColor: var(--bodyTextColor);
+  --surfaceColor-1: #35393f;
+  --surfaceColor-2: #7fcbcd;
+  --toolTipBackground: #35393f;
+  --buttonBg: var(--primary-500);
 }
 
 /* FONTS */
@@ -202,7 +208,7 @@ button {
 
 a {
   text-decoration: none;
-  color: var(--secondary-500);
+  color: #5285BF;
 }
 
 /* NAV STYLES */
@@ -225,12 +231,12 @@ a {
       opacity: 1;
       transform: scaleX(1);
       transition-delay: 0.2s;
-      box-shadow: 2px 2px 5px rgba(0,0,0,.08);
+      box-shadow: 2px 2px 5px rgba(0, 0, 0, .08);
     }
   }
 
   .cs-toggle {
-    border-radius: 10px;
+    border-radius: 5px;
     background-color: var(--surfaceColor-1);
     border: none;
     display: flex;
@@ -239,7 +245,7 @@ a {
     padding: 5px;
     height: 40px;
     width: 50px;
-    box-shadow: 2px 2px 5px rgba(0,0,0,.08);
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, .08);
   }
 
   .cs-active {
@@ -268,14 +274,14 @@ a {
     /* 14px - 16px */
     height: clamp(0.875rem, 1.5vw, 1rem);
     position: relative;
-    
+
   }
 
   .cs-line {
     width: 100%;
     height: 2px;
     border-radius: 2px;
-    background-color: var(--headingColor);
+    background-color: var(--bodyTextColor);
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
@@ -300,7 +306,7 @@ a {
     animation-timing-function: ease;
     animation-fill-mode: forwards;
     animation-direction: normal;
-    
+
   }
 
   .cs-line3 {
@@ -355,7 +361,7 @@ a {
         }
 
         .cs-active {
-          border-bottom: 1px solid var(--primary-400);
+          border-bottom: 1px solid #52bcbf;
         }
 
       }
@@ -365,7 +371,7 @@ a {
   .theme-login-wrapper {
     display: flex;
     align-items: center;
-    gap: 16px;
+    gap: 10px;
 
     .theme-toggle {
       height: fit-content;
@@ -380,6 +386,8 @@ a {
       border-radius: 5px;
       // letter-spacing: 1px;
       font-size: 14px;
+      text-transform: uppercase;
+      font-weight: 600;
 
       // &:hover {
       //   box-shadow: 4px 4px 6px var(--boxShadowColor2);
@@ -389,13 +397,15 @@ a {
 }
 
 footer {
-  padding: 1em;
+  padding: 20px 1rem;
 
   ul {
     list-style: none;
     display: flex;
     padding: 0;
     gap: 20px;
+    margin: 0;
+
 
     li {
       a {
@@ -407,9 +417,9 @@ footer {
 }
 
 /* Desktop nav & footer */
-@media screen and (min-width: 700px) {
+@media screen and (min-width: 850px) {
   #nav {
-    padding: 1.5em 3em;
+    padding: 1.5em 40px;
 
     .ul-wrapper {
       position: static;
@@ -423,8 +433,8 @@ footer {
       width: auto;
       padding: 8px 20px;
       background-color: var(--surfaceColor-1);
-      border-radius: 10px;
-      box-shadow: 5px 10px 10px rgba(0,0,0,.08);
+      border-radius: 5px;
+      box-shadow: 5px 10px 10px rgba(0, 0, 0, .08);
 
 
       ul {
@@ -449,7 +459,9 @@ footer {
   }
 
   footer {
-    padding: 1.5em 3em;
+    padding: 1.5em 40px;
+
+
   }
 }
 

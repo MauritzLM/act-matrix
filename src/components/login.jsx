@@ -5,6 +5,6 @@ const LoginButton = () => {
   const { loginWithRedirect } = useAuth0();
 
   return <button className="cs-button" onClick={() => loginWithRedirect()}>Login</button>;
-};
+}
 
 export default LoginButton;
